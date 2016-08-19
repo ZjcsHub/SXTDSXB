@@ -1,0 +1,41 @@
+//
+//  ZJCHeader.pch
+//  SXTDSXB
+//
+//  Created by 赵继超 on 16/8/17.
+//  Copyright © 2016年 赵继超. All rights reserved.
+//
+
+#ifndef ZJCHeader_pch
+#define ZJCHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define ZJCDEBUG
+
+#ifdef ZJCDEBUG
+
+#define ZJCLog(...) NSLog(__VA_ARGS__)
+
+#else
+
+#define ZJCLog(...)
+
+#endif
+
+#define MainColor [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1.00]
+
+#define VIEW_WIDTH [UIScreen mainScreen].bounds.size.width
+#define VIEW_HEIGHT [UIScreen mainScreen].bounds.size.height
+#import <Masonry.h>
+#import <objc/runtime.h>
+#import "HttpTool.h"
+#import "UIImageView+SDWebImage.h"
+#import <SVProgressHUD.h>
+
+#import "UMSocial.h"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
+#import "UMSocialSinaSSOHandler.h"
+#endif /* ZJCHeader_pch */

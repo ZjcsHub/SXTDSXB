@@ -1,0 +1,15 @@
+//
+//  ZJCThreeButton.h
+//  SXTDSXB
+//
+//  Created by 赵继超 on 16/8/18.
+//  Copyright © 2016年 赵继超. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+typedef void (^LoginBlock)(NSString *const string);
+
+@interface ZJCThreeButton : UIView
+
+@property (nonatomic,copy) LoginBlock logblock;
+@end
