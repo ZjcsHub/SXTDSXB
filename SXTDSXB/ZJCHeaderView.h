@@ -10,7 +10,11 @@
 
 typedef void (^PushBlock)();
 
+typedef void(^PushTologinViewBlock)();
+
 @interface ZJCHeaderView : UIView
 
 @property (nonatomic,copy) PushBlock pushblock;
+
+@property (nonatomic,copy) PushTologinViewBlock loginViewblock;
 @end

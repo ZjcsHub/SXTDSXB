@@ -58,6 +58,7 @@
     if (!_longin) {
         _longin =[UIButton buttonWithType:UIButtonTypeSystem];
         [_longin setTitle:@"登录" forState:UIControlStateNormal];
+        [_longin addTarget:self action:@selector(pushTologInView) forControlEvents:UIControlEventTouchUpInside];
     }
     return _longin;
 }
@@ -78,6 +79,11 @@
    
 }
 
+- (void)pushTologInView{
+    if (_loginViewblock) {
+        _loginViewblock();
+    }
+}
 
 
 

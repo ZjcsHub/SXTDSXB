@@ -44,6 +44,9 @@
 		071429E91D6747E100253E1B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071429E81D6747E100253E1B /* CoreTelephony.framework */; };
 		071429EB1D6747EB00253E1B /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 071429EA1D6747EB00253E1B /* libstdc++.6.0.9.tbd */; };
 		071429ED1D6747F500253E1B /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 071429EC1D6747F500253E1B /* libz.1.1.3.tbd */; };
+		071429F11D68163B00253E1B /* ZJCLogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071429F01D68163B00253E1B /* ZJCLogInController.m */; };
+		071429F61D68168D00253E1B /* ZJCLogInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071429F51D68168D00253E1B /* ZJCLogInView.m */; };
+		071429FC1D681A8C00253E1B /* ZJCUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 071429FB1D681A8C00253E1B /* ZJCUserDefaults.m */; };
 		0779D9231D6543E4008E78AD /* ZJCLandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0779D9221D6543E4008E78AD /* ZJCLandView.m */; };
 		07D746391D63F76A00966A7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D746381D63F76A00966A7B /* main.m */; };
 		07D7463C1D63F76A00966A7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D7463B1D63F76A00966A7B /* AppDelegate.m */; };
@@ -158,6 +161,12 @@
 		071429E81D6747E100253E1B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		071429EA1D6747EB00253E1B /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		071429EC1D6747F500253E1B /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
+		071429EF1D68163B00253E1B /* ZJCLogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCLogInController.h; sourceTree = "<group>"; };
+		071429F01D68163B00253E1B /* ZJCLogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCLogInController.m; sourceTree = "<group>"; };
+		071429F41D68168D00253E1B /* ZJCLogInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCLogInView.h; sourceTree = "<group>"; };
+		071429F51D68168D00253E1B /* ZJCLogInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCLogInView.m; sourceTree = "<group>"; };
+		071429FA1D681A8C00253E1B /* ZJCUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCUserDefaults.h; sourceTree = "<group>"; };
+		071429FB1D681A8C00253E1B /* ZJCUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCUserDefaults.m; sourceTree = "<group>"; };
 		0779D9211D6543E4008E78AD /* ZJCLandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCLandView.h; sourceTree = "<group>"; };
 		0779D9221D6543E4008E78AD /* ZJCLandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCLandView.m; sourceTree = "<group>"; };
 		07D746341D63F76A00966A7B /* SXTDSXB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SXTDSXB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -468,6 +477,42 @@
 			path = Wechat;
 			sourceTree = "<group>";
 		};
+		071429EE1D6815D600253E1B /* 登录功能 */ = {
+			isa = PBXGroup;
+			children = (
+				071429F31D68166800253E1B /* View */,
+				071429F21D68165100253E1B /* ViewController */,
+			);
+			name = "登录功能";
+			sourceTree = "<group>";
+		};
+		071429F21D68165100253E1B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				071429EF1D68163B00253E1B /* ZJCLogInController.h */,
+				071429F01D68163B00253E1B /* ZJCLogInController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		071429F31D68166800253E1B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				071429F41D68168D00253E1B /* ZJCLogInView.h */,
+				071429F51D68168D00253E1B /* ZJCLogInView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		071429FD1D681C6000253E1B /* 用户偏好设置 */ = {
+			isa = PBXGroup;
+			children = (
+				071429FA1D681A8C00253E1B /* ZJCUserDefaults.h */,
+				071429FB1D681A8C00253E1B /* ZJCUserDefaults.m */,
+			);
+			name = "用户偏好设置";
+			sourceTree = "<group>";
+		};
 		0779D9201D6543B6008E78AD /* 注册 */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,10 +547,12 @@
 		07D746361D63F76A00966A7B /* SXTDSXB */ = {
 			isa = PBXGroup;
 			children = (
-				071429861D67440E00253E1B /* 友盟 */,
+				071429FD1D681C6000253E1B /* 用户偏好设置 */,
 				07D7463A1D63F76A00966A7B /* AppDelegate.h */,
 				07D7463B1D63F76A00966A7B /* AppDelegate.m */,
+				071429861D67440E00253E1B /* 友盟 */,
 				070F4B101D6588EA0004DBD9 /* Tools */,
+				071429EE1D6815D600253E1B /* 登录功能 */,
 				0779D9201D6543B6008E78AD /* 注册 */,
 				07E5EE6F1D6458CA00E2E9F1 /* 限时购 */,
 				07E5EE701D64595500E2E9F1 /* 分类 */,
@@ -910,10 +957,13 @@
 				07D746751D643A4600966A7B /* ZJCFourthViewController.m in Sources */,
 				07D746781D643F5000966A7B /* ZJCTabBarViewController.m in Sources */,
 				070F4B1F1D65AB7E0004DBD9 /* ZJCPhoneView.m in Sources */,
+				071429F11D68163B00253E1B /* ZJCLogInController.m in Sources */,
 				070F4B131D6589240004DBD9 /* ZJCRegistView.m in Sources */,
 				070DD5931D66B66F001925AC /* UIImageView+SDWebImage.m in Sources */,
 				07D7463C1D63F76A00966A7B /* AppDelegate.m in Sources */,
+				071429FC1D681A8C00253E1B /* ZJCUserDefaults.m in Sources */,
 				07E5EE6E1D64544400E2E9F1 /* ZJCNavViewController.m in Sources */,
+				071429F61D68168D00253E1B /* ZJCLogInView.m in Sources */,
 				070F4B161D6589380004DBD9 /* ZJCThreeButton.m in Sources */,
 				07D7466F1D643A3000966A7B /* ZJCSecondViewController.m in Sources */,
 				07D746391D63F76A00966A7B /* main.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import "ZJCFourthViewController.h"
-#import <Masonry.h>
+#import "ZJCLogInController.h"
 #import "ZJCHeaderView.h"
 #import "ZJCtableView.h"
 #import "ZJCLandView.h"
@@ -39,6 +39,11 @@
         _headView.pushblock =^{
             [weakself.navigationController pushViewController:[[ZJCLandView alloc] init] animated:YES];
 
+        };
+        
+        _headView.loginViewblock= ^{
+            ZJCLogInController * loginview =[[ZJCLogInController alloc] init];
+        [weakself.navigationController pushViewController:loginview animated:YES];
         };
     }
     return _headView;
