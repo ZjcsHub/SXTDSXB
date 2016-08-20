@@ -121,6 +121,7 @@
     if (!_nextBtn) {
         _nextBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
         [_nextBtn setBackgroundImage:[UIImage imageNamed:@"登录界面登录按钮"] forState:UIControlStateNormal];
+        [_nextBtn addTarget:self action:@selector(popToController) forControlEvents:UIControlEventTouchUpInside];
     }
     return _nextBtn;
 }
@@ -133,6 +134,12 @@
         _goLoginBtn.backgroundColor = MainColor;
     }
     return _goLoginBtn;
+}
+
+- (void)popToController{
+    if (_block) {
+        _block();
+    }
 }
 
 

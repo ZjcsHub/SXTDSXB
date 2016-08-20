@@ -1,5 +1,5 @@
 //
-//  ZJCLogInView.h
+//  PhoneNumberRegister.h
 //  SXTDSXB
 //
 //  Created by 赵继超 on 16/8/20.
@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void (^PoptoBackBlock)();
-@interface ZJCLogInView : UIView
 
-@property(nonatomic,strong) PoptoBackBlock block;
+@interface PhoneNumberRegister : UIViewController
+
+@property (nonatomic,strong) NSMutableDictionary * dict;
 
 @end

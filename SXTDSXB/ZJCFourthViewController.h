@@ -10,6 +10,6 @@
 
 @interface ZJCFourthViewController : UIViewController
 
-
+@property (nonatomic,assign) BOOL hidden;
 
 @end

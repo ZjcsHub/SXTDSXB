@@ -1,5 +1,5 @@
 //
-//  ZJCLogInView.h
+//  ZJCHeaderLogInView.h
 //  SXTDSXB
 //
 //  Created by 赵继超 on 16/8/20.
@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void (^PoptoBackBlock)();
-@interface ZJCLogInView : UIView
 
-@property(nonatomic,strong) PoptoBackBlock block;
+@interface ZJCHeaderLogInView : UIView
 
 @end

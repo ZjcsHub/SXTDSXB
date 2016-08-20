@@ -10,6 +10,8 @@
 #import "ZJCRegistView.h"
 #import "ZJCThreeButton.h"
 #import "ZJCPhonetest.h"
+#import "NSArray+Log.h"
+#import "PhoneNumberRegister.h"
 @interface ZJCLandView ()<UITextFieldDelegate>
 
 @property (nonatomic, strong) ZJCRegistView * regisView;
@@ -70,11 +72,14 @@
     snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
         
         if (response.responseCode == UMSResponseCodeSuccess) {
-            
 //            NSDictionary *dict = [UMSocialAccountManager socialAccountDictionary];
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:snsPlatform.platformName];
-            NSLog(@"\nusername = %@,\n usid = %@,\n token = %@ iconUrl = %@,\n unionId = %@,\n thirdPlatformUserProfile = %@,\n thirdPlatformResponse = %@ \n, message = %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL, snsAccount.unionId, response.thirdPlatformUserProfile, response.thirdPlatformResponse, response.message);
-            
+            ZJCLog(@"\nusername = %@,\n usid = %@,\n token = %@ iconUrl = %@,\n unionId = %@,\n thirdPlatformUserProfile = %@,\n thirdPlatformResponse = %@ \n, message = %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL, snsAccount.unionId, response.thirdPlatformUserProfile, response.thirdPlatformResponse, response.message);
+//            ZJCLog(@"--- %@",dict[@"userName"]);
+            NSDictionary * dict =@{@"Name":snsAccount.userName,@"iconUrl":snsAccount.iconURL};
+            PhoneNumberRegister * phone =[[PhoneNumberRegister alloc] init];
+            phone.dict =[NSMutableDictionary dictionaryWithDictionary:dict];
+            [self.navigationController pushViewController:phone animated:YES];
         }
         
     });

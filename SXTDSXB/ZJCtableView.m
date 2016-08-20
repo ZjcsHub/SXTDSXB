@@ -11,11 +11,19 @@
 #import "ZJCHeaderView.h"
 @interface ZJCtableView ()<UITableViewDelegate,UITableViewDataSource>
 
-
+@property (nonatomic,strong) UIButton * quitbutton;
 @end
 
 @implementation ZJCtableView
 
+
+- (UIButton *)quitbutton{
+    if (!_quitbutton) {
+        _quitbutton =[UIButton buttonWithType:UIButtonTypeCustom];
+        [_quitbutton setImage:[UIImage imageNamed:@"购物车界面退出登录按钮"] forState:UIControlStateNormal];
+    }
+    return _quitbutton;
+}
 
 - (NSMutableArray *)datalist{
     if (!_datalist) {
@@ -41,8 +49,28 @@
         self.dataSource =self;
         [self.datalist addObjectsFromArray:@[@"我的优惠劵",@"邀请好友,一块赚钱"]];
         [self.imageArray addObjectsFromArray:@[[UIImage imageNamed:@"我的界面我的优惠券图标"],[UIImage imageNamed:@"我的界面邀请好友图标"]]];
+//        self.sectionFooterHeight = 100;
+        [self addSubview:self.quitbutton];
+        self.tableFooterView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 100)];
     }
     return self;
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    self.quitbutton.hidden =!self.hidden;
+    __weak typeof (self) weakself =self;
+    [_quitbutton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakself.tableFooterView.mas_top).offset(40);
+        make.left.equalTo(weakself.tableFooterView.mas_left).offset(50);
+        make.right.equalTo(weakself.tableFooterView.mas_right).offset(-50);
+        make.height.equalTo(@50);
+    }];
+   
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 44;
 }
 
 
@@ -73,7 +101,13 @@
         cell.nextimage.image =[UIImage imageNamed:@"下一步"];
         cell.iconView.image =self.imageArray[indexPath.row];
         cell.namelabel.text =self.datalist[indexPath.row];
+        
     }
+    
+    if (indexPath.row ==4 || indexPath.row == 5) {
+        cell.hidden = !self.hidden;
+    }
+    
     return cell;
 }
 

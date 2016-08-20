@@ -47,6 +47,9 @@
 		071429F11D68163B00253E1B /* ZJCLogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071429F01D68163B00253E1B /* ZJCLogInController.m */; };
 		071429F61D68168D00253E1B /* ZJCLogInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071429F51D68168D00253E1B /* ZJCLogInView.m */; };
 		071429FC1D681A8C00253E1B /* ZJCUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 071429FB1D681A8C00253E1B /* ZJCUserDefaults.m */; };
+		07142A011D682C3500253E1B /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 07142A001D682C3500253E1B /* NSArray+Log.m */; };
+		07142A041D68309500253E1B /* PhoneNumberRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 07142A031D68309500253E1B /* PhoneNumberRegister.m */; };
+		07142A071D684F4400253E1B /* ZJCHeaderLogInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07142A061D684F4400253E1B /* ZJCHeaderLogInView.m */; };
 		0779D9231D6543E4008E78AD /* ZJCLandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0779D9221D6543E4008E78AD /* ZJCLandView.m */; };
 		07D746391D63F76A00966A7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D746381D63F76A00966A7B /* main.m */; };
 		07D7463C1D63F76A00966A7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D7463B1D63F76A00966A7B /* AppDelegate.m */; };
@@ -167,6 +170,12 @@
 		071429F51D68168D00253E1B /* ZJCLogInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCLogInView.m; sourceTree = "<group>"; };
 		071429FA1D681A8C00253E1B /* ZJCUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCUserDefaults.h; sourceTree = "<group>"; };
 		071429FB1D681A8C00253E1B /* ZJCUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCUserDefaults.m; sourceTree = "<group>"; };
+		071429FF1D682C3500253E1B /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
+		07142A001D682C3500253E1B /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		07142A021D68309500253E1B /* PhoneNumberRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneNumberRegister.h; sourceTree = "<group>"; };
+		07142A031D68309500253E1B /* PhoneNumberRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneNumberRegister.m; sourceTree = "<group>"; };
+		07142A051D684F4400253E1B /* ZJCHeaderLogInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCHeaderLogInView.h; sourceTree = "<group>"; };
+		07142A061D684F4400253E1B /* ZJCHeaderLogInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCHeaderLogInView.m; sourceTree = "<group>"; };
 		0779D9211D6543E4008E78AD /* ZJCLandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCLandView.h; sourceTree = "<group>"; };
 		0779D9221D6543E4008E78AD /* ZJCLandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCLandView.m; sourceTree = "<group>"; };
 		07D746341D63F76A00966A7B /* SXTDSXB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SXTDSXB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,8 +327,12 @@
 		070F4B171D65AB0C0004DBD9 /* 注册界面控制器 */ = {
 			isa = PBXGroup;
 			children = (
+				071429FF1D682C3500253E1B /* NSArray+Log.h */,
+				07142A001D682C3500253E1B /* NSArray+Log.m */,
 				0779D9211D6543E4008E78AD /* ZJCLandView.h */,
 				0779D9221D6543E4008E78AD /* ZJCLandView.m */,
+				07142A021D68309500253E1B /* PhoneNumberRegister.h */,
+				07142A031D68309500253E1B /* PhoneNumberRegister.m */,
 			);
 			name = "注册界面控制器";
 			sourceTree = "<group>";
@@ -513,6 +526,16 @@
 			name = "用户偏好设置";
 			sourceTree = "<group>";
 		};
+		071429FE1D68277700253E1B /* 主界面 */ = {
+			isa = PBXGroup;
+			children = (
+				07D746731D643A4600966A7B /* ZJCFourthViewController.h */,
+				07D746741D643A4600966A7B /* ZJCFourthViewController.m */,
+				07E5EE731D645AD900E2E9F1 /* View */,
+			);
+			name = "主界面";
+			sourceTree = "<group>";
+		};
 		0779D9201D6543B6008E78AD /* 注册 */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,8 +575,6 @@
 				07D7463B1D63F76A00966A7B /* AppDelegate.m */,
 				071429861D67440E00253E1B /* 友盟 */,
 				070F4B101D6588EA0004DBD9 /* Tools */,
-				071429EE1D6815D600253E1B /* 登录功能 */,
-				0779D9201D6543B6008E78AD /* 注册 */,
 				07E5EE6F1D6458CA00E2E9F1 /* 限时购 */,
 				07E5EE701D64595500E2E9F1 /* 分类 */,
 				07E5EE711D64596700E2E9F1 /* 购物车 */,
@@ -623,9 +644,9 @@
 		07E5EE721D64597600E2E9F1 /* 我 */ = {
 			isa = PBXGroup;
 			children = (
-				07D746731D643A4600966A7B /* ZJCFourthViewController.h */,
-				07D746741D643A4600966A7B /* ZJCFourthViewController.m */,
-				07E5EE731D645AD900E2E9F1 /* View */,
+				071429FE1D68277700253E1B /* 主界面 */,
+				071429EE1D6815D600253E1B /* 登录功能 */,
+				0779D9201D6543B6008E78AD /* 注册 */,
 			);
 			name = "我";
 			sourceTree = "<group>";
@@ -639,6 +660,8 @@
 				07E5EE7B1D64798900E2E9F1 /* ZJCtableView.m */,
 				07E5EE771D646C7300E2E9F1 /* ZJCHeaderView.h */,
 				07E5EE781D646C7300E2E9F1 /* ZJCHeaderView.m */,
+				07142A051D684F4400253E1B /* ZJCHeaderLogInView.h */,
+				07142A061D684F4400253E1B /* ZJCHeaderLogInView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -960,6 +983,8 @@
 				071429F11D68163B00253E1B /* ZJCLogInController.m in Sources */,
 				070F4B131D6589240004DBD9 /* ZJCRegistView.m in Sources */,
 				070DD5931D66B66F001925AC /* UIImageView+SDWebImage.m in Sources */,
+				07142A041D68309500253E1B /* PhoneNumberRegister.m in Sources */,
+				07142A071D684F4400253E1B /* ZJCHeaderLogInView.m in Sources */,
 				07D7463C1D63F76A00966A7B /* AppDelegate.m in Sources */,
 				071429FC1D681A8C00253E1B /* ZJCUserDefaults.m in Sources */,
 				07E5EE6E1D64544400E2E9F1 /* ZJCNavViewController.m in Sources */,
@@ -967,6 +992,7 @@
 				070F4B161D6589380004DBD9 /* ZJCThreeButton.m in Sources */,
 				07D7466F1D643A3000966A7B /* ZJCSecondViewController.m in Sources */,
 				07D746391D63F76A00966A7B /* main.m in Sources */,
+				07142A011D682C3500253E1B /* NSArray+Log.m in Sources */,
 				07E5EE7C1D64798900E2E9F1 /* ZJCtableView.m in Sources */,
 				07D7466C1D6439ED00966A7B /* ZJCTimeViewController.m in Sources */,
 				07E5EE791D646C7300E2E9F1 /* ZJCHeaderView.m in Sources */,
@@ -1121,6 +1147,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SXTDSXB/ZJCHeader.pch";
 				INFOPLIST_FILE = SXTDSXB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1148,6 +1175,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SXTDSXB/ZJCHeader.pch";
 				INFOPLIST_FILE = SXTDSXB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

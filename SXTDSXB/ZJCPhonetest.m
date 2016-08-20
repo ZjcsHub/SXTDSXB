@@ -39,7 +39,13 @@
 - (ZJCPhoneView *)phoneview{
     if (!_phoneview) {
         _phoneview = [[ZJCPhoneView alloc] init];
-        NSString * telestring = [NSString stringWithFormat:@" +86%@",self.usermessage[@"username"]];
+        NSString * telestring;
+        if (self.usermessage) {
+            telestring = [NSString stringWithFormat:@" +86%@",self.usermessage[@"username"]];
+        }else if (self.thirdLogMessage){
+        telestring = [NSString stringWithFormat:@" +86%@",self.thirdLogMessage[@"username"]];
+        }
+       
         NSString * string = [@"验证码已发送到" stringByAppendingString:telestring];
         NSMutableAttributedString * attstring =[[NSMutableAttributedString alloc] initWithString:string];
         NSDictionary * dict =@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor colorWithRed:0.00 green:0.72 blue:0.97 alpha:1.00]};
@@ -50,8 +56,14 @@
         [_phoneview.timebutton addTarget:self action:@selector(tryAgain) forControlEvents:UIControlEventTouchUpInside];
         __weak typeof (self) weakself =self;
         _phoneview.pushBlock=^(NSString * code){
-            //注册网络请求
-            [weakself registerController:code];
+            if (weakself.usermessage) {
+                //注册网络请求
+                [weakself registerController:code];
+            }else if (weakself.thirdLogMessage){
+                [weakself registerthieeMessage:code];
+            }
+            
+            
         };
     }
     return _phoneview;
@@ -59,7 +71,6 @@
 
 - (void)tryAgain{
     [self getMessage];
-    ZJCLog(@"hh");
 }
 
 
@@ -83,6 +94,17 @@
         [SVProgressHUD dismiss];
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
+    }];
+}
+
+- (void)registerthieeMessage:(NSString *)code{
+    [SVProgressHUD show];
+    [HttpTool getWithPath:@"appMember/appRegistration.do" params:@{@"LoginName":[self.thirdLogMessage objectForKey:@"Name"],@"Lpassword":@"123456",@"Code":code,@"Telephone":[self.thirdLogMessage objectForKey:@"username"]} success:^(id json) {
+        [SVProgressHUD dismiss];
+
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+
     }];
 }
 

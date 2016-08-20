@@ -11,4 +11,6 @@
 
 @property (nonatomic ,strong) NSDictionary * usermessage;
 
+@property (nonatomic ,strong) NSDictionary * thirdLogMessage;
+
 @end

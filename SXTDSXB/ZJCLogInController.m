@@ -9,7 +9,7 @@
 #import "ZJCLogInController.h"
 #import "ZJCLogInView.h"
 #import "ZJCThreeButton.h"
-
+#import "ZJCFourthViewController.h"
 
 @interface ZJCLogInController ()
 
@@ -46,6 +46,15 @@
 - (ZJCLogInView *)loginView{
     if (!_loginView) {
         _loginView = [[ZJCLogInView alloc] init];
+        __weak typeof (self) weakself =self;
+        _loginView.block =^(){
+    
+        NSArray * array =weakself.navigationController.childViewControllers;
+        ZJCFourthViewController * fourVc=(ZJCFourthViewController *)array.firstObject;
+        fourVc.hidden = YES;
+        [weakself.navigationController popToViewController:fourVc animated:YES];
+    
+        };
     }
     return _loginView;
 }
