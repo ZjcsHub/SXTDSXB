@@ -38,7 +38,7 @@
                                               secret:@"04b48b094faeb16683c32669824ebdad"
                                          RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     
-    
+
     return YES;
 }
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation

@@ -26,6 +26,9 @@
 
 #define MainColor [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1.00]
 
+
+
+
 #define VIEW_WIDTH [UIScreen mainScreen].bounds.size.width
 #define VIEW_HEIGHT [UIScreen mainScreen].bounds.size.height
 #import <Masonry.h>
@@ -38,7 +41,10 @@
 #import "UMSocialWechatHandler.h"
 #import "UMSocialQQHandler.h"
 #import "UMSocialSinaSSOHandler.h"
-#import "ZJCUserDefaults.h"
+#import "NSArray+Log.h"
 
+#import "UIView+Toast.h"
+
+#define ALERTSTRING(object,string) [object makeToast:string duration:1.5 position:@"center"];
 
 #endif /* ZJCHeader_pch */

@@ -48,13 +48,36 @@
         _loginView = [[ZJCLogInView alloc] init];
         __weak typeof (self) weakself =self;
         
-        _loginView.block =^(){
+        _loginView.block =^(NSDictionary * dict){
     
-        NSArray * array =weakself.navigationController.childViewControllers;
-        ZJCFourthViewController * fourVc=(ZJCFourthViewController *)array.firstObject;
-        fourVc.hidden = YES;
-        [weakself.navigationController popToViewController:fourVc animated:YES];
-    
+        [HttpTool getWithPath:@"appMember/appLogin.do" params:dict success:^(id json) {
+            ZJCLog(@"%@",json);
+            
+            if ([json[@"ErrorMessage"] isEqualToString:@"密码错误"]) {
+                ALERTSTRING(weakself.view, @"密码错误")
+            }else if ([json[@"ErrorMessage"] isEqualToString:@"用户不存在"]){
+                 ALERTSTRING(weakself.view, @"用户不存在")
+            }else{
+                ALERTSTRING(weakself.view, @"登录成功")
+            [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"LoginData"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [weakself.navigationController popToRootViewControllerAnimated:YES];
+            });
+            }
+            
+
+            
+        } failure:^(NSError *error) {
+            
+        }];
+            
+            
+            
+            
+            
+            
+            
+           
         };
     }
     return _loginView;

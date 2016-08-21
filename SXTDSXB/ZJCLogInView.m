@@ -92,8 +92,8 @@
     if (!_userNameText) {
         _userNameText = [[UITextField alloc]init];
         _userNameText.placeholder = @"请输入手机号码";
-        if ([[ZJCUserDefaults shareDefault] valueForKey:@"username"]) {
-            _userNameText.text = [[ZJCUserDefaults shareDefault] valueForKey:@"username"];
+        if ([[NSUserDefaults standardUserDefaults] valueForKey:@"username"]) {
+            _userNameText.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
         }
     }
     return _userNameText;
@@ -138,7 +138,7 @@
 
 - (void)popToController{
     if (_block) {
-        _block();
+        _block(@{@"LoginName":_userNameText.text,@"Lpassword":_passwordText.text});
     }
 }
 

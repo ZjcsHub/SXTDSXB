@@ -57,13 +57,26 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    _tableView.hidden = self.hidden;
-    _logHeaderview.hidden = !self.hidden;
-    _logHeaderview.headImage.layer.cornerRadius =_logHeaderview.headImage.frame.size.width/2;
-    _logHeaderview.headImage.layer.masksToBounds =YES;
-    _headView.hidden =self.hidden;
-    [_tableView reloadData];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"LoginData"]) {
+        [_tableView reloadData];
+        _logHeaderview.hidden = NO;
+        _headView.hidden =YES;
+        _logHeaderview.headImage.layer.cornerRadius = _logHeaderview.headImage.frame.size.width/2;
+        _logHeaderview.headImage.layer.masksToBounds =YES;
+        [self reflashData];
+        
+    }else{
+        _logHeaderview.hidden =YES;
+        _headView.hidden =NO;
+    }
 }
+
+- (void)reflashData{
+    NSDictionary * dict =[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginData"];
+    _logHeaderview.nameLabel.text = dict[@"MemberName"];
+    _logHeaderview.attributeLabel.text =dict[@"MemberLvl"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor =[UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1.00];
@@ -86,7 +99,6 @@
         make.height.equalTo(@125);
 
     }];
-//    self.logHeaderview.hidden = YES;
 }
 
 

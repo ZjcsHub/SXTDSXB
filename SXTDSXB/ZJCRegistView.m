@@ -110,8 +110,8 @@
         _userNameText.delegate = self;
         _userNameText.placeholder = @"请输入手机号码";
         [_userNameText addTarget:self action:@selector(nametextchange:) forControlEvents:UIControlEventEditingChanged];
-        if ([[ZJCUserDefaults shareDefault] valueForKey:@"username"]) {
-            _userNameText.text = [[ZJCUserDefaults shareDefault] valueForKey:@"username"];
+        if ([[NSUserDefaults standardUserDefaults] valueForKey:@"username"]) {
+            _userNameText.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
         }
     }
     return _userNameText;
@@ -164,9 +164,9 @@
     if (_block) {
         _block(@{@"username":_userNameText.text,@"password":_passwordText.text});
     }
-    if (![[[ZJCUserDefaults shareDefault] objectForKey:@"username"] isEqualToString:_userNameText.text]) {
-        [[ZJCUserDefaults shareDefault] setObject:_userNameText.text forKey:@"username"];
-        [[ZJCUserDefaults shareDefault] synchronize];
+    if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"username"] isEqualToString:_userNameText.text]) {
+        [[NSUserDefaults standardUserDefaults] setObject:_userNameText.text forKey:@"username"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
     

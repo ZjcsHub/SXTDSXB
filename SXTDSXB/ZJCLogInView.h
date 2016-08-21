@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void (^PoptoBackBlock)();
+typedef void (^PoptoBackBlock)(NSDictionary * dict);
 @interface ZJCLogInView : UIView
 
 @property(nonatomic,strong) PoptoBackBlock block;

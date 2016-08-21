@@ -11,7 +11,7 @@
 
 @interface ZJCFourthViewController : UIViewController
 
-@property (nonatomic,assign) BOOL hidden;
 
 @property (nonatomic, strong) ZJCHeaderLogInView * logHeaderview;
+
 @end

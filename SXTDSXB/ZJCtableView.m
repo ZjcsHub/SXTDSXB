@@ -49,23 +49,15 @@
         self.dataSource =self;
         [self.datalist addObjectsFromArray:@[@"我的优惠劵",@"邀请好友,一块赚钱"]];
         [self.imageArray addObjectsFromArray:@[[UIImage imageNamed:@"我的界面我的优惠券图标"],[UIImage imageNamed:@"我的界面邀请好友图标"]]];
-//        self.sectionFooterHeight = 100;
-        [self addSubview:self.quitbutton];
-        self.tableFooterView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 100)];
+        
     }
     return self;
 }
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    self.quitbutton.hidden =!self.hidden;
-    __weak typeof (self) weakself =self;
-    [_quitbutton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakself.tableFooterView.mas_top).offset(40);
-        make.left.equalTo(weakself.tableFooterView.mas_left).offset(50);
-        make.right.equalTo(weakself.tableFooterView.mas_right).offset(-50);
-        make.height.equalTo(@50);
-    }];
+   
+   
    
 }
 
@@ -75,7 +67,11 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.datalist.count;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"LoginData"]) {
+        return 6;
+    }else{
+        return 4;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -104,13 +100,26 @@
         
     }
     
-    if (indexPath.row ==4 || indexPath.row == 5) {
-        cell.hidden = !self.hidden;
-    }
-    
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 100;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 100)];
+    footerView.backgroundColor =MainColor;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"LoginData"]) {
+        [footerView addSubview:self.quitbutton];
+            [_quitbutton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(footerView.mas_top).offset(40);
+            make.left.equalTo(footerView.mas_left).offset(50);
+            make.right.equalTo(footerView.mas_right).offset(-50);
+            make.height.equalTo(@50);
+            }];
+    }
+    return footerView;
+}
 
 
 

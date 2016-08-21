@@ -13,5 +13,4 @@
 
 @property (nonatomic ,strong) NSMutableArray * imageArray;
 
-@property (nonatomic, assign) BOOL hidden;
 @end

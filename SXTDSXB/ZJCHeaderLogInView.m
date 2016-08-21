@@ -69,14 +69,13 @@
 - (UILabel *)nameLabel{
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
-        _nameLabel.text =@"尚学堂";
+        
     }
     return _nameLabel;
 }
 - (UILabel *)attributeLabel{
     if (!_attributeLabel) {
         _attributeLabel = [[UILabel alloc] init];
-        _attributeLabel.text =@"普通会员";
     }
     return _attributeLabel;
 }

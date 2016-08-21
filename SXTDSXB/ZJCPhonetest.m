@@ -8,7 +8,7 @@
 
 #import "ZJCPhonetest.h"
 #import "ZJCPhoneView.h"
-
+#import "ZJCFourthViewController.h"
 @interface ZJCPhonetest ()
 
 @property (nonatomic, strong) ZJCPhoneView * phoneview;
@@ -24,7 +24,7 @@
     self.edgesForExtendedLayout =0;
     [self.view addSubview:self.phoneview];
     [self makeConstraint];
-//    [self getMessage];
+    [self getMessage];
 }
 #pragma mark - 添加视图约束
 - (void)makeConstraint{
@@ -84,6 +84,7 @@
     [HttpTool postWithPath:@"appMember/createCode.do" params:@{@"MemberId":username} success:^(id json) {
         ZJCLog(@"%@",json);
         [self.phoneview createTimer];
+        
     } failure:^(NSError *error) {
         ZJCLog(@"%@",error);
     }];
@@ -91,16 +92,40 @@
 
 - (void)registerController:(NSString *)code{
     [HttpTool getWithPath:@"appMember/appRegistration.do" params:@{@"LoginName":[self.usermessage objectForKey:@"username"],@"Lpassword":[self.usermessage objectForKey:@"password"],@"Code":code,@"Telephone":[self.usermessage objectForKey:@"username"]} success:^(id json) {
+        if ([json[@"result"] isEqualToString:@"TelephoneExistError"]) {
+            ALERTSTRING(self.view, @"手机号已经注册")
+        }
+        ZJCLog(@"%@",json);
+         NSDictionary * dict =@{@"LoginName":[self.usermessage objectForKey:@"Name"],@"Lpassword":[self.usermessage objectForKey:@"password"]};
+        [self autoLogin:dict];
+        
+    } failure:^(NSError *error) {
+        ALERTSTRING(self.view, @"注册失败")
+    }];
+}
+
+- (void)registerthieeMessage:(NSString *)code{
+
+    
+    [HttpTool getWithPath:@"appMember/appRegistration.do" params:@{@"LoginName":[self.thirdLogMessage objectForKey:@"Name"],@"Lpassword":@"123123",@"Code":code,@"Telephone":[self.thirdLogMessage objectForKey:@"username"]} success:^(id json) {
+
+        NSDictionary * dict =@{@"LoginName":[self.thirdLogMessage objectForKey:@"Name"],@"Lpassword":@"123123"};
+        [self autoLogin:dict];
+        
     } failure:^(NSError *error) {
 
     }];
 }
 
-- (void)registerthieeMessage:(NSString *)code{
-    [HttpTool getWithPath:@"appMember/appRegistration.do" params:@{@"LoginName":[self.thirdLogMessage objectForKey:@"Name"],@"Lpassword":@"123456",@"Code":code,@"Telephone":[self.thirdLogMessage objectForKey:@"username"]} success:^(id json) {
-
+- (void)autoLogin:(NSDictionary *)dict{
+    [HttpTool getWithPath:@"appMember/appLogin.do" params:dict success:^(id json) {
+        ALERTSTRING(self.view, @"登录成功")
+        ZJCLog(@"%@",json);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        });
     } failure:^(NSError *error) {
-
+        
     }];
 }
 

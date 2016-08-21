@@ -8,7 +8,7 @@
 
 #import "ZJCPhoneView.h"
 #import "ZJCPhonetest.h"
-#define number 5
+#define number 60
 static NSInteger num =number;
 @interface ZJCPhoneView ()<UITextFieldDelegate>
 
