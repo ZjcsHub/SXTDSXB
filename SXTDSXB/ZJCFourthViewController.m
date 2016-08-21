@@ -35,6 +35,11 @@
         _tableView =[[ZJCtableView alloc] initWithFrame:CGRectMake(0, 0, 10, 10) style:UITableViewStylePlain];
         _tableView.backgroundColor =[UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1.00];
         _tableView.bounces =NO;
+        __weak typeof (self) weakself =self;
+        _tableView.block = ^{
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"LoginData"];
+            [weakself viewLoadData];
+        };
     }
     return _tableView;
 }
@@ -57,24 +62,31 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self viewLoadData];
+}
+
+- (void)viewLoadData{
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"LoginData"]) {
-        [_tableView reloadData];
+        
         _logHeaderview.hidden = NO;
         _headView.hidden =YES;
-        _logHeaderview.headImage.layer.cornerRadius = _logHeaderview.headImage.frame.size.width/2;
-        _logHeaderview.headImage.layer.masksToBounds =YES;
+        
         [self reflashData];
+        [_tableView reloadData];
         
     }else{
         _logHeaderview.hidden =YES;
         _headView.hidden =NO;
+        [_tableView reloadData];
     }
+
 }
 
 - (void)reflashData{
     NSDictionary * dict =[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginData"];
     _logHeaderview.nameLabel.text = dict[@"MemberName"];
     _logHeaderview.attributeLabel.text =dict[@"MemberLvl"];
+    [_logHeaderview.headImage downloadImage:dict[@"iconUrl"] placeholder:@"图标"];
 }
 
 - (void)viewDidLoad {

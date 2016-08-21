@@ -76,7 +76,7 @@
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:snsPlatform.platformName];
             ZJCLog(@"\nusername = %@,\n usid = %@,\n token = %@ iconUrl = %@,\n unionId = %@,\n thirdPlatformUserProfile = %@,\n thirdPlatformResponse = %@ \n, message = %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL, snsAccount.unionId, response.thirdPlatformUserProfile, response.thirdPlatformResponse, response.message);
 //            ZJCLog(@"--- %@",dict[@"userName"]);
-            NSDictionary * dict =@{@"Name":snsAccount.userName,@"iconUrl":snsAccount.iconURL};
+            NSDictionary * dict =@{@"MemberName":snsAccount.userName,@"iconUrl":snsAccount.iconURL,@"MemberLvl":@"普卡会员"};
             PhoneNumberRegister * phone =[[PhoneNumberRegister alloc] init];
             phone.dict =[NSMutableDictionary dictionaryWithDictionary:dict];
             [self.navigationController pushViewController:phone animated:YES];

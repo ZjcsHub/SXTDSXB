@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    self.title =@"手机号验证";
     
     self.view.backgroundColor =MainColor;
     self.edgesForExtendedLayout =0;

@@ -55,7 +55,8 @@
         make.height.equalTo(@18);
         make.right.equalTo(weakself);
     }];
-    
+    _headImage.layer.cornerRadius = _headImage.frame.size.width/2;
+    _headImage.layer.masksToBounds =YES;
 }
 
 - (UIImageView *)headImage{

@@ -10,4 +10,6 @@
 
 @interface ZJCLogInController : UIViewController
 
+@property (nonatomic,strong) NSDictionary * iconImage;
+
 @end

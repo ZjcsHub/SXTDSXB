@@ -21,6 +21,7 @@
     if (!_quitbutton) {
         _quitbutton =[UIButton buttonWithType:UIButtonTypeCustom];
         [_quitbutton setImage:[UIImage imageNamed:@"购物车界面退出登录按钮"] forState:UIControlStateNormal];
+        [_quitbutton addTarget:self action:@selector(quitToligin) forControlEvents:UIControlEventTouchUpInside];
     }
     return _quitbutton;
 }
@@ -121,6 +122,10 @@
     return footerView;
 }
 
-
+- (void)quitToligin{
+    if (_block) {
+        _block();
+    }
+}
 
 @end

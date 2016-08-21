@@ -83,8 +83,13 @@
     }
     [HttpTool postWithPath:@"appMember/createCode.do" params:@{@"MemberId":username} success:^(id json) {
         ZJCLog(@"%@",json);
+        if ([json[@"result"] isEqualToString:@"TelephoneExistError"]) {
+            ALERTSTRING(self.view, @"手机号已被注册")
+        }else{
+            
         [self.phoneview createTimer];
-        
+            
+        }
     } failure:^(NSError *error) {
         ZJCLog(@"%@",error);
     }];
@@ -96,7 +101,7 @@
             ALERTSTRING(self.view, @"手机号已经注册")
         }
         ZJCLog(@"%@",json);
-         NSDictionary * dict =@{@"LoginName":[self.usermessage objectForKey:@"Name"],@"Lpassword":[self.usermessage objectForKey:@"password"]};
+         NSDictionary * dict =@{@"LoginName":[self.usermessage objectForKey:@"username"],@"Lpassword":[self.usermessage objectForKey:@"password"]};
         [self autoLogin:dict];
         
     } failure:^(NSError *error) {
@@ -107,23 +112,40 @@
 - (void)registerthieeMessage:(NSString *)code{
 
     
-    [HttpTool getWithPath:@"appMember/appRegistration.do" params:@{@"LoginName":[self.thirdLogMessage objectForKey:@"Name"],@"Lpassword":@"123123",@"Code":code,@"Telephone":[self.thirdLogMessage objectForKey:@"username"]} success:^(id json) {
-
-        NSDictionary * dict =@{@"LoginName":[self.thirdLogMessage objectForKey:@"Name"],@"Lpassword":@"123123"};
+    [HttpTool getWithPath:@"appMember/appRegistration.do" params:@{@"LoginName":[self.thirdLogMessage objectForKey:@"username"],@"Lpassword":@"123123",@"Code":code,@"Telephone":[self.thirdLogMessage objectForKey:@"username"]} success:^(id json) {
+        ZJCLog(@"%@",json);
+        NSDictionary * dict =@{@"LoginName":[self.thirdLogMessage objectForKey:@"username"],@"Lpassword":@"123123"};
         [self autoLogin:dict];
         
     } failure:^(NSError *error) {
-
+        ZJCLog(@"失败");
     }];
 }
 
 - (void)autoLogin:(NSDictionary *)dict{
     [HttpTool getWithPath:@"appMember/appLogin.do" params:dict success:^(id json) {
-        ALERTSTRING(self.view, @"登录成功")
         ZJCLog(@"%@",json);
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        });
+        __weak typeof (self) weakself =self;
+        if ([json[@"ErrorMessage"] isEqualToString:@"密码错误"]) {
+            ALERTSTRING(weakself.view, @"密码错误")
+        }else if ([json[@"ErrorMessage"] isEqualToString:@"用户不存在"]){
+            ALERTSTRING(weakself.view, @"用户不存在")
+        }else{
+            ALERTSTRING(weakself.view, @"登录成功")
+            if (self.usermessage) {
+                [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"LoginData"];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [weakself.navigationController popToRootViewControllerAnimated:YES];
+                });
+            }else if (self.thirdLogMessage){
+                [[NSUserDefaults standardUserDefaults] setObject:self.thirdLogMessage forKey:@"LoginData"];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [weakself.navigationController popToRootViewControllerAnimated:YES];
+                });
+
+            }
+           
+        }
     } failure:^(NSError *error) {
         
     }];

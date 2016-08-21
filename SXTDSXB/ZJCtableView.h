@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^QuitLoginBlock)();
 @interface ZJCtableView : UITableView
 @property (nonatomic ,strong) NSMutableArray * datalist;
 
 @property (nonatomic ,strong) NSMutableArray * imageArray;
 
+@property (nonatomic ,copy) QuitLoginBlock block;
 @end
