@@ -296,15 +296,6 @@
 			name = "Tabbar+Navgation";
 			sourceTree = "<group>";
 		};
-		070F4B0E1D6588C20004DBD9 /* view */ = {
-			isa = PBXGroup;
-			children = (
-				070F4B201D65AB840004DBD9 /* 发送验证码视图 */,
-				070F4B1C1D65AB580004DBD9 /* 注册界面视图 */,
-			);
-			name = view;
-			sourceTree = "<group>";
-		};
 		070F4B0F1D6588CB0004DBD9 /* ViewControlller */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +324,7 @@
 				0779D9221D6543E4008E78AD /* ZJCLandView.m */,
 				07142A021D68309500253E1B /* PhoneNumberRegister.h */,
 				07142A031D68309500253E1B /* PhoneNumberRegister.m */,
+				070F4B1C1D65AB580004DBD9 /* 注册界面视图 */,
 			);
 			name = "注册界面控制器";
 			sourceTree = "<group>";
@@ -342,6 +334,7 @@
 			children = (
 				070F4B191D65AB460004DBD9 /* ZJCPhonetest.h */,
 				070F4B1A1D65AB460004DBD9 /* ZJCPhonetest.m */,
+				070F4B201D65AB840004DBD9 /* 发送验证码视图 */,
 			);
 			name = "发送验证码视图控制器";
 			sourceTree = "<group>";
@@ -540,7 +533,6 @@
 			isa = PBXGroup;
 			children = (
 				070F4B0F1D6588CB0004DBD9 /* ViewControlller */,
-				070F4B0E1D6588C20004DBD9 /* view */,
 			);
 			name = "注册";
 			sourceTree = "<group>";

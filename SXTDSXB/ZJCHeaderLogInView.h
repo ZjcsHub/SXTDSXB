@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ZJCHeaderLogInView : UIView
+@property (nonatomic,strong) UIImageView * headImage; /**头像图片 */
+@property (nonatomic,strong) UILabel * nameLabel;
+
+@property (nonatomic,strong) UILabel * attributeLabel;
+
 
 @end

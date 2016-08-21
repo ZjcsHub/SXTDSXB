@@ -11,14 +11,13 @@
 #import "ZJCHeaderView.h"
 #import "ZJCtableView.h"
 #import "ZJCLandView.h"
-#import "ZJCHeaderLogInView.h"
 @interface ZJCFourthViewController ()
 
 @property (nonatomic, strong) ZJCHeaderView * headView;
 
 @property (nonatomic, strong) ZJCtableView * tableView;
 
-@property (nonatomic, strong) ZJCHeaderLogInView * logHeaderview;
+
 
 @end
 
@@ -60,6 +59,8 @@
     [super viewWillAppear:animated];
     _tableView.hidden = self.hidden;
     _logHeaderview.hidden = !self.hidden;
+    _logHeaderview.headImage.layer.cornerRadius =_logHeaderview.headImage.frame.size.width/2;
+    _logHeaderview.headImage.layer.masksToBounds =YES;
     _headView.hidden =self.hidden;
     [_tableView reloadData];
 }

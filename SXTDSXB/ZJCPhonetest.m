@@ -54,18 +54,17 @@
         _phoneview.headerlabel.attributedText =attstring;
         _phoneview.headerlabel.font =[UIFont systemFontOfSize:14];
         [_phoneview.timebutton addTarget:self action:@selector(tryAgain) forControlEvents:UIControlEventTouchUpInside];
-        __weak typeof (self) weakself =self;
-        _phoneview.pushBlock=^(NSString * code){
-            if (weakself.usermessage) {
-                //注册网络请求
-                [weakself registerController:code];
-            }else if (weakself.thirdLogMessage){
-                [weakself registerthieeMessage:code];
-            }
-            
-            
-        };
-    }
+        }
+            __weak typeof (self) weakself =self;
+            _phoneview.pushBlock=^(NSString * code){
+                if (weakself.usermessage) {
+            //注册网络请求
+                    [weakself registerController:code];
+                }else if (weakself.thirdLogMessage){
+                    [weakself registerthieeMessage:code];
+                }
+            };
+    
     return _phoneview;
 }
 
@@ -76,34 +75,31 @@
 
 #pragma mark - 获取验证码信息
 - (void)getMessage{
-    [SVProgressHUD show];
-    NSString * username = [self.usermessage objectForKey:@"username"];
+    NSString * username;
+    if (self.usermessage) {
+        username =[self.usermessage objectForKey:@"username"];
+    }else if(self.thirdLogMessage){
+        username =[self.thirdLogMessage objectForKey:@"username"];
+    }
     [HttpTool postWithPath:@"appMember/createCode.do" params:@{@"MemberId":username} success:^(id json) {
-        [SVProgressHUD dismiss];
         ZJCLog(@"%@",json);
         [self.phoneview createTimer];
     } failure:^(NSError *error) {
-        [SVProgressHUD dismiss];
         ZJCLog(@"%@",error);
     }];
 }
 
 - (void)registerController:(NSString *)code{
-    [SVProgressHUD show];
     [HttpTool getWithPath:@"appMember/appRegistration.do" params:@{@"LoginName":[self.usermessage objectForKey:@"username"],@"Lpassword":[self.usermessage objectForKey:@"password"],@"Code":code,@"Telephone":[self.usermessage objectForKey:@"username"]} success:^(id json) {
-        [SVProgressHUD dismiss];
     } failure:^(NSError *error) {
-        [SVProgressHUD dismiss];
+
     }];
 }
 
 - (void)registerthieeMessage:(NSString *)code{
-    [SVProgressHUD show];
     [HttpTool getWithPath:@"appMember/appRegistration.do" params:@{@"LoginName":[self.thirdLogMessage objectForKey:@"Name"],@"Lpassword":@"123456",@"Code":code,@"Telephone":[self.thirdLogMessage objectForKey:@"username"]} success:^(id json) {
-        [SVProgressHUD dismiss];
 
     } failure:^(NSError *error) {
-        [SVProgressHUD dismiss];
 
     }];
 }

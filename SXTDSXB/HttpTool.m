@@ -38,15 +38,17 @@ static NSString * kBaseUrl = @"http://123.57.141.249:8080/beautalk";
              params:(NSDictionary *)params
             success:(HttpSuccessBlock)success
             failure:(HttpFailureBlock)failure {
+    [SVProgressHUD show];
     //获取完整的url路径
     NSString * url = [kBaseUrl stringByAppendingPathComponent:path];
     
     [[AFHttpClient sharedClient] GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         success(responseObject);
-        
+        [SVProgressHUD dismiss];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        [SVProgressHUD dismiss];
+
         failure(error);
         
     }];
@@ -57,15 +59,18 @@ static NSString * kBaseUrl = @"http://123.57.141.249:8080/beautalk";
              params:(NSDictionary *)params
             success:(HttpSuccessBlock)success
             failure:(HttpFailureBlock)failure {
+     [SVProgressHUD show];
     //获取完整的url路径
     NSString * url = [kBaseUrl stringByAppendingPathComponent:path];
     
     [[AFHttpClient sharedClient] POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+        [SVProgressHUD dismiss];
+
         success(responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        [SVProgressHUD dismiss];
+
         failure(error);
         
     }];
