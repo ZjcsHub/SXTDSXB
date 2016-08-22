@@ -10,6 +10,8 @@ pod 'Masonry', '~> 1.0.1'
 pod 'AFNetworking', '~> 3.1.0'
 pod 'SDWebImage', '~> 3.8.1'
 pod 'SVProgressHUD'
+pod 'SDCycleScrollView','~> 1.64'
+pod 'YYModel'
   target 'SXTDSXBTests' do
     inherit! :search_paths
     # Pods for testing

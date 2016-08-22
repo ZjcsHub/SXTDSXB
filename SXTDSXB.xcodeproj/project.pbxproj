@@ -50,6 +50,13 @@
 		07142A041D68309500253E1B /* PhoneNumberRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 07142A031D68309500253E1B /* PhoneNumberRegister.m */; };
 		07142A071D684F4400253E1B /* ZJCHeaderLogInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07142A061D684F4400253E1B /* ZJCHeaderLogInView.m */; };
 		075A301C1D696BB6005FEF8E /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A301B1D696BB6005FEF8E /* UIView+Toast.m */; };
+		075A301E1D6AA860005FEF8E /* 屏幕快照 2016-08-22 11.25.54.png in Resources */ = {isa = PBXBuildFile; fileRef = 075A301D1D6AA860005FEF8E /* 屏幕快照 2016-08-22 11.25.54.png */; };
+		075A30231D6AFBCF005FEF8E /* ZJCTimetableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A30221D6AFBCF005FEF8E /* ZJCTimetableView.m */; };
+		075A30261D6B1924005FEF8E /* ZJCsingleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A30251D6B1924005FEF8E /* ZJCsingleCell.m */; };
+		075A30291D6B1A9E005FEF8E /* ZJCSingleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A30281D6B1A9E005FEF8E /* ZJCSingleModel.m */; };
+		075A302C1D6B1E88005FEF8E /* ZJCTwoBUttonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A302B1D6B1E88005FEF8E /* ZJCTwoBUttonView.m */; };
+		075A302F1D6B32FA005FEF8E /* ZJCGroupListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A302E1D6B32FA005FEF8E /* ZJCGroupListModel.m */; };
+		075A30321D6B3305005FEF8E /* ZJCGroupTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A30311D6B3305005FEF8E /* ZJCGroupTableCell.m */; };
 		0779D9231D6543E4008E78AD /* ZJCLandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0779D9221D6543E4008E78AD /* ZJCLandView.m */; };
 		07D746391D63F76A00966A7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D746381D63F76A00966A7B /* main.m */; };
 		07D7463C1D63F76A00966A7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D7463B1D63F76A00966A7B /* AppDelegate.m */; };
@@ -176,6 +183,19 @@
 		07142A061D684F4400253E1B /* ZJCHeaderLogInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCHeaderLogInView.m; sourceTree = "<group>"; };
 		075A301A1D696BB6005FEF8E /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		075A301B1D696BB6005FEF8E /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
+		075A301D1D6AA860005FEF8E /* 屏幕快照 2016-08-22 11.25.54.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "屏幕快照 2016-08-22 11.25.54.png"; sourceTree = "<group>"; };
+		075A30211D6AFBCF005FEF8E /* ZJCTimetableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCTimetableView.h; sourceTree = "<group>"; };
+		075A30221D6AFBCF005FEF8E /* ZJCTimetableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCTimetableView.m; sourceTree = "<group>"; };
+		075A30241D6B1924005FEF8E /* ZJCsingleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCsingleCell.h; sourceTree = "<group>"; };
+		075A30251D6B1924005FEF8E /* ZJCsingleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCsingleCell.m; sourceTree = "<group>"; };
+		075A30271D6B1A9E005FEF8E /* ZJCSingleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCSingleModel.h; sourceTree = "<group>"; };
+		075A30281D6B1A9E005FEF8E /* ZJCSingleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCSingleModel.m; sourceTree = "<group>"; };
+		075A302A1D6B1E88005FEF8E /* ZJCTwoBUttonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCTwoBUttonView.h; sourceTree = "<group>"; };
+		075A302B1D6B1E88005FEF8E /* ZJCTwoBUttonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCTwoBUttonView.m; sourceTree = "<group>"; };
+		075A302D1D6B32FA005FEF8E /* ZJCGroupListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCGroupListModel.h; sourceTree = "<group>"; };
+		075A302E1D6B32FA005FEF8E /* ZJCGroupListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCGroupListModel.m; sourceTree = "<group>"; };
+		075A30301D6B3305005FEF8E /* ZJCGroupTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCGroupTableCell.h; sourceTree = "<group>"; };
+		075A30311D6B3305005FEF8E /* ZJCGroupTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCGroupTableCell.m; sourceTree = "<group>"; };
 		0779D9211D6543E4008E78AD /* ZJCLandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCLandView.h; sourceTree = "<group>"; };
 		0779D9221D6543E4008E78AD /* ZJCLandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCLandView.m; sourceTree = "<group>"; };
 		07D746341D63F76A00966A7B /* SXTDSXB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SXTDSXB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -520,6 +540,32 @@
 			name = "主界面";
 			sourceTree = "<group>";
 		};
+		075A301F1D6AF7CC005FEF8E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				075A302D1D6B32FA005FEF8E /* ZJCGroupListModel.h */,
+				075A302E1D6B32FA005FEF8E /* ZJCGroupListModel.m */,
+				075A30271D6B1A9E005FEF8E /* ZJCSingleModel.h */,
+				075A30281D6B1A9E005FEF8E /* ZJCSingleModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		075A30201D6AF7E0005FEF8E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				075A30301D6B3305005FEF8E /* ZJCGroupTableCell.h */,
+				075A30311D6B3305005FEF8E /* ZJCGroupTableCell.m */,
+				075A30241D6B1924005FEF8E /* ZJCsingleCell.h */,
+				075A30251D6B1924005FEF8E /* ZJCsingleCell.m */,
+				075A30211D6AFBCF005FEF8E /* ZJCTimetableView.h */,
+				075A30221D6AFBCF005FEF8E /* ZJCTimetableView.m */,
+				075A302A1D6B1E88005FEF8E /* ZJCTwoBUttonView.h */,
+				075A302B1D6B1E88005FEF8E /* ZJCTwoBUttonView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		0779D9201D6543B6008E78AD /* 注册 */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,6 +599,7 @@
 		07D746361D63F76A00966A7B /* SXTDSXB */ = {
 			isa = PBXGroup;
 			children = (
+				075A301D1D6AA860005FEF8E /* 屏幕快照 2016-08-22 11.25.54.png */,
 				075A301A1D696BB6005FEF8E /* UIView+Toast.h */,
 				075A301B1D696BB6005FEF8E /* UIView+Toast.m */,
 				07D7463A1D63F76A00966A7B /* AppDelegate.h */,
@@ -601,6 +648,8 @@
 		07E5EE6F1D6458CA00E2E9F1 /* 限时购 */ = {
 			isa = PBXGroup;
 			children = (
+				075A30201D6AF7E0005FEF8E /* View */,
+				075A301F1D6AF7CC005FEF8E /* model */,
 				07D7466A1D6439ED00966A7B /* ZJCTimeViewController.h */,
 				07D7466B1D6439ED00966A7B /* ZJCTimeViewController.m */,
 			);
@@ -797,6 +846,7 @@
 			files = (
 				071429CB1D67445100253E1B /* UMShareEditViewController.xib in Resources */,
 				071429CA1D67445100253E1B /* UMSCommentInputControlleriPad.xib in Resources */,
+				075A301E1D6AA860005FEF8E /* 屏幕快照 2016-08-22 11.25.54.png in Resources */,
 				07D746471D63F76A00966A7B /* LaunchScreen.storyboard in Resources */,
 				07D746441D63F76A00966A7B /* Assets.xcassets in Resources */,
 				071429DB1D67445200253E1B /* README.txt in Resources */,
@@ -965,18 +1015,24 @@
 				07D746751D643A4600966A7B /* ZJCFourthViewController.m in Sources */,
 				07D746781D643F5000966A7B /* ZJCTabBarViewController.m in Sources */,
 				070F4B1F1D65AB7E0004DBD9 /* ZJCPhoneView.m in Sources */,
+				075A30321D6B3305005FEF8E /* ZJCGroupTableCell.m in Sources */,
 				071429F11D68163B00253E1B /* ZJCLogInController.m in Sources */,
 				070F4B131D6589240004DBD9 /* ZJCRegistView.m in Sources */,
 				070DD5931D66B66F001925AC /* UIImageView+SDWebImage.m in Sources */,
+				075A30261D6B1924005FEF8E /* ZJCsingleCell.m in Sources */,
 				07142A041D68309500253E1B /* PhoneNumberRegister.m in Sources */,
 				07142A071D684F4400253E1B /* ZJCHeaderLogInView.m in Sources */,
 				07D7463C1D63F76A00966A7B /* AppDelegate.m in Sources */,
 				07E5EE6E1D64544400E2E9F1 /* ZJCNavViewController.m in Sources */,
 				071429F61D68168D00253E1B /* ZJCLogInView.m in Sources */,
+				075A30231D6AFBCF005FEF8E /* ZJCTimetableView.m in Sources */,
+				075A302F1D6B32FA005FEF8E /* ZJCGroupListModel.m in Sources */,
 				070F4B161D6589380004DBD9 /* ZJCThreeButton.m in Sources */,
 				07D7466F1D643A3000966A7B /* ZJCSecondViewController.m in Sources */,
 				07D746391D63F76A00966A7B /* main.m in Sources */,
+				075A302C1D6B1E88005FEF8E /* ZJCTwoBUttonView.m in Sources */,
 				07142A011D682C3500253E1B /* NSArray+Log.m in Sources */,
+				075A30291D6B1A9E005FEF8E /* ZJCSingleModel.m in Sources */,
 				07E5EE7C1D64798900E2E9F1 /* ZJCtableView.m in Sources */,
 				07D7466C1D6439ED00966A7B /* ZJCTimeViewController.m in Sources */,
 				07E5EE791D646C7300E2E9F1 /* ZJCHeaderView.m in Sources */,

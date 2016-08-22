@@ -108,7 +108,7 @@
     return 100;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 100)];
+    UIView * footerView = [[UIView alloc] init];
     footerView.backgroundColor =MainColor;
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"LoginData"]) {
         [footerView addSubview:self.quitbutton];

@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title =@"登录";
     [self.view setBackgroundColor:MainColor];
     self.edgesForExtendedLayout = 0;
     [self.view addSubview:self.loginView];
@@ -63,22 +64,11 @@
             [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"LoginData"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [weakself.navigationController popToRootViewControllerAnimated:YES];
-            });
+                });
             }
-            
-
-            
         } failure:^(NSError *error) {
-            
-        }];
-            
-            
-            
-            
-            
-            
-            
-           
+            ALERTSTRING(weakself.view, @"请求错误")
+            }];
         };
     }
     return _loginView;

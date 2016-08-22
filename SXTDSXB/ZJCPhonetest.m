@@ -83,12 +83,13 @@
     }
     [HttpTool postWithPath:@"appMember/createCode.do" params:@{@"MemberId":username} success:^(id json) {
         ZJCLog(@"%@",json);
+    
         if ([json[@"result"] isEqualToString:@"TelephoneExistError"]) {
             ALERTSTRING(self.view, @"手机号已被注册")
+        }else if([json[@"result"] isEqualToString:@"error"]){
+            ALERTSTRING(self.view, @"不存在手机号")
         }else{
-            
         [self.phoneview createTimer];
-            
         }
     } failure:^(NSError *error) {
         ZJCLog(@"%@",error);

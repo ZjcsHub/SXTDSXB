@@ -20,9 +20,7 @@
     self.window =[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor =[UIColor whiteColor];
     
-    ZJCTabBarViewController * tabbar =[[ZJCTabBarViewController alloc] init];
-    tabbar.selectedIndex =3;
-   
+    ZJCTabBarViewController * tabbar =[[ZJCTabBarViewController alloc] init];   
     self.window.rootViewController =tabbar;
     [self.window makeKeyAndVisible];
     
