@@ -12,8 +12,8 @@
 
 @property (nonatomic,assign) BOOL isSingal;
 
-@property (nonatomic,strong) NSArray * signalarray;
+@property (nonatomic,strong) NSMutableArray * signalarray;
 
-@property (nonatomic,strong) NSArray * grouparray;
+@property (nonatomic,strong) NSMutableArray * grouparray;
 
 @end

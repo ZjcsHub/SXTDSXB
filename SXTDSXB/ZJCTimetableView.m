@@ -24,17 +24,19 @@
     }
     return self;
 }
-
-
--(void)setSignalarray:(NSArray *)signalarray{
-    _signalarray =signalarray;
-    [self reloadData];
+- (NSMutableArray *)signalarray{
+    if (!_signalarray) {
+        _signalarray =[NSMutableArray array];
+    }
+    return _signalarray;
+}
+- (NSMutableArray *)grouparray{
+    if (!_grouparray) {
+        _grouparray  =[NSMutableArray array];
+    }
+    return _grouparray;
 }
 
--(void)setGrouparray:(NSArray *)grouparray{
-    _grouparray =grouparray;
-    [self reloadData];
-}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (_isSingal) {
         return self.signalarray.count;

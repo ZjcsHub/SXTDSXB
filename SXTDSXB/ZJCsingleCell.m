@@ -92,7 +92,7 @@
 
 - (void)priceAttributedString{
     
-    //当前价格(需要手动添加人民币符号)
+    //当前价格
     NSString *nowPrice = [NSString stringWithFormat:@"%@ ",_singleModel.Price];
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithString:nowPrice attributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:1.00 green:0.25 blue:0.00 alpha:1.00],NSFontAttributeName:[UIFont boldSystemFontOfSize:18.0]}];
     //过去价格

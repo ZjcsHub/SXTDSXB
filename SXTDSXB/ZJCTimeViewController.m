@@ -47,9 +47,9 @@
     [HttpTool getWithPath:@"appActivity/appHomeGoodsList.do" params:nil success:^(id json) {
         self.singleModelArray = [NSArray yy_modelArrayWithClass:[ZJCSingleModel class] json:json];
         
-       _singletable.signalarray =self.singleModelArray;
+        [_singletable.signalarray addObjectsFromArray:self.singleModelArray];
         CGRect tableViewRect = _singletable.frame;
-        tableViewRect.size.height = self.singletable.signalarray.count * 170;
+        tableViewRect.size.height = _singletable.signalarray.count * 170;
         _singletable.frame = tableViewRect;
        
         
@@ -57,8 +57,10 @@
         if (_twobuttonView.button1.selected) {
             _mainScrollView.contentSize = CGSizeMake(0, self.singletable.signalarray.count * 170 + 280);
         }
-        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [_singletable reloadData];
+        }];
+        
 
     } failure:^(NSError *error) {
         ALERTSTRING(self.view, @"网络请求错误")
@@ -70,14 +72,17 @@
 - (void)requestGroupData{
     [HttpTool getWithPath:@"appActivity/appActivityList.do" params:nil success:^(id json) {
     self.groupModelArray = [NSArray yy_modelArrayWithClass:[ZJCGroupListModel class] json:json];
-    _grouptable.grouparray = self.groupModelArray;
+    [_grouptable.grouparray addObjectsFromArray:self.groupModelArray];
     CGRect tableViewRect = _grouptable.frame;
     tableViewRect.size.height = _groupModelArray.count * 200;
     _grouptable.frame = tableViewRect;
     if (_twobuttonView.button2.selected) {
-        _mainScrollView.contentSize = CGSizeMake(0, _singleModelArray.count * 200 + 280);
+        _mainScrollView.contentSize = CGSizeMake(0, _grouptable.grouparray.count * 200 + 280);
     }
-    [_grouptable reloadData];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [_grouptable reloadData];
+
+    }];
 } failure:^(NSError *error) {
     
 }];
@@ -155,7 +160,7 @@
             CGRect tableRect2 = _grouptable.frame;
             tableRect2.origin.x = VIEW_WIDTH;
             _grouptable.frame = tableRect2;
-            _mainScrollView.contentSize = CGSizeMake(0, _singleModelArray.count * 170 + 280);
+            _mainScrollView.contentSize = CGSizeMake(0, _singletable.signalarray.count * 170 + 280);
         }];
     }else {
         button.selected = YES;
@@ -168,7 +173,7 @@
             CGRect tableRect2 = _grouptable.frame;
             tableRect2.origin.x = 0;
             _grouptable.frame = tableRect2;
-            _mainScrollView.contentSize = CGSizeMake(0, _singleModelArray.count * 200 + 280);
+            _mainScrollView.contentSize = CGSizeMake(0, _grouptable.grouparray.count * 200 + 280);
         }];
     }
 }
