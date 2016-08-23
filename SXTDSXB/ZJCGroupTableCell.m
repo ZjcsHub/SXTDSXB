@@ -30,7 +30,7 @@
 }
 
 - (void)setImageUrl:(NSString *)ImageUrl{
-    [_groupImage downloadImage:ImageUrl placeholder:nil];
+    [_groupImage downloadImage:ImageUrl placeholder:@"屏幕快照 2016-08-22 11.25.54.png"];
 }
 
 - (UIImageView *)groupImage{

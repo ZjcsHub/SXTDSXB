@@ -57,6 +57,10 @@
 		075A302C1D6B1E88005FEF8E /* ZJCTwoBUttonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A302B1D6B1E88005FEF8E /* ZJCTwoBUttonView.m */; };
 		075A302F1D6B32FA005FEF8E /* ZJCGroupListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A302E1D6B32FA005FEF8E /* ZJCGroupListModel.m */; };
 		075A30321D6B3305005FEF8E /* ZJCGroupTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A30311D6B3305005FEF8E /* ZJCGroupTableCell.m */; };
+		075A30371D6BE34F005FEF8E /* ZJCDetailGoodsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A30361D6BE34F005FEF8E /* ZJCDetailGoodsController.m */; };
+		075A303B1D6BE59F005FEF8E /* ZJCCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A303A1D6BE59F005FEF8E /* ZJCCycleScrollView.m */; };
+		075A303F1D6BF18F005FEF8E /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A303E1D6BF18F005FEF8E /* ImageModel.m */; };
+		075A30421D6BFC01005FEF8E /* DetailTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A30411D6BFC01005FEF8E /* DetailTitleView.m */; };
 		0779D9231D6543E4008E78AD /* ZJCLandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0779D9221D6543E4008E78AD /* ZJCLandView.m */; };
 		07D746391D63F76A00966A7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D746381D63F76A00966A7B /* main.m */; };
 		07D7463C1D63F76A00966A7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D7463B1D63F76A00966A7B /* AppDelegate.m */; };
@@ -196,6 +200,14 @@
 		075A302E1D6B32FA005FEF8E /* ZJCGroupListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCGroupListModel.m; sourceTree = "<group>"; };
 		075A30301D6B3305005FEF8E /* ZJCGroupTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCGroupTableCell.h; sourceTree = "<group>"; };
 		075A30311D6B3305005FEF8E /* ZJCGroupTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCGroupTableCell.m; sourceTree = "<group>"; };
+		075A30351D6BE34F005FEF8E /* ZJCDetailGoodsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCDetailGoodsController.h; sourceTree = "<group>"; };
+		075A30361D6BE34F005FEF8E /* ZJCDetailGoodsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCDetailGoodsController.m; sourceTree = "<group>"; };
+		075A30391D6BE59F005FEF8E /* ZJCCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCCycleScrollView.h; sourceTree = "<group>"; };
+		075A303A1D6BE59F005FEF8E /* ZJCCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCCycleScrollView.m; sourceTree = "<group>"; };
+		075A303D1D6BF18F005FEF8E /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
+		075A303E1D6BF18F005FEF8E /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
+		075A30401D6BFC01005FEF8E /* DetailTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTitleView.h; sourceTree = "<group>"; };
+		075A30411D6BFC01005FEF8E /* DetailTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTitleView.m; sourceTree = "<group>"; };
 		0779D9211D6543E4008E78AD /* ZJCLandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCLandView.h; sourceTree = "<group>"; };
 		0779D9221D6543E4008E78AD /* ZJCLandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCLandView.m; sourceTree = "<group>"; };
 		07D746341D63F76A00966A7B /* SXTDSXB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SXTDSXB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -566,6 +578,46 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		075A30331D6BE2CB005FEF8E /* 商品详情 */ = {
+			isa = PBXGroup;
+			children = (
+				075A303C1D6BF16E005FEF8E /* model */,
+				075A30381D6BE556005FEF8E /* view */,
+				075A30351D6BE34F005FEF8E /* ZJCDetailGoodsController.h */,
+				075A30361D6BE34F005FEF8E /* ZJCDetailGoodsController.m */,
+			);
+			name = "商品详情";
+			sourceTree = "<group>";
+		};
+		075A30341D6BE2DD005FEF8E /* 主界面 */ = {
+			isa = PBXGroup;
+			children = (
+				075A30201D6AF7E0005FEF8E /* View */,
+				075A301F1D6AF7CC005FEF8E /* model */,
+			);
+			name = "主界面";
+			sourceTree = "<group>";
+		};
+		075A30381D6BE556005FEF8E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				075A30391D6BE59F005FEF8E /* ZJCCycleScrollView.h */,
+				075A303A1D6BE59F005FEF8E /* ZJCCycleScrollView.m */,
+				075A30401D6BFC01005FEF8E /* DetailTitleView.h */,
+				075A30411D6BFC01005FEF8E /* DetailTitleView.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		075A303C1D6BF16E005FEF8E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				075A303D1D6BF18F005FEF8E /* ImageModel.h */,
+				075A303E1D6BF18F005FEF8E /* ImageModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		0779D9201D6543B6008E78AD /* 注册 */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,10 +700,10 @@
 		07E5EE6F1D6458CA00E2E9F1 /* 限时购 */ = {
 			isa = PBXGroup;
 			children = (
-				075A30201D6AF7E0005FEF8E /* View */,
-				075A301F1D6AF7CC005FEF8E /* model */,
 				07D7466A1D6439ED00966A7B /* ZJCTimeViewController.h */,
 				07D7466B1D6439ED00966A7B /* ZJCTimeViewController.m */,
+				075A30341D6BE2DD005FEF8E /* 主界面 */,
+				075A30331D6BE2CB005FEF8E /* 商品详情 */,
 			);
 			name = "限时购";
 			sourceTree = "<group>";
@@ -1011,6 +1063,7 @@
 				07D746721D643A3B00966A7B /* ZJCThirdViewController.m in Sources */,
 				0779D9231D6543E4008E78AD /* ZJCLandView.m in Sources */,
 				070DD58E1D65EB51001925AC /* HttpTool.m in Sources */,
+				075A30421D6BFC01005FEF8E /* DetailTitleView.m in Sources */,
 				07E5EE761D64657A00E2E9F1 /* ZJCTableViewCell.m in Sources */,
 				07D746751D643A4600966A7B /* ZJCFourthViewController.m in Sources */,
 				07D746781D643F5000966A7B /* ZJCTabBarViewController.m in Sources */,
@@ -1023,15 +1076,18 @@
 				07142A041D68309500253E1B /* PhoneNumberRegister.m in Sources */,
 				07142A071D684F4400253E1B /* ZJCHeaderLogInView.m in Sources */,
 				07D7463C1D63F76A00966A7B /* AppDelegate.m in Sources */,
+				075A303B1D6BE59F005FEF8E /* ZJCCycleScrollView.m in Sources */,
 				07E5EE6E1D64544400E2E9F1 /* ZJCNavViewController.m in Sources */,
 				071429F61D68168D00253E1B /* ZJCLogInView.m in Sources */,
 				075A30231D6AFBCF005FEF8E /* ZJCTimetableView.m in Sources */,
 				075A302F1D6B32FA005FEF8E /* ZJCGroupListModel.m in Sources */,
+				075A30371D6BE34F005FEF8E /* ZJCDetailGoodsController.m in Sources */,
 				070F4B161D6589380004DBD9 /* ZJCThreeButton.m in Sources */,
 				07D7466F1D643A3000966A7B /* ZJCSecondViewController.m in Sources */,
 				07D746391D63F76A00966A7B /* main.m in Sources */,
 				075A302C1D6B1E88005FEF8E /* ZJCTwoBUttonView.m in Sources */,
 				07142A011D682C3500253E1B /* NSArray+Log.m in Sources */,
+				075A303F1D6BF18F005FEF8E /* ImageModel.m in Sources */,
 				075A30291D6B1A9E005FEF8E /* ZJCSingleModel.m in Sources */,
 				07E5EE7C1D64798900E2E9F1 /* ZJCtableView.m in Sources */,
 				07D7466C1D6439ED00966A7B /* ZJCTimeViewController.m in Sources */,

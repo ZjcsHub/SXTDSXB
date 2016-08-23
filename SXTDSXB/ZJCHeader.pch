@@ -35,6 +35,7 @@
 #import <objc/runtime.h>
 #import "HttpTool.h"
 #import "UIImageView+SDWebImage.h"
+#import <UIImageView+WebCache.h>
 #import <SVProgressHUD.h>
 
 #import "UMSocial.h"

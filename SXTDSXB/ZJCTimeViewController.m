@@ -11,6 +11,7 @@
 #import "ZJCTimetableView.h"
 #import "ZJCSingleModel.h"
 #import "ZJCGroupListModel.h"
+#import "ZJCDetailGoodsController.h"
 @interface ZJCTimeViewController ()<UIScrollViewDelegate>
 
 @property (nonatomic,strong) UIScrollView * mainScrollView;
@@ -135,6 +136,12 @@
     if (!_singletable) {
         _singletable =[[ZJCTimetableView alloc] initWithFrame:CGRectMake(0, 280, VIEW_WIDTH, VIEW_HEIGHT) style:UITableViewStylePlain];
         _singletable.isSingal =YES;
+        __weak typeof (self) weakself =self;
+        _singletable.idBlock = ^(NSString * goodsid){
+            ZJCDetailGoodsController * goodsID =[[ZJCDetailGoodsController alloc] init];
+            goodsID.goodsid =goodsid;
+            [weakself.navigationController pushViewController:goodsID animated:YES];
+        };
     }
     return _singletable;
 }

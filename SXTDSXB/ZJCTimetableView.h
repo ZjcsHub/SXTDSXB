@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef void(^newTableViewSelectGoodsIdBlock)(NSString * goodid);
+
 @interface ZJCTimetableView : UITableView
 
 @property (nonatomic,assign) BOOL isSingal;
@@ -16,4 +19,5 @@
 
 @property (nonatomic,strong) NSMutableArray * grouparray;
 
+@property (nonatomic,copy) newTableViewSelectGoodsIdBlock idBlock;
 @end
