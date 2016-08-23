@@ -9,6 +9,10 @@
 #import "ZJCDetailGoodsController.h"
 #import "ZJCCycleScrollView.h"
 #import "ImageModel.h"
+#import "DescriptionModel.h"
+#import "DetailTitleView.h"
+#import "ZJCDetailModel.h"
+#import "ZJCDetailView.h"
 @interface ZJCDetailGoodsController ()
 
 @property (nonatomic,strong) UIScrollView * scrollview;
@@ -16,6 +20,10 @@
 @property (nonatomic,strong) NSArray * imageArray;
 
 @property (nonatomic,strong) ZJCCycleScrollView * cyclescrollView;
+
+@property (nonatomic,strong) DetailTitleView * detailtitleview;
+
+@property (nonatomic,strong) ZJCDetailView * detailView;
 @end
 
 @implementation ZJCDetailGoodsController
@@ -24,17 +32,27 @@
     [super viewDidLoad];
     self.view.backgroundColor =MainColor;
     self.edgesForExtendedLayout =0;
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     [self.view addSubview:self.scrollview];
     [self.scrollview addSubview:self.cyclescrollView];
+    [self.scrollview addSubview:self.detailtitleview];
+    [self.scrollview addSubview:self.detailView];
     __weak typeof (self) weakself =self;
     [_scrollview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(weakself.view).with.insets(UIEdgeInsetsMake(0, 0, 45, 0));
     }];
-    
+    [_detailtitleview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakself.cyclescrollView.mas_bottom);
+        make.right.left.equalTo(weakself.view);
+    }];
+    [_detailView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakself.detailtitleview.mas_bottom);
+        make.right.left.equalTo(weakself.view);
+
+    }];
     [self requestGoodsidImageData];
     [self requestDataDetailData];
     [self getDataPriceAndDequest];
-    ZJCLog(@"%@",self.goodsid);
 }
 /**
  *  头部滚动数据
@@ -42,7 +60,6 @@
 - (void)requestGoodsidImageData{
     [HttpTool getWithPath:@"appGoods/findGoodsImgList.do" params:@{@"GoodsId":self.goodsid} success:^(id json) {
         NSArray * datalist =[NSArray yy_modelArrayWithClass:[ImageModel class] json:json];
-        ZJCLog(@"%@",json);
         NSMutableArray * imageArray =[NSMutableArray array];
         for (ImageModel * model in datalist) {
             if ([model.ImgType isEqualToString:@"1"]) {
@@ -57,23 +74,26 @@
     }];
 }
 /**
- *  名称价格列表数据请求
+ *   商品详细信息
  */
 - (void)requestDataDetailData{
     [HttpTool getWithPath:@"appGoods/findGoodsDetailList.do" params:@{@"GoodsId":self.goodsid} success:^(id json) {
         //
-        ZJCLog(@"名称列表 %@",json);
+        NSArray * datalist = [NSArray yy_modelArrayWithClass:[ZJCDetailModel class] json:json];
+        _detailView.modellist =datalist;
     } failure:^(NSError *error) {
         //
     }];
 }
 /**
- *  商品详细信息
+ * 名称价格列表数据请求
  */
 - (void)getDataPriceAndDequest{
     [HttpTool getWithPath:@"appGoods/findGoodsDetail.do" params:@{@"GoodsId":self.goodsid} success:^(id json) {
         //
-        ZJCLog(@"详细信息 %@",json);
+      
+        DescriptionModel * descriptionmodel = [DescriptionModel yy_modelWithDictionary:json];
+        _detailtitleview.descriptionmodel = descriptionmodel;
     } failure:^(NSError *error) {
         //
     }];
@@ -90,8 +110,44 @@
 - (UIScrollView *)scrollview{
     if (!_scrollview) {
         _scrollview =[[UIScrollView alloc] init];
+        _scrollview.contentSize =CGSizeMake(0, 1000);
     }
     return _scrollview;
+}
+
+- (DetailTitleView *)detailtitleview{
+    if (!_detailtitleview) {
+        _detailtitleview = [[DetailTitleView alloc] init];
+        _detailtitleview.CountryImg =self.CountryImg;
+        __weak typeof (self) weakself =self;
+        _detailtitleview.heightblock = ^(CGFloat height){
+          [weakself.detailtitleview mas_makeConstraints:^(MASConstraintMaker *make) {
+              make.height.mas_equalTo(height);
+          }];
+          
+        };
+    }
+    return _detailtitleview;
+}
+- (ZJCDetailView *)detailView{
+    if (!_detailView) {
+        _detailView = [[ZJCDetailView alloc] init];
+        __weak typeof (self) weakself =self;
+        _detailView.heightBlock =^(CGFloat height){
+            [weakself.detailView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.height.mas_equalTo(height);
+            }];
+       
+            
+        };
+    }
+    return _detailView;
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+     self.scrollview.contentSize =CGSizeMake(0, _cyclescrollView.frame.size.height + _detailtitleview.frame.size.height+_detailView.frame.size.height);
+   
 }
 
 - (void)didReceiveMemoryWarning {

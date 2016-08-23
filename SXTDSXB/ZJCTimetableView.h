@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-typedef void(^newTableViewSelectGoodsIdBlock)(NSString * goodid);
+typedef void(^newTableViewSelectGoodsIdBlock)(NSString * goodid,NSString * countryName);
 
 @interface ZJCTimetableView : UITableView
 

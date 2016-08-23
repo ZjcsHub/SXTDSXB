@@ -102,7 +102,6 @@
 - (SDCycleScrollView *)headscrollView{
     if (!_headscrollView) {
         _headscrollView =[SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0,VIEW_WIDTH,230) delegate:nil placeholderImage:[UIImage imageNamed:@"屏幕快照 2016-08-22 11.25.54"]];
-        _headscrollView.backgroundColor =[UIColor blueColor];
         _headscrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
         _headscrollView.currentPageDotColor = [UIColor whiteColor]; // 自定义分页控件小圆标颜色
         
@@ -137,9 +136,10 @@
         _singletable =[[ZJCTimetableView alloc] initWithFrame:CGRectMake(0, 280, VIEW_WIDTH, VIEW_HEIGHT) style:UITableViewStylePlain];
         _singletable.isSingal =YES;
         __weak typeof (self) weakself =self;
-        _singletable.idBlock = ^(NSString * goodsid){
+        _singletable.idBlock = ^(NSString * goodsid,NSString * countryName){
             ZJCDetailGoodsController * goodsID =[[ZJCDetailGoodsController alloc] init];
             goodsID.goodsid =goodsid;
+            goodsID.CountryImg =countryName;
             [weakself.navigationController pushViewController:goodsID animated:YES];
         };
     }

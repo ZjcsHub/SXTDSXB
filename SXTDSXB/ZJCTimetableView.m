@@ -76,7 +76,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (_idBlock) {
-        _idBlock([self.signalarray[indexPath.row] GoodsId]);
+        _idBlock([self.signalarray[indexPath.row] GoodsId],[self.signalarray[indexPath.row] CountryImg]);
     }
 }
 

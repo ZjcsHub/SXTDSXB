@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DescriptionModel.h"
+
+typedef void(^ReturnHeightBlock)(CGFloat height);
 
 @interface DetailTitleView : UIView
 
+@property (nonatomic,strong) DescriptionModel * descriptionmodel;
+
+@property (nonatomic,copy) ReturnHeightBlock heightblock;
+
+@property (nonatomic,copy) NSString * CountryImg;
 @end
