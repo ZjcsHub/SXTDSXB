@@ -35,6 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.mainScrollView];
+    self.edgesForExtendedLayout =0;
     [self.mainScrollView addSubview:self.headscrollView];
     [self.mainScrollView addSubview:self.singletable];
     [self.mainScrollView addSubview:self.grouptable];
@@ -92,7 +93,7 @@
 
 - (UIScrollView *)mainScrollView{
     if (!_mainScrollView) {
-        _mainScrollView= [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT)];
+        _mainScrollView= [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT+64)];
         _mainScrollView.contentSize =CGSizeMake(0, MAXFLOAT);
         _mainScrollView.bounces =NO;
         _mainScrollView.delegate =self;
@@ -188,9 +189,9 @@
 #pragma mark - ScrollView-Delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
  
-    if (scrollView.contentOffset.y >230-64) {
+    if (scrollView.contentOffset.y >230) {
         CGRect rect = _twobuttonView.frame;
-        rect.origin.y = scrollView.contentOffset.y + 64;
+        rect.origin.y = scrollView.contentOffset.y ;
         _twobuttonView.frame =rect;
     }else{
         CGRect rect = _twobuttonView.frame;
@@ -198,35 +199,10 @@
         _twobuttonView.frame =rect;
     }
 }
-//- (void)tableViewchange:(UIButton *)button{
-//    if (button == _button1) {
-//        [UIView animateWithDuration:0.5 animations:^{
-//            CGRect tableRect1 = _tableView1.frame;
-//            tableRect1.origin.x =0;
-//            _tableView1.frame =tableRect1;
-//            
-//            CGRect tableRect2 =_tableView2.frame;
-//            tableRect2.origin.x = VIEW_WIDTH;
-//            _tableView2.frame =tableRect2;
-//        }];
-//    }else if (button == _button2){
-//        [UIView animateWithDuration:0.5 animations:^{
-//            CGRect tableRect1 = _tableView1.frame;
-//            tableRect1.origin.x =-VIEW_WIDTH;
-//            _tableView1.frame =tableRect1;
-//            
-//            CGRect tableRect2 =_tableView2.frame;
-//            tableRect2.origin.x = 0;
-//            _tableView2.frame =tableRect2;
-//        }];
-//    }
-//}
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 /*

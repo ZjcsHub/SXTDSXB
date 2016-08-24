@@ -50,6 +50,7 @@
 		07142A041D68309500253E1B /* PhoneNumberRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 07142A031D68309500253E1B /* PhoneNumberRegister.m */; };
 		07142A071D684F4400253E1B /* ZJCHeaderLogInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07142A061D684F4400253E1B /* ZJCHeaderLogInView.m */; };
 		071A06A21D6D31D2003972BE /* ZJCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071A06A11D6D31D2003972BE /* ZJCImageView.m */; };
+		071A06A51D6D4577003972BE /* ZJCThreeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071A06A41D6D4577003972BE /* ZJCThreeButtonView.m */; };
 		075A301C1D696BB6005FEF8E /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A301B1D696BB6005FEF8E /* UIView+Toast.m */; };
 		075A30231D6AFBCF005FEF8E /* ZJCTimetableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A30221D6AFBCF005FEF8E /* ZJCTimetableView.m */; };
 		075A30261D6B1924005FEF8E /* ZJCsingleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A30251D6B1924005FEF8E /* ZJCsingleCell.m */; };
@@ -191,6 +192,8 @@
 		07142A061D684F4400253E1B /* ZJCHeaderLogInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCHeaderLogInView.m; sourceTree = "<group>"; };
 		071A06A01D6D31D2003972BE /* ZJCImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCImageView.h; sourceTree = "<group>"; };
 		071A06A11D6D31D2003972BE /* ZJCImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCImageView.m; sourceTree = "<group>"; };
+		071A06A31D6D4577003972BE /* ZJCThreeButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCThreeButtonView.h; sourceTree = "<group>"; };
+		071A06A41D6D4577003972BE /* ZJCThreeButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCThreeButtonView.m; sourceTree = "<group>"; };
 		075A301A1D696BB6005FEF8E /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		075A301B1D696BB6005FEF8E /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		075A30211D6AFBCF005FEF8E /* ZJCTimetableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCTimetableView.h; sourceTree = "<group>"; };
@@ -621,6 +624,8 @@
 				07C15DCF1D6C6D040004CB79 /* ZJCDetailView.m */,
 				071A06A01D6D31D2003972BE /* ZJCImageView.h */,
 				071A06A11D6D31D2003972BE /* ZJCImageView.m */,
+				071A06A31D6D4577003972BE /* ZJCThreeButtonView.h */,
+				071A06A41D6D4577003972BE /* ZJCThreeButtonView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1097,6 +1102,7 @@
 				07142A071D684F4400253E1B /* ZJCHeaderLogInView.m in Sources */,
 				07D7463C1D63F76A00966A7B /* AppDelegate.m in Sources */,
 				075A303B1D6BE59F005FEF8E /* ZJCCycleScrollView.m in Sources */,
+				071A06A51D6D4577003972BE /* ZJCThreeButtonView.m in Sources */,
 				07E5EE6E1D64544400E2E9F1 /* ZJCNavViewController.m in Sources */,
 				071429F61D68168D00253E1B /* ZJCLogInView.m in Sources */,
 				075A30231D6AFBCF005FEF8E /* ZJCTimetableView.m in Sources */,
