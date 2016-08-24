@@ -12,6 +12,7 @@
 #import "ZJCSingleModel.h"
 #import "ZJCGroupListModel.h"
 #import "ZJCDetailGoodsController.h"
+#import "ZJCSearchViewController.h"
 @interface ZJCTimeViewController ()<UIScrollViewDelegate>
 
 @property (nonatomic,strong) UIScrollView * mainScrollView;
@@ -36,12 +37,22 @@
     [super viewDidLoad];
     [self.view addSubview:self.mainScrollView];
     self.edgesForExtendedLayout =0;
+    UIButton * searchBun = [UIButton buttonWithType:UIButtonTypeCustom];
+    [searchBun setBackgroundImage:[UIImage imageNamed:@"限时特卖界面搜索按钮"] forState:UIControlStateNormal];
+    [searchBun addTarget:self action:@selector(pushNextController) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithCustomView:searchBun];
+    [searchBun sizeToFit];
     [self.mainScrollView addSubview:self.headscrollView];
     [self.mainScrollView addSubview:self.singletable];
     [self.mainScrollView addSubview:self.grouptable];
     [self.mainScrollView addSubview:self.twobuttonView];
     [self makesinglenetwork];
     [self requestGroupData];
+}
+
+- (void)pushNextController{
+    ZJCSearchViewController * searchcontroller =[[ZJCSearchViewController alloc] init];
+    [self.navigationController pushViewController:searchcontroller animated:YES];
 }
 
 #pragma mark - 新品团购网络请求

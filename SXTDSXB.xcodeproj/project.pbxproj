@@ -51,6 +51,7 @@
 		07142A071D684F4400253E1B /* ZJCHeaderLogInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07142A061D684F4400253E1B /* ZJCHeaderLogInView.m */; };
 		071A06A21D6D31D2003972BE /* ZJCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071A06A11D6D31D2003972BE /* ZJCImageView.m */; };
 		071A06A51D6D4577003972BE /* ZJCThreeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071A06A41D6D4577003972BE /* ZJCThreeButtonView.m */; };
+		071A06A91D6D504A003972BE /* ZJCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071A06A81D6D504A003972BE /* ZJCSearchViewController.m */; };
 		075A301C1D696BB6005FEF8E /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A301B1D696BB6005FEF8E /* UIView+Toast.m */; };
 		075A30231D6AFBCF005FEF8E /* ZJCTimetableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A30221D6AFBCF005FEF8E /* ZJCTimetableView.m */; };
 		075A30261D6B1924005FEF8E /* ZJCsingleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A30251D6B1924005FEF8E /* ZJCsingleCell.m */; };
@@ -194,6 +195,8 @@
 		071A06A11D6D31D2003972BE /* ZJCImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCImageView.m; sourceTree = "<group>"; };
 		071A06A31D6D4577003972BE /* ZJCThreeButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCThreeButtonView.h; sourceTree = "<group>"; };
 		071A06A41D6D4577003972BE /* ZJCThreeButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCThreeButtonView.m; sourceTree = "<group>"; };
+		071A06A71D6D504A003972BE /* ZJCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCSearchViewController.h; sourceTree = "<group>"; };
+		071A06A81D6D504A003972BE /* ZJCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCSearchViewController.m; sourceTree = "<group>"; };
 		075A301A1D696BB6005FEF8E /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		075A301B1D696BB6005FEF8E /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		075A30211D6AFBCF005FEF8E /* ZJCTimetableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCTimetableView.h; sourceTree = "<group>"; };
@@ -567,6 +570,15 @@
 			name = "主界面";
 			sourceTree = "<group>";
 		};
+		071A06A61D6D5022003972BE /* 搜索 */ = {
+			isa = PBXGroup;
+			children = (
+				071A06A71D6D504A003972BE /* ZJCSearchViewController.h */,
+				071A06A81D6D504A003972BE /* ZJCSearchViewController.m */,
+			);
+			name = "搜索";
+			sourceTree = "<group>";
+		};
 		075A301F1D6AF7CC005FEF8E /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -725,6 +737,7 @@
 		07E5EE6F1D6458CA00E2E9F1 /* 限时购 */ = {
 			isa = PBXGroup;
 			children = (
+				071A06A61D6D5022003972BE /* 搜索 */,
 				07D7466A1D6439ED00966A7B /* ZJCTimeViewController.h */,
 				07D7466B1D6439ED00966A7B /* ZJCTimeViewController.m */,
 				075A30341D6BE2DD005FEF8E /* 主界面 */,
@@ -1100,6 +1113,7 @@
 				075A30261D6B1924005FEF8E /* ZJCsingleCell.m in Sources */,
 				07142A041D68309500253E1B /* PhoneNumberRegister.m in Sources */,
 				07142A071D684F4400253E1B /* ZJCHeaderLogInView.m in Sources */,
+				071A06A91D6D504A003972BE /* ZJCSearchViewController.m in Sources */,
 				07D7463C1D63F76A00966A7B /* AppDelegate.m in Sources */,
 				075A303B1D6BE59F005FEF8E /* ZJCCycleScrollView.m in Sources */,
 				071A06A51D6D4577003972BE /* ZJCThreeButtonView.m in Sources */,
