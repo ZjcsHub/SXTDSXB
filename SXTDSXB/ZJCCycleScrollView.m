@@ -12,7 +12,6 @@
 
 @property (nonatomic,strong) SDCycleScrollView * headscrollView;
 
-@property (nonatomic,strong) UILabel * buylabel;
 @end
 
 

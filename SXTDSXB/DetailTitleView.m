@@ -57,6 +57,7 @@
     [_contryImage sd_setImageWithURL:[NSURL URLWithString:self.CountryImg]];
     _priceLabel.text = [NSString stringWithFormat:@"%@ %@ %@",descriptionmodel.Price,descriptionmodel.OriginalPrice,descriptionmodel.Discount];
     _contentLabel.text = descriptionmodel.GoodsIntro;
+    self.buycount = descriptionmodel.BuyCount;
     CGFloat contentheight = [self getLabelsHeight:descriptionmodel.GoodsIntro prame:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:14.0]}];
     _shopName.text =descriptionmodel.BrandCNName;
     [_shopIcon sd_setImageWithURL:[NSURL URLWithString:descriptionmodel.ShopImage]];

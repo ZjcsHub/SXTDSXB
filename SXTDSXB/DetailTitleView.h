@@ -18,4 +18,6 @@ typedef void(^ReturnHeightBlock)(CGFloat height);
 @property (nonatomic,copy) ReturnHeightBlock heightblock;
 
 @property (nonatomic,copy) NSString * CountryImg;
+
+@property (nonatomic,copy) NSString * buycount;
 @end

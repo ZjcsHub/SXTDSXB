@@ -13,6 +13,7 @@
 #import "DetailTitleView.h"
 #import "ZJCDetailModel.h"
 #import "ZJCDetailView.h"
+#import "ZJCImageView.h"
 @interface ZJCDetailGoodsController ()
 
 @property (nonatomic,strong) UIScrollView * scrollview;
@@ -24,6 +25,10 @@
 @property (nonatomic,strong) DetailTitleView * detailtitleview;
 
 @property (nonatomic,strong) ZJCDetailView * detailView;
+
+@property (nonatomic,strong) ZJCImageView * imageView;
+
+@property (nonatomic,assign) CGFloat scrollViewContentSizeHeight;
 @end
 
 @implementation ZJCDetailGoodsController
@@ -32,11 +37,13 @@
     [super viewDidLoad];
     self.view.backgroundColor =MainColor;
     self.edgesForExtendedLayout =0;
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    self.scrollViewContentSizeHeight =380;
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsCompact];
     [self.view addSubview:self.scrollview];
     [self.scrollview addSubview:self.cyclescrollView];
     [self.scrollview addSubview:self.detailtitleview];
     [self.scrollview addSubview:self.detailView];
+    [self.scrollview addSubview:self.imageView];
     __weak typeof (self) weakself =self;
     [_scrollview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(weakself.view).with.insets(UIEdgeInsetsMake(0, 0, 45, 0));
@@ -49,6 +56,10 @@
         make.top.equalTo(weakself.detailtitleview.mas_bottom);
         make.right.left.equalTo(weakself.view);
 
+    }];
+    [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakself.detailView.mas_bottom);
+        make.left.right.equalTo(weakself.view);
     }];
     [self requestGoodsidImageData];
     [self requestDataDetailData];
@@ -68,6 +79,7 @@
         }
         self.cyclescrollView.imageArray =imageArray;
         
+        _imageView.imageArray = datalist;
         
     } failure:^(NSError *error) {
         
@@ -81,6 +93,7 @@
         //
         NSArray * datalist = [NSArray yy_modelArrayWithClass:[ZJCDetailModel class] json:json];
         _detailView.modellist =datalist;
+        
     } failure:^(NSError *error) {
         //
     }];
@@ -91,7 +104,6 @@
 - (void)getDataPriceAndDequest{
     [HttpTool getWithPath:@"appGoods/findGoodsDetail.do" params:@{@"GoodsId":self.goodsid} success:^(id json) {
         //
-      
         DescriptionModel * descriptionmodel = [DescriptionModel yy_modelWithDictionary:json];
         _detailtitleview.descriptionmodel = descriptionmodel;
     } failure:^(NSError *error) {
@@ -124,7 +136,10 @@
           [weakself.detailtitleview mas_makeConstraints:^(MASConstraintMaker *make) {
               make.height.mas_equalTo(height);
           }];
-          
+            weakself.cyclescrollView.buylabel.text = weakself.detailtitleview.buycount;
+            
+            weakself.scrollViewContentSizeHeight +=height;
+            
         };
     }
     return _detailtitleview;
@@ -138,16 +153,29 @@
                 make.height.mas_equalTo(height);
             }];
        
-            
+            weakself.scrollViewContentSizeHeight +=height;
         };
     }
     return _detailView;
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-     self.scrollview.contentSize =CGSizeMake(0, _cyclescrollView.frame.size.height + _detailtitleview.frame.size.height+_detailView.frame.size.height);
-   
+- (ZJCImageView *)imageView{
+    if (!_imageView) {
+        _imageView =[[ZJCImageView alloc] initWithFrame:CGRectZero];
+        __weak typeof (self) weakself =self;
+        _imageView.heightBlock = ^(CGFloat height){
+            [weakself.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.height.mas_equalTo(height);
+            }];
+            weakself.scrollViewContentSizeHeight +=height;
+        };
+    }
+    return _imageView;
+}
+
+- (void)setScrollViewContentSizeHeight:(CGFloat)scrollViewContentSizeHeight{
+    _scrollViewContentSizeHeight =scrollViewContentSizeHeight;
+     _scrollview.contentSize =CGSizeMake(0, _scrollViewContentSizeHeight);
 }
 
 - (void)didReceiveMemoryWarning {

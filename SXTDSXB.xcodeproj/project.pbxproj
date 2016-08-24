@@ -49,6 +49,7 @@
 		07142A011D682C3500253E1B /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 07142A001D682C3500253E1B /* NSArray+Log.m */; };
 		07142A041D68309500253E1B /* PhoneNumberRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 07142A031D68309500253E1B /* PhoneNumberRegister.m */; };
 		07142A071D684F4400253E1B /* ZJCHeaderLogInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07142A061D684F4400253E1B /* ZJCHeaderLogInView.m */; };
+		071A06A21D6D31D2003972BE /* ZJCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071A06A11D6D31D2003972BE /* ZJCImageView.m */; };
 		075A301C1D696BB6005FEF8E /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A301B1D696BB6005FEF8E /* UIView+Toast.m */; };
 		075A30231D6AFBCF005FEF8E /* ZJCTimetableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A30221D6AFBCF005FEF8E /* ZJCTimetableView.m */; };
 		075A30261D6B1924005FEF8E /* ZJCsingleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A30251D6B1924005FEF8E /* ZJCsingleCell.m */; };
@@ -188,6 +189,8 @@
 		07142A031D68309500253E1B /* PhoneNumberRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneNumberRegister.m; sourceTree = "<group>"; };
 		07142A051D684F4400253E1B /* ZJCHeaderLogInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCHeaderLogInView.h; sourceTree = "<group>"; };
 		07142A061D684F4400253E1B /* ZJCHeaderLogInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCHeaderLogInView.m; sourceTree = "<group>"; };
+		071A06A01D6D31D2003972BE /* ZJCImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCImageView.h; sourceTree = "<group>"; };
+		071A06A11D6D31D2003972BE /* ZJCImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCImageView.m; sourceTree = "<group>"; };
 		075A301A1D696BB6005FEF8E /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		075A301B1D696BB6005FEF8E /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		075A30211D6AFBCF005FEF8E /* ZJCTimetableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCTimetableView.h; sourceTree = "<group>"; };
@@ -616,6 +619,8 @@
 				075A30411D6BFC01005FEF8E /* DetailTitleView.m */,
 				07C15DCE1D6C6D040004CB79 /* ZJCDetailView.h */,
 				07C15DCF1D6C6D040004CB79 /* ZJCDetailView.m */,
+				071A06A01D6D31D2003972BE /* ZJCImageView.h */,
+				071A06A11D6D31D2003972BE /* ZJCImageView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1098,6 +1103,7 @@
 				075A302F1D6B32FA005FEF8E /* ZJCGroupListModel.m in Sources */,
 				075A30371D6BE34F005FEF8E /* ZJCDetailGoodsController.m in Sources */,
 				070F4B161D6589380004DBD9 /* ZJCThreeButton.m in Sources */,
+				071A06A21D6D31D2003972BE /* ZJCImageView.m in Sources */,
 				07D7466F1D643A3000966A7B /* ZJCSecondViewController.m in Sources */,
 				07C15DCD1D6C4DA40004CB79 /* DescriptionModel.m in Sources */,
 				07D746391D63F76A00966A7B /* main.m in Sources */,

@@ -11,5 +11,6 @@
 @interface ZJCCycleScrollView : UIView
 
 @property (nonatomic,strong) NSArray * imageArray;
+@property (nonatomic,strong) UILabel * buylabel;
 
 @end

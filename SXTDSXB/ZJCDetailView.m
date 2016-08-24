@@ -32,10 +32,12 @@
         namelabel.text = [model.Title stringByAppendingString:@":"];
         [self addSubview:namelabel];
         
-        CGFloat Labelheight = [self getLabelsHeight:model.Value prame:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}];
         
-        UILabel * valueLabel =[[UILabel alloc] initWithFrame:CGRectMake(90, height+10, VIEW_WIDTH -100, Labelheight)];
+        
+        UILabel * valueLabel =[[UILabel alloc] initWithFrame:CGRectMake(90, height+10, VIEW_WIDTH -100, height)];
         valueLabel.text =model.Value;
+        CGFloat Labelheight = [self getLabelsHeight:valueLabel.text prame:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}];
+        valueLabel.frame = CGRectMake(90, height+10, VIEW_WIDTH -100, Labelheight);
         valueLabel.numberOfLines =0;
         valueLabel.font =[UIFont systemFontOfSize:14];
         [self addSubview:valueLabel];
