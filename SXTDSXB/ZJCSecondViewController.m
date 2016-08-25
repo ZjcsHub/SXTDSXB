@@ -7,8 +7,10 @@
 //
 
 #import "ZJCSecondViewController.h"
-
+#import "ZJCFountionCollectionView.h"
 @interface ZJCSecondViewController ()
+
+@property (nonatomic, strong)ZJCFountionCollectionView * collection;    /**  */
 
 @end
 
@@ -16,8 +18,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    ZJCLog(@"%@",self.title);
+   
+    [self.view addSubview:self.collection];
+    __weak typeof (self) weakself =self;
+    [_collection mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(weakself.view).insets(UIEdgeInsetsZero);
+    }];
+}
+
+
+- (void)getData{
+    [HttpTool getWithPath:@"appBrandarea/asianBrand.do" params:nil success:^(id json) {
+        ZJCLog(@"%@",json);
+    } failure:^(NSError *error) {
+        ZJCLog(@"错误%@",error);
+    }];
+}
+
+- (ZJCFountionCollectionView *)collection{
+    if (!_collection) {
+        UICollectionViewFlowLayout * flow = [[UICollectionViewFlowLayout alloc] init];
+        NSInteger width = 0;
+        if (VIEW_WIDTH == 414) {
+            width =(VIEW_WIDTH -6)/5;
+        }else{
+            width =(VIEW_WIDTH - 5) /4;
+        }
+        flow.itemSize =CGSizeMake(width, width);
+    
+        flow.minimumLineSpacing =1;
+        flow.minimumInteritemSpacing =1;
+//        flow.sectionInset =UIEdgeInsetsMake(40, 1, 0, 1);
+        flow.headerReferenceSize =CGSizeMake(VIEW_WIDTH, 40);
+        _collection =[[ZJCFountionCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flow];
+        
+    }
+    return _collection;
 }
 
 - (void)didReceiveMemoryWarning {

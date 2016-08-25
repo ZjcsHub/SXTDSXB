@@ -69,10 +69,14 @@
 		07751F881D6D95050072980F /* ZJCCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07751F871D6D95050072980F /* ZJCCollectionView.m */; };
 		07751F8B1D6D951F0072980F /* ZJCGoodsListHeaderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 07751F8A1D6D951F0072980F /* ZJCGoodsListHeaderButton.m */; };
 		0779D9231D6543E4008E78AD /* ZJCLandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0779D9221D6543E4008E78AD /* ZJCLandView.m */; };
+		078D10151D6EEC4A00DE8DC8 /* ZJCFountionCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 078D10141D6EEC4A00DE8DC8 /* ZJCFountionCollectionView.m */; };
+		078D10191D6EEC7B00DE8DC8 /* ZJCFountionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 078D10181D6EEC7B00DE8DC8 /* ZJCFountionViewCell.m */; };
+		078D101D1D6F0EB600DE8DC8 /* ZJCSecond.plist in Resources */ = {isa = PBXBuildFile; fileRef = 078D101C1D6F0EB600DE8DC8 /* ZJCSecond.plist */; };
 		07C15DCD1D6C4DA40004CB79 /* DescriptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C15DCC1D6C4DA40004CB79 /* DescriptionModel.m */; };
 		07C15DD01D6C6D040004CB79 /* ZJCDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C15DCF1D6C6D040004CB79 /* ZJCDetailView.m */; };
 		07C15DD31D6C6D1A0004CB79 /* ZJCDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C15DD21D6C6D1A0004CB79 /* ZJCDetailModel.m */; };
 		07C15DD51D6C76910004CB79 /* 屏幕快照 2016-08-22 11.25.54.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C15DD41D6C76910004CB79 /* 屏幕快照 2016-08-22 11.25.54.png */; };
+		07CD846D1D6F134D000AE0A4 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CD846C1D6F134D000AE0A4 /* Model.m */; };
 		07D746391D63F76A00966A7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D746381D63F76A00966A7B /* main.m */; };
 		07D7463C1D63F76A00966A7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D7463B1D63F76A00966A7B /* AppDelegate.m */; };
 		07D746441D63F76A00966A7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D746431D63F76A00966A7B /* Assets.xcassets */; };
@@ -236,6 +240,11 @@
 		07751F8A1D6D951F0072980F /* ZJCGoodsListHeaderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCGoodsListHeaderButton.m; sourceTree = "<group>"; };
 		0779D9211D6543E4008E78AD /* ZJCLandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCLandView.h; sourceTree = "<group>"; };
 		0779D9221D6543E4008E78AD /* ZJCLandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCLandView.m; sourceTree = "<group>"; };
+		078D10131D6EEC4A00DE8DC8 /* ZJCFountionCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCFountionCollectionView.h; sourceTree = "<group>"; };
+		078D10141D6EEC4A00DE8DC8 /* ZJCFountionCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCFountionCollectionView.m; sourceTree = "<group>"; };
+		078D10171D6EEC7B00DE8DC8 /* ZJCFountionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCFountionViewCell.h; sourceTree = "<group>"; };
+		078D10181D6EEC7B00DE8DC8 /* ZJCFountionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCFountionViewCell.m; sourceTree = "<group>"; };
+		078D101C1D6F0EB600DE8DC8 /* ZJCSecond.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ZJCSecond.plist; sourceTree = "<group>"; };
 		07C15DCB1D6C4DA40004CB79 /* DescriptionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionModel.h; sourceTree = "<group>"; };
 		07C15DCC1D6C4DA40004CB79 /* DescriptionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescriptionModel.m; sourceTree = "<group>"; };
 		07C15DCE1D6C6D040004CB79 /* ZJCDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCDetailView.h; sourceTree = "<group>"; };
@@ -243,6 +252,8 @@
 		07C15DD11D6C6D1A0004CB79 /* ZJCDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCDetailModel.h; sourceTree = "<group>"; };
 		07C15DD21D6C6D1A0004CB79 /* ZJCDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCDetailModel.m; sourceTree = "<group>"; };
 		07C15DD41D6C76910004CB79 /* 屏幕快照 2016-08-22 11.25.54.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "屏幕快照 2016-08-22 11.25.54.png"; sourceTree = "<group>"; };
+		07CD846B1D6F134D000AE0A4 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		07CD846C1D6F134D000AE0A4 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		07D746341D63F76A00966A7B /* SXTDSXB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SXTDSXB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D746381D63F76A00966A7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		07D7463A1D63F76A00966A7B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -704,6 +715,26 @@
 			name = "注册";
 			sourceTree = "<group>";
 		};
+		078D10161D6EEC5100DE8DC8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				078D10131D6EEC4A00DE8DC8 /* ZJCFountionCollectionView.h */,
+				078D10141D6EEC4A00DE8DC8 /* ZJCFountionCollectionView.m */,
+				078D10171D6EEC7B00DE8DC8 /* ZJCFountionViewCell.h */,
+				078D10181D6EEC7B00DE8DC8 /* ZJCFountionViewCell.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		07CD846A1D6F130F000AE0A4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				07CD846B1D6F134D000AE0A4 /* Model.h */,
+				07CD846C1D6F134D000AE0A4 /* Model.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		07D7462B1D63F76A00966A7B = {
 			isa = PBXGroup;
 			children = (
@@ -790,8 +821,11 @@
 		07E5EE701D64595500E2E9F1 /* 分类 */ = {
 			isa = PBXGroup;
 			children = (
+				07CD846A1D6F130F000AE0A4 /* model */,
+				078D101C1D6F0EB600DE8DC8 /* ZJCSecond.plist */,
 				07D7466D1D643A3000966A7B /* ZJCSecondViewController.h */,
 				07D7466E1D643A3000966A7B /* ZJCSecondViewController.m */,
+				078D10161D6EEC5100DE8DC8 /* view */,
 			);
 			name = "分类";
 			sourceTree = "<group>";
@@ -977,6 +1011,7 @@
 			files = (
 				071429CB1D67445100253E1B /* UMShareEditViewController.xib in Resources */,
 				071429CA1D67445100253E1B /* UMSCommentInputControlleriPad.xib in Resources */,
+				078D101D1D6F0EB600DE8DC8 /* ZJCSecond.plist in Resources */,
 				07C15DD51D6C76910004CB79 /* 屏幕快照 2016-08-22 11.25.54.png in Resources */,
 				07D746471D63F76A00966A7B /* LaunchScreen.storyboard in Resources */,
 				07D746441D63F76A00966A7B /* Assets.xcassets in Resources */,
@@ -1141,10 +1176,12 @@
 				075A301C1D696BB6005FEF8E /* UIView+Toast.m in Sources */,
 				07D746721D643A3B00966A7B /* ZJCThirdViewController.m in Sources */,
 				0779D9231D6543E4008E78AD /* ZJCLandView.m in Sources */,
+				07CD846D1D6F134D000AE0A4 /* Model.m in Sources */,
 				070DD58E1D65EB51001925AC /* HttpTool.m in Sources */,
 				075A30421D6BFC01005FEF8E /* DetailTitleView.m in Sources */,
 				07E5EE761D64657A00E2E9F1 /* ZJCTableViewCell.m in Sources */,
 				07D746751D643A4600966A7B /* ZJCFourthViewController.m in Sources */,
+				078D10191D6EEC7B00DE8DC8 /* ZJCFountionViewCell.m in Sources */,
 				0766D2CB1D6EC90C00EC6E2A /* CollectionCell.m in Sources */,
 				07D746781D643F5000966A7B /* ZJCTabBarViewController.m in Sources */,
 				070F4B1F1D65AB7E0004DBD9 /* ZJCPhoneView.m in Sources */,
@@ -1170,6 +1207,7 @@
 				07751F8B1D6D951F0072980F /* ZJCGoodsListHeaderButton.m in Sources */,
 				071A06A21D6D31D2003972BE /* ZJCImageView.m in Sources */,
 				07D7466F1D643A3000966A7B /* ZJCSecondViewController.m in Sources */,
+				078D10151D6EEC4A00DE8DC8 /* ZJCFountionCollectionView.m in Sources */,
 				07C15DCD1D6C4DA40004CB79 /* DescriptionModel.m in Sources */,
 				07D746391D63F76A00966A7B /* main.m in Sources */,
 				07C15DD01D6C6D040004CB79 /* ZJCDetailView.m in Sources */,
