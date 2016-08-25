@@ -63,6 +63,9 @@
 		075A303B1D6BE59F005FEF8E /* ZJCCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A303A1D6BE59F005FEF8E /* ZJCCycleScrollView.m */; };
 		075A303F1D6BF18F005FEF8E /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A303E1D6BF18F005FEF8E /* ImageModel.m */; };
 		075A30421D6BFC01005FEF8E /* DetailTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A30411D6BFC01005FEF8E /* DetailTitleView.m */; };
+		0766D2C81D6EC21000EC6E2A /* ZJCSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0766D2C71D6EC21000EC6E2A /* ZJCSearchModel.m */; };
+		0766D2CB1D6EC90C00EC6E2A /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0766D2CA1D6EC90C00EC6E2A /* CollectionCell.m */; };
+		0766D2CE1D6EDF6900EC6E2A /* NSAttributedString+ZJCPriceString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0766D2CD1D6EDF6900EC6E2A /* NSAttributedString+ZJCPriceString.m */; };
 		07751F881D6D95050072980F /* ZJCCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07751F871D6D95050072980F /* ZJCCollectionView.m */; };
 		07751F8B1D6D951F0072980F /* ZJCGoodsListHeaderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 07751F8A1D6D951F0072980F /* ZJCGoodsListHeaderButton.m */; };
 		0779D9231D6543E4008E78AD /* ZJCLandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0779D9221D6543E4008E78AD /* ZJCLandView.m */; };
@@ -221,6 +224,12 @@
 		075A303E1D6BF18F005FEF8E /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
 		075A30401D6BFC01005FEF8E /* DetailTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTitleView.h; sourceTree = "<group>"; };
 		075A30411D6BFC01005FEF8E /* DetailTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTitleView.m; sourceTree = "<group>"; };
+		0766D2C61D6EC21000EC6E2A /* ZJCSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCSearchModel.h; sourceTree = "<group>"; };
+		0766D2C71D6EC21000EC6E2A /* ZJCSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCSearchModel.m; sourceTree = "<group>"; };
+		0766D2C91D6EC90C00EC6E2A /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
+		0766D2CA1D6EC90C00EC6E2A /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
+		0766D2CC1D6EDF6900EC6E2A /* NSAttributedString+ZJCPriceString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+ZJCPriceString.h"; sourceTree = "<group>"; };
+		0766D2CD1D6EDF6900EC6E2A /* NSAttributedString+ZJCPriceString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+ZJCPriceString.m"; sourceTree = "<group>"; };
 		07751F861D6D95050072980F /* ZJCCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCCollectionView.h; sourceTree = "<group>"; };
 		07751F871D6D95050072980F /* ZJCCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCCollectionView.m; sourceTree = "<group>"; };
 		07751F891D6D951F0072980F /* ZJCGoodsListHeaderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCGoodsListHeaderButton.h; sourceTree = "<group>"; };
@@ -367,6 +376,8 @@
 				070DD5941D66B724001925AC /* Tabbar+Navgation */,
 				070DD5901D66B656001925AC /* 加载网络图片工具 */,
 				070DD58F1D66B63F001925AC /* 网络请求工具 */,
+				0766D2CC1D6EDF6900EC6E2A /* NSAttributedString+ZJCPriceString.h */,
+				0766D2CD1D6EDF6900EC6E2A /* NSAttributedString+ZJCPriceString.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -579,6 +590,7 @@
 		071A06A61D6D5022003972BE /* 搜索 */ = {
 			isa = PBXGroup;
 			children = (
+				0766D2C51D6EC1F400EC6E2A /* model */,
 				07751F851D6D94EC0072980F /* view */,
 				071A06A71D6D504A003972BE /* ZJCSearchViewController.h */,
 				071A06A81D6D504A003972BE /* ZJCSearchViewController.m */,
@@ -662,11 +674,22 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		0766D2C51D6EC1F400EC6E2A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				0766D2C61D6EC21000EC6E2A /* ZJCSearchModel.h */,
+				0766D2C71D6EC21000EC6E2A /* ZJCSearchModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		07751F851D6D94EC0072980F /* view */ = {
 			isa = PBXGroup;
 			children = (
 				07751F861D6D95050072980F /* ZJCCollectionView.h */,
 				07751F871D6D95050072980F /* ZJCCollectionView.m */,
+				0766D2C91D6EC90C00EC6E2A /* CollectionCell.h */,
+				0766D2CA1D6EC90C00EC6E2A /* CollectionCell.m */,
 				07751F891D6D951F0072980F /* ZJCGoodsListHeaderButton.h */,
 				07751F8A1D6D951F0072980F /* ZJCGoodsListHeaderButton.m */,
 			);
@@ -1122,8 +1145,10 @@
 				075A30421D6BFC01005FEF8E /* DetailTitleView.m in Sources */,
 				07E5EE761D64657A00E2E9F1 /* ZJCTableViewCell.m in Sources */,
 				07D746751D643A4600966A7B /* ZJCFourthViewController.m in Sources */,
+				0766D2CB1D6EC90C00EC6E2A /* CollectionCell.m in Sources */,
 				07D746781D643F5000966A7B /* ZJCTabBarViewController.m in Sources */,
 				070F4B1F1D65AB7E0004DBD9 /* ZJCPhoneView.m in Sources */,
+				0766D2C81D6EC21000EC6E2A /* ZJCSearchModel.m in Sources */,
 				075A30321D6B3305005FEF8E /* ZJCGroupTableCell.m in Sources */,
 				071429F11D68163B00253E1B /* ZJCLogInController.m in Sources */,
 				070F4B131D6589240004DBD9 /* ZJCRegistView.m in Sources */,
@@ -1150,6 +1175,7 @@
 				07C15DD01D6C6D040004CB79 /* ZJCDetailView.m in Sources */,
 				07C15DD31D6C6D1A0004CB79 /* ZJCDetailModel.m in Sources */,
 				075A302C1D6B1E88005FEF8E /* ZJCTwoBUttonView.m in Sources */,
+				0766D2CE1D6EDF6900EC6E2A /* NSAttributedString+ZJCPriceString.m in Sources */,
 				07142A011D682C3500253E1B /* NSArray+Log.m in Sources */,
 				075A303F1D6BF18F005FEF8E /* ImageModel.m in Sources */,
 				075A30291D6B1A9E005FEF8E /* ZJCSingleModel.m in Sources */,

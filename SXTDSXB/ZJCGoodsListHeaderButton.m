@@ -7,7 +7,6 @@
 //
 
 #import "ZJCGoodsListHeaderButton.h"
-
 @interface ZJCGoodsListHeaderButton ()
 
 @property (nonatomic, strong)UIButton * hostBtn;    /** 热门 */
@@ -91,9 +90,28 @@
         [self layoutIfNeeded];
     
     }];
+    NSString * string;
+    switch (selectionBtn.tag) {
+        case 0:
+            string =@"host";
+            break;
+        case 1:
+            string =@"price";
+            case 2:
+            string =@"score";
+            case 3:
+            string =@"time";
+        default:
+            break;
+    }
+    
+    
+    if (_changBlock) {
+        _changBlock(string);
+    }
+    
     
 }
-
 
 
 
@@ -106,6 +124,7 @@
         [_hostBtn setTitleColor:[UIColor colorWithRed:0.60 green:0.60 blue:0.60 alpha:1.00] forState:UIControlStateNormal];
         [_hostBtn addTarget:self action:@selector(lableMove:) forControlEvents:UIControlEventTouchUpInside];
         _hostBtn.selected =YES;
+        _hostBtn.tag =0;
     }
     return _hostBtn;
 }
@@ -119,6 +138,7 @@
         [_priceBtn setTitleColor:[UIColor colorWithRed:0.60 green:0.60 blue:0.60 alpha:1.00] forState:UIControlStateNormal];
         [_priceBtn addTarget:self action:@selector(lableMove:) forControlEvents:UIControlEventTouchUpInside];
         _priceBtn.selected =NO;
+        _priceBtn.tag =1;
     }
     return _priceBtn;
 }
@@ -132,6 +152,7 @@
         [_goodBtn setTitleColor:[UIColor colorWithRed:0.60 green:0.60 blue:0.60 alpha:1.00] forState:UIControlStateNormal];
          [_goodBtn addTarget:self action:@selector(lableMove:) forControlEvents:UIControlEventTouchUpInside];
         _goodBtn.selected =NO;
+        _goodBtn.tag=2;
     }
     return _goodBtn;
 }
@@ -145,6 +166,7 @@
         [_newsBtn setTitleColor:[UIColor colorWithRed:0.60 green:0.60 blue:0.60 alpha:1.00] forState:UIControlStateNormal];
          [_newsBtn addTarget:self action:@selector(lableMove:) forControlEvents:UIControlEventTouchUpInside];
         _newsBtn.selected =NO;
+        _newsBtn.tag =3;
     }
     return _newsBtn;
 }

@@ -13,7 +13,8 @@
 #import "ZJCGroupListModel.h"
 #import "ZJCDetailGoodsController.h"
 #import "ZJCSearchViewController.h"
-@interface ZJCTimeViewController ()<UIScrollViewDelegate>
+#import "ZJCSearchModel.h"
+@interface ZJCTimeViewController ()<UIScrollViewDelegate,UISearchBarDelegate>
 
 @property (nonatomic,strong) UIScrollView * mainScrollView;
 
@@ -27,8 +28,9 @@
 
 @property (strong, nonatomic)   NSArray *singleModelArray;              /** 存放新品数据模型的数组 */
 @property (strong, nonatomic)   NSArray *groupModelArray;/**存放团购数据模型的数组*/
+@property (nonatomic, strong)UISearchBar * searchBar;    /** 搜索栏 */
 
-
+@property (nonatomic, strong) UIButton * searchBun;    /** 按钮 */
 @end
 
 @implementation ZJCTimeViewController
@@ -37,11 +39,11 @@
     [super viewDidLoad];
     [self.view addSubview:self.mainScrollView];
     self.edgesForExtendedLayout =0;
-    UIButton * searchBun = [UIButton buttonWithType:UIButtonTypeCustom];
-    [searchBun setBackgroundImage:[UIImage imageNamed:@"限时特卖界面搜索按钮"] forState:UIControlStateNormal];
-    [searchBun addTarget:self action:@selector(pushNextController) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithCustomView:searchBun];
-    [searchBun sizeToFit];
+    _searchBun = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_searchBun setBackgroundImage:[UIImage imageNamed:@"限时特卖界面搜索按钮"] forState:UIControlStateNormal];
+    [_searchBun addTarget:self action:@selector(pushNextController) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithCustomView:_searchBun];
+    [_searchBun sizeToFit];
     [self.mainScrollView addSubview:self.headscrollView];
     [self.mainScrollView addSubview:self.singletable];
     [self.mainScrollView addSubview:self.grouptable];
@@ -51,8 +53,50 @@
 }
 
 - (void)pushNextController{
-    ZJCSearchViewController * searchcontroller =[[ZJCSearchViewController alloc] init];
-    [self.navigationController pushViewController:searchcontroller animated:YES];
+
+    self.navigationItem.rightBarButtonItem =nil;
+    self.navigationItem.titleView = self.searchBar;
+    [_searchBar becomeFirstResponder];
+
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [_searchBar resignFirstResponder];
+    self.navigationItem.titleView = nil;
+    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithCustomView:_searchBun];
+}
+
+- (UISearchBar *)searchBar{
+    if (!_searchBar) {
+        _searchBar =[[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH-40, 25)];
+        _searchBar.showsCancelButton =YES;
+        _searchBar.delegate =self;
+    }
+    return _searchBar;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self.searchBar resignFirstResponder];
+    self.navigationItem.titleView = nil;
+    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithCustomView:_searchBun];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [HttpTool postWithPath:@"appSearch/searchList.do" params:@{@"search":searchBar.text,@"OrderName":@"host",@"OrderType":@"ASC"} success:^(id json) {
+        NSArray * dataList =[NSArray yy_modelArrayWithClass:[ZJCSearchModel class] json:json];
+        if (dataList.count==0) {
+            ALERTSTRING(self.view, @"未查找到数据，请重新输入")
+            return ;
+        }
+        ZJCSearchViewController * searchVc =[[ZJCSearchViewController alloc] init];
+        searchVc.dataList = dataList;
+        searchVc.title = searchBar.text;
+        [searchBar resignFirstResponder];
+        [self.navigationController pushViewController:searchVc animated:YES];
+    } failure:^(NSError *error) {
+        
+    }];
+    
 }
 
 #pragma mark - 新品团购网络请求
@@ -64,10 +108,7 @@
         CGRect tableViewRect = _singletable.frame;
         tableViewRect.size.height = _singletable.signalarray.count * 170;
         _singletable.frame = tableViewRect;
-       
-        
-
-        if (_twobuttonView.button1.selected) {
+              if (_twobuttonView.button1.selected) {
             _mainScrollView.contentSize = CGSizeMake(0, self.singletable.signalarray.count * 170 + 280);
         }
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{

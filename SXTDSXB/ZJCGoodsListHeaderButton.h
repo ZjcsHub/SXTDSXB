@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^changeButton)(NSString * string);
+
 @interface ZJCGoodsListHeaderButton : UIView
+
+@property (nonatomic, copy)changeButton changBlock;    /** block */
 
 @end

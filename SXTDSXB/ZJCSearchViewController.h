@@ -10,4 +10,6 @@
 
 @interface ZJCSearchViewController : UIViewController
 
+@property (nonatomic, strong)NSArray * dataList;    /** 模型数组 */
+
 @end

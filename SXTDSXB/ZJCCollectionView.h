@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZJCCollectionView : UIView
+@interface ZJCCollectionView : UICollectionView
+
+@property (nonatomic, strong)NSArray * datalist;    /** 模型数组 */
 
 @end
