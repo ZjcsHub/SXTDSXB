@@ -7,8 +7,11 @@
 //
 
 #import "ZJCSearchViewController.h"
-
+#import "ZJCGoodsListHeaderButton.h"
 @interface ZJCSearchViewController ()
+
+@property (nonatomic, strong)UISearchBar * searchbar;    /** 搜索栏 */
+@property (nonatomic, strong)ZJCGoodsListHeaderButton * goodBtnView;    /** 按钮视图 */
 
 @end
 
@@ -17,7 +20,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor =MainColor;
+    self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
+    [self.view addSubview:self.goodBtnView];
+    
 }
+
+- (ZJCGoodsListHeaderButton *)goodBtnView{
+    if (!_goodBtnView) {
+        _goodBtnView = [[ZJCGoodsListHeaderButton alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 27)];
+    }
+    return _goodBtnView;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

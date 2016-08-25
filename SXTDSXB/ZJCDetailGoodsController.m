@@ -14,6 +14,8 @@
 #import "ZJCDetailModel.h"
 #import "ZJCDetailView.h"
 #import "ZJCImageView.h"
+#import "ZJCThreeButtonView.h"
+
 @interface ZJCDetailGoodsController ()
 
 @property (nonatomic,strong) UIScrollView * scrollview;
@@ -29,6 +31,8 @@
 @property (nonatomic,strong) ZJCImageView * imageView;
 
 @property (nonatomic,assign) CGFloat scrollViewContentSizeHeight;
+
+@property (nonatomic, strong)ZJCThreeButtonView * buttonView;    /** 三个按钮的视图 */
 @end
 
 @implementation ZJCDetailGoodsController
@@ -40,6 +44,7 @@
     self.scrollViewContentSizeHeight =380;
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsCompact];
     [self.view addSubview:self.scrollview];
+    [self.view addSubview:self.buttonView];
     [self.scrollview addSubview:self.cyclescrollView];
     [self.scrollview addSubview:self.detailtitleview];
     [self.scrollview addSubview:self.detailView];
@@ -47,6 +52,10 @@
     __weak typeof (self) weakself =self;
     [_scrollview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(weakself.view).with.insets(UIEdgeInsetsMake(0, 0, 45, 0));
+    }];
+    [_buttonView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(weakself.view);
+        make.top.equalTo(weakself.scrollview.mas_bottom);
     }];
     [_detailtitleview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakself.cyclescrollView.mas_bottom);
@@ -171,6 +180,13 @@
         };
     }
     return _imageView;
+}
+
+- (ZJCThreeButtonView *)buttonView{
+    if (!_buttonView) {
+        _buttonView = [[ZJCThreeButtonView alloc] init];
+    }
+    return _buttonView;
 }
 
 - (void)setScrollViewContentSizeHeight:(CGFloat)scrollViewContentSizeHeight{
