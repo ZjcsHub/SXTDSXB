@@ -72,6 +72,8 @@
 		078D10151D6EEC4A00DE8DC8 /* ZJCFountionCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 078D10141D6EEC4A00DE8DC8 /* ZJCFountionCollectionView.m */; };
 		078D10191D6EEC7B00DE8DC8 /* ZJCFountionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 078D10181D6EEC7B00DE8DC8 /* ZJCFountionViewCell.m */; };
 		078D101D1D6F0EB600DE8DC8 /* ZJCSecond.plist in Resources */ = {isa = PBXBuildFile; fileRef = 078D101C1D6F0EB600DE8DC8 /* ZJCSecond.plist */; };
+		07B128451D6FFC6F00709821 /* ModelList.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B128441D6FFC6F00709821 /* ModelList.m */; };
+		07B128481D70040F00709821 /* CollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B128471D70040F00709821 /* CollectionHeaderView.m */; };
 		07C15DCD1D6C4DA40004CB79 /* DescriptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C15DCC1D6C4DA40004CB79 /* DescriptionModel.m */; };
 		07C15DD01D6C6D040004CB79 /* ZJCDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C15DCF1D6C6D040004CB79 /* ZJCDetailView.m */; };
 		07C15DD31D6C6D1A0004CB79 /* ZJCDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C15DD21D6C6D1A0004CB79 /* ZJCDetailModel.m */; };
@@ -245,6 +247,10 @@
 		078D10171D6EEC7B00DE8DC8 /* ZJCFountionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCFountionViewCell.h; sourceTree = "<group>"; };
 		078D10181D6EEC7B00DE8DC8 /* ZJCFountionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCFountionViewCell.m; sourceTree = "<group>"; };
 		078D101C1D6F0EB600DE8DC8 /* ZJCSecond.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ZJCSecond.plist; sourceTree = "<group>"; };
+		07B128431D6FFC6F00709821 /* ModelList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelList.h; sourceTree = "<group>"; };
+		07B128441D6FFC6F00709821 /* ModelList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelList.m; sourceTree = "<group>"; };
+		07B128461D70040F00709821 /* CollectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionHeaderView.h; sourceTree = "<group>"; };
+		07B128471D70040F00709821 /* CollectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionHeaderView.m; sourceTree = "<group>"; };
 		07C15DCB1D6C4DA40004CB79 /* DescriptionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionModel.h; sourceTree = "<group>"; };
 		07C15DCC1D6C4DA40004CB79 /* DescriptionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescriptionModel.m; sourceTree = "<group>"; };
 		07C15DCE1D6C6D040004CB79 /* ZJCDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCDetailView.h; sourceTree = "<group>"; };
@@ -720,6 +726,8 @@
 			children = (
 				078D10131D6EEC4A00DE8DC8 /* ZJCFountionCollectionView.h */,
 				078D10141D6EEC4A00DE8DC8 /* ZJCFountionCollectionView.m */,
+				07B128461D70040F00709821 /* CollectionHeaderView.h */,
+				07B128471D70040F00709821 /* CollectionHeaderView.m */,
 				078D10171D6EEC7B00DE8DC8 /* ZJCFountionViewCell.h */,
 				078D10181D6EEC7B00DE8DC8 /* ZJCFountionViewCell.m */,
 			);
@@ -731,6 +739,8 @@
 			children = (
 				07CD846B1D6F134D000AE0A4 /* Model.h */,
 				07CD846C1D6F134D000AE0A4 /* Model.m */,
+				07B128431D6FFC6F00709821 /* ModelList.h */,
+				07B128441D6FFC6F00709821 /* ModelList.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1175,6 +1185,7 @@
 			files = (
 				075A301C1D696BB6005FEF8E /* UIView+Toast.m in Sources */,
 				07D746721D643A3B00966A7B /* ZJCThirdViewController.m in Sources */,
+				07B128451D6FFC6F00709821 /* ModelList.m in Sources */,
 				0779D9231D6543E4008E78AD /* ZJCLandView.m in Sources */,
 				07CD846D1D6F134D000AE0A4 /* Model.m in Sources */,
 				070DD58E1D65EB51001925AC /* HttpTool.m in Sources */,
@@ -1201,6 +1212,7 @@
 				07E5EE6E1D64544400E2E9F1 /* ZJCNavViewController.m in Sources */,
 				071429F61D68168D00253E1B /* ZJCLogInView.m in Sources */,
 				075A30231D6AFBCF005FEF8E /* ZJCTimetableView.m in Sources */,
+				07B128481D70040F00709821 /* CollectionHeaderView.m in Sources */,
 				075A302F1D6B32FA005FEF8E /* ZJCGroupListModel.m in Sources */,
 				075A30371D6BE34F005FEF8E /* ZJCDetailGoodsController.m in Sources */,
 				070F4B161D6589380004DBD9 /* ZJCThreeButton.m in Sources */,

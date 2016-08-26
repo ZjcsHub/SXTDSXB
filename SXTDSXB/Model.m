@@ -7,27 +7,11 @@
 //
 
 #import "model.h"
-
+#import "ModelList.h"
 @implementation Model
 
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key{
-    
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"list" : [ModelList class]
+            };
 }
-
-+(NSArray *)loadmessage{
-    NSArray * datalist =[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ZJCSecond" ofType:@"plist"]];
-    NSMutableArray * dataArray =[NSMutableArray array];
-    for (NSArray * array in datalist) {
-         NSMutableArray * data =[NSMutableArray array];
-        for (NSDictionary * dict in array) {
-            Model * model =[[Model alloc] init];
-            [model setValuesForKeysWithDictionary:dict];
-            [data addObject:model];
-        }
-        [dataArray addObject:data];
-    }
-    
-    return dataArray;
-}
-
 @end

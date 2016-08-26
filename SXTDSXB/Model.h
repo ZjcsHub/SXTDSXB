@@ -10,10 +10,12 @@
 
 @interface Model : NSObject
 
-@property (nonatomic,copy) NSString * title;
+@property (nonatomic,copy) NSString * Title;
 
-@property (nonatomic,copy) NSString * image;
+@property (nonatomic,copy) NSString * TypeId;
 
-+(NSArray *)loadmessage;
+@property (nonatomic, strong)NSArray * list;    /** 数组 */
+
+
 
 @end

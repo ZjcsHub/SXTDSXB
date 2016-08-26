@@ -68,7 +68,7 @@
         if (!cell) {
             cell = [[ZJCGroupTableCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:identifier2];
         }
-        cell.ImageUrl = [self.grouparray[indexPath.row] ImgView];
+        cell.model =self.grouparray[indexPath.row];
         return cell;
     }
 }
@@ -77,6 +77,10 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (_idBlock) {
         _idBlock([self.signalarray[indexPath.row] GoodsId],[self.signalarray[indexPath.row] CountryImg]);
+    }
+    if (_IDBlock) {
+        
+        _IDBlock([self.grouparray[indexPath.row] ActivityId]);
     }
 }
 

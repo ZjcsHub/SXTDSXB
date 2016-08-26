@@ -49,6 +49,7 @@
     if (!_describeLabel) {
         _describeLabel =[[UILabel alloc] init];
         _describeLabel.textAlignment =NSTextAlignmentCenter;
+        _describeLabel.font =[UIFont systemFontOfSize:12];
     }
     return _describeLabel;
 }

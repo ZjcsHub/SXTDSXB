@@ -11,6 +11,8 @@
 
 typedef void(^newTableViewSelectGoodsIdBlock)(NSString * goodid,NSString * countryName);
 
+typedef void(^newTbaleViewSelectiGroupBlock)(NSString * ActivityId);
+
 @interface ZJCTimetableView : UITableView
 
 @property (nonatomic,assign) BOOL isSingal;
@@ -20,4 +22,6 @@ typedef void(^newTableViewSelectGoodsIdBlock)(NSString * goodid,NSString * count
 @property (nonatomic,strong) NSMutableArray * grouparray;
 
 @property (nonatomic,copy) newTableViewSelectGoodsIdBlock idBlock;
+
+@property (nonatomic, copy)newTbaleViewSelectiGroupBlock IDBlock;    /**  */
 @end

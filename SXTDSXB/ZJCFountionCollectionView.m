@@ -9,17 +9,26 @@
 #import "ZJCFountionCollectionView.h"
 #import "ZJCFountionViewCell.h"
 #import "Model.h"
-
+#import "ModelList.h"
+#import "CollectionHeaderView.h"
 static NSString * identifier = @"CellID";
 static NSString * reuseIdentifier =@"reuseIdentifier";
 @interface ZJCFountionCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
-@property (nonatomic, strong)NSArray * datalist;    /** 模型数组 */
+@property (nonatomic, strong)NSArray * imageArray;    /** 图片数组 */
 
-@property (nonatomic, strong)NSArray * stringArray;    /** 字符串数组 */
 @end
 
 @implementation ZJCFountionCollectionView
+
+- (NSArray *)imageArray{
+    if (!_imageArray) {
+        _imageArray =[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ZJCSecond" ofType:@"plist"]];
+        
+    }
+    return _imageArray;
+}
+
 
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout{
     if (self =[super initWithFrame:frame collectionViewLayout:layout]) {
@@ -27,23 +36,11 @@ static NSString * reuseIdentifier =@"reuseIdentifier";
         self.dataSource =self;
         self.backgroundColor =MainColor;
         [self registerClass:[ZJCFountionViewCell class] forCellWithReuseIdentifier:identifier];
-        [self registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:reuseIdentifier];
+        [self registerClass:[CollectionHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:reuseIdentifier];
     }
     return self;
 }
-- (NSArray *)stringArray{
-    if (!_stringArray) {
-        _stringArray =@[@"功效专区",@"面部专区 FASE"];
-    }
-    return _stringArray;
-}
 
-- (NSArray *)datalist{
-    if (!_datalist) {
-        _datalist =[Model loadmessage];
-    }
-    return _datalist;
-}
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return self.datalist.count;
@@ -51,17 +48,19 @@ static NSString * reuseIdentifier =@"reuseIdentifier";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    NSArray * array =self.datalist[section];
-    return array.count;
+    Model * model =self.datalist[section];
+    return model.list.count;
     
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ZJCFountionViewCell * cell =[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    NSArray * array =self.datalist[indexPath.section];
-    Model * model = array[indexPath.item];
-    cell.describeLabel.text = model.title;
-    cell.goodsType.image =[UIImage imageNamed:model.image];
+    Model * model =self.datalist[indexPath.section];
+    ModelList * list =model.list[indexPath.item];
+    cell.describeLabel.text = list.Title;
+    
+    cell.goodsType.image =[UIImage imageNamed:[self.imageArray[arc4random_uniform((unsigned)self.imageArray.count)] objectForKey:@"image"]];
+   
     return cell;
 }
 
@@ -70,21 +69,27 @@ static NSString * reuseIdentifier =@"reuseIdentifier";
     if (kind == UICollectionElementKindSectionHeader) {
         
         //从缓冲池里获取header
-        UICollectionReusableView * reuseView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-        UILabel * label =[[UILabel alloc] init];
-        label.text =self.stringArray[indexPath.section];
-        [reuseView addSubview:label];
-        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(reuseView).insets(UIEdgeInsetsMake(0, 15, 0, 0));
-        }];
-//        reuseView.backgroundColor = [UIColor yellowColor];
+        CollectionHeaderView * reuseView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
         
+        reuseView.nameLabel.text =[self.datalist[indexPath.section] Title];
         return reuseView;
     }
     
     return nil;
 
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    Model * model =self.datalist[indexPath.section];
+    ModelList * list =model.list[indexPath.item];
+    NSString * typeid =list.TypeId;
+    NSString * titleName = list.Title;
+    if (_block) {
+        _block(typeid,titleName);
+    }
+    
+}
+
 
 
 @end

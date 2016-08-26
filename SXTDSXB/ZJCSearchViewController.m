@@ -12,7 +12,6 @@
 #import "ZJCSearchModel.h"
 @interface ZJCSearchViewController ()
 
-@property (nonatomic, strong)UISearchBar * searchbar;    /** 搜索栏 */
 @property (nonatomic, strong)ZJCGoodsListHeaderButton * goodBtnView;    /** 按钮视图 */
 @property (nonatomic, strong)ZJCCollectionView * collectionView;    /** collection视图 */
 @end
@@ -22,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor =MainColor;
-    
+    self.edgesForExtendedLayout = 0;
     [self.view addSubview:self.goodBtnView];
     [self.view addSubview:self.collectionView];
     [self makeConstraints];
@@ -41,24 +40,70 @@
         _goodBtnView = [[ZJCGoodsListHeaderButton alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 27)];
         __weak typeof (self) weakself =self;
         _goodBtnView.changBlock= ^(NSString * string){
-            [weakself getData:string];
+            if (weakself.dataList.count) {
+               [weakself getData:string];
+            }else if (weakself.scrollArray.count){
+                [weakself getScrollViewData:string];
+            }else if (weakself.groupArray.count){
+                [weakself getGroupData:string];
+            }else if (weakself.typeArray.count){
+                [weakself getTypeData:string];
+            }
+            
         };
     }
     return _goodBtnView;
 }
 
+#pragma mark 搜索栏进入视图
 - (void)getData:(NSString *)string{
     [HttpTool postWithPath:@"appSearch/searchList.do" params:@{@"search":self.title,@"OrderName":string,@"OrderType":@"ASC"} success:^(id json) {
         ZJCLog(@"%@",json);
         NSArray * dataList =[NSArray yy_modelArrayWithClass:[ZJCSearchModel class] json:json];
-         _collectionView.datalist=dataList;
+        _collectionView.datalist=dataList;
         [_collectionView reloadData];
     } failure:^(NSError *error) {
-        
+        ALERTSTRING(self.view, @"网络请求错误")
     }];
     
 }
 
+#pragma mark 首页轮播进入视图
+- (void)getScrollViewData:(NSString *)string{
+    [HttpTool getWithPath:@"appGgroupon/appGrounpGoodsList.do" params:@{@"GrouponId":self.scrollId,@"OrderName":string,@"OrderType":@"ASC"} success:^(id json) {
+        NSArray * datalist =[NSArray yy_modelArrayWithClass:[ZJCSearchModel class] json:json];
+        ZJCLog(@"%@",json);
+        _collectionView.datalist =datalist;
+        [_collectionView reloadData];
+    } failure:^(NSError *error) {
+        ALERTSTRING(self.view, @"网络请求错误")
+    }];
+
+}
+#pragma mark 首页团购进入视图
+- (void)getGroupData:(NSString *)string{
+    [HttpTool getWithPath:@"appGgroupon/appGrounpGoodsList.do" params:@{@"GrouponId":self.ActivityId,@"OrderName":string,@"OrderType":@"ASC"} success:^(id json) {
+        NSArray * datalist =[NSArray yy_modelArrayWithClass:[ZJCSearchModel class] json:json];
+        _collectionView.datalist =datalist;
+        [_collectionView reloadData];
+    } failure:^(NSError *error) {
+        ALERTSTRING(self.view, @"网络请求错误")
+    }];
+
+}
+#pragma mark 分类框进入的数据
+- (void)getTypeData:(NSString *)string{
+    [HttpTool getWithPath:@"classifyApp/appTypeGoodsList.do" params:@{@"TypeId":self.typeId,@"OrderName":string,@"OrderType":@"ASC"} success:^(id json) {
+        ZJCLog(@"%@",json);
+        NSArray * datalist =[NSArray yy_modelArrayWithClass:[ZJCSearchModel class] json:json];
+        _collectionView.datalist =datalist;
+        [_collectionView reloadData];
+    } failure:^(NSError *error) {
+        ALERTSTRING(self.view, @"请求错误")
+    }];
+    
+
+}
 
 -(ZJCCollectionView *)collectionView{
     if (!_collectionView) {
@@ -68,7 +113,15 @@
         flow.minimumInteritemSpacing =5;
         flow.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
         _collectionView =[[ZJCCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flow];
+        if (self.scrollArray.count) {
+            _collectionView.datalist = self.scrollArray;
+        }else if(self.dataList.count){
         _collectionView.datalist =self.dataList;
+        }else if (self.groupArray.count){
+            _collectionView.datalist =self.groupArray;
+        }else if (self.typeArray.count){
+            _collectionView.datalist =self.typeArray;
+        }
     }
     return _collectionView;
 }

@@ -8,6 +8,9 @@
 
 #import "ZJCSecondViewController.h"
 #import "ZJCFountionCollectionView.h"
+#import "Model.h"
+#import "ZJCSearchViewController.h"
+#import "ZJCSearchModel.h"
 @interface ZJCSecondViewController ()
 
 @property (nonatomic, strong)ZJCFountionCollectionView * collection;    /**  */
@@ -24,12 +27,16 @@
     [_collection mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(weakself.view).insets(UIEdgeInsetsZero);
     }];
+    [self getData];
 }
 
 
 - (void)getData{
-    [HttpTool getWithPath:@"appBrandarea/asianBrand.do" params:nil success:^(id json) {
+    [HttpTool getWithPath:@"classifyApp/getGoodsClassify.do" params:nil success:^(id json) {
         ZJCLog(@"%@",json);
+        NSArray * dataList =[NSArray yy_modelArrayWithClass:[Model class] json:json];
+        _collection.datalist =dataList;
+        [_collection reloadData];
     } failure:^(NSError *error) {
         ZJCLog(@"错误%@",error);
     }];
@@ -51,9 +58,28 @@
 //        flow.sectionInset =UIEdgeInsetsMake(40, 1, 0, 1);
         flow.headerReferenceSize =CGSizeMake(VIEW_WIDTH, 40);
         _collection =[[ZJCFountionCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flow];
-        
+        __weak typeof (self) weakself =self;
+        _collection.block =^(NSString * typeId,NSString * titleName){
+            [weakself getTypeIdData:typeId titleName:titleName];
+        };
     }
     return _collection;
+}
+
+- (void)getTypeIdData:(NSString *)typeid titleName:(NSString *)titlename{
+    [HttpTool getWithPath:@"classifyApp/appTypeGoodsList.do" params:@{@"TypeId":typeid,@"OrderName":@"host",@"OrderType":@"ASC"} success:^(id json) {
+        ZJCLog(@"%@",json);
+        NSArray * datalist =[NSArray yy_modelArrayWithClass:[ZJCSearchModel class] json:json];
+        
+        ZJCSearchViewController * searchVc =[[ZJCSearchViewController alloc] init];
+        searchVc.typeArray =datalist;
+        searchVc.typeId =typeid;
+        searchVc.title =titlename;
+        [self.navigationController pushViewController:searchVc animated:YES];
+    } failure:^(NSError *error) {
+        ALERTSTRING(self.view, @"请求错误")
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {

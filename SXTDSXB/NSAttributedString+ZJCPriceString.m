@@ -11,8 +11,10 @@
 @implementation NSAttributedString (ZJCPriceString)
 
 + (NSAttributedString *)returnFirstString:(NSString *)firststring lastString:(NSString *)laststring{
+    
+    NSString * string =[@" ￥" stringByAppendingString:laststring];
     NSMutableAttributedString * NewPrice =[[NSMutableAttributedString alloc] initWithString:firststring attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17],NSForegroundColorAttributeName:[UIColor colorWithRed:1.00 green:0.00 blue:0.00 alpha:1.00]}];
-    NSMutableAttributedString * oldPrice =[[NSMutableAttributedString alloc] initWithString:laststring attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12],NSForegroundColorAttributeName:[UIColor colorWithRed:0.73 green:0.73 blue:0.73 alpha:1.00],NSStrikethroughStyleAttributeName:@1}];
+    NSMutableAttributedString * oldPrice =[[NSMutableAttributedString alloc] initWithString:string attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12],NSForegroundColorAttributeName:[UIColor colorWithRed:0.73 green:0.73 blue:0.73 alpha:1.00],NSStrikethroughStyleAttributeName:@1}];
     [NewPrice insertAttributedString:oldPrice atIndex:NewPrice.length];
     return NewPrice;
 }

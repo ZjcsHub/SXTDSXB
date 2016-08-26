@@ -18,7 +18,7 @@
 
 @property (nonatomic, copy) NSString * Price; /** 现价*/
 
-@property (nonatomic, copy) NSString * ForeignPrice; /** 原价 */
+@property (nonatomic, copy) NSString * DomesticPrice; /** 原价 */
 
 
 

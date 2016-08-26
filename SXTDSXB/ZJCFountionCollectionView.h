@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void(^PushNextControllerBlock)(NSString * typeId,NSString * titlename);
 
 @interface ZJCFountionCollectionView : UICollectionView
 
+@property (nonatomic, strong)NSArray * datalist;  
 
+@property (nonatomic, copy) PushNextControllerBlock block;
 
 @end

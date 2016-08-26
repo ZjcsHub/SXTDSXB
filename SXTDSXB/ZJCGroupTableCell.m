@@ -29,8 +29,9 @@
     }];
 }
 
-- (void)setImageUrl:(NSString *)ImageUrl{
-    [_groupImage downloadImage:ImageUrl placeholder:@"屏幕快照 2016-08-22 11.25.54.png"];
+
+- (void)setModel:(ZJCGroupListModel *)model{
+    [_groupImage downloadImage:model.ImgView placeholder:@"屏幕快照 2016-08-22 11.25.54.png"];
 }
 
 - (UIImageView *)groupImage{

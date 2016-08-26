@@ -29,7 +29,7 @@
     paraga.firstLineHeadIndent =10;
     NSAttributedString * string =[[NSAttributedString alloc] initWithString:model.Title attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17],NSParagraphStyleAttributeName:paraga}];
     _goodsLabel.attributedText =string;
-    _priceLabel.attributedText =[NSAttributedString returnFirstString:model.Price lastString:model.ForeignPrice];
+    _priceLabel.attributedText =[NSAttributedString returnFirstString:model.Price lastString:model.DomesticPrice];
 }
 
 

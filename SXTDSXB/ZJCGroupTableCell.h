@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ZJCGroupListModel.h"
 @interface ZJCGroupTableCell : UITableViewCell
 
-@property (copy, nonatomic) NSString *ImageUrl;/**团购描述图片*/
+@property (copy, nonatomic) ZJCGroupListModel *model;/**团购模型*/
 
 @end

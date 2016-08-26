@@ -97,10 +97,13 @@
             break;
         case 1:
             string =@"price";
+            break;
             case 2:
             string =@"score";
+            break;
             case 3:
             string =@"time";
+            break;
         default:
             break;
     }
