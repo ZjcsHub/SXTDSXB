@@ -7,6 +7,7 @@
 //
 
 #import "DetailTitleView.h"
+#import "NSAttributedString+ZJCPriceString.h"
 
 @interface DetailTitleView ()
 @property (strong, nonatomic)   UILabel *titleLabel;              /** 标题label */
@@ -55,7 +56,7 @@
     _titleLabel.text = descriptionmodel.Abbreviation;
     CGFloat height = [self getLabelsHeight:descriptionmodel.Abbreviation prame:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:18]}];
     [_contryImage sd_setImageWithURL:[NSURL URLWithString:self.CountryImg]];
-    _priceLabel.text = [NSString stringWithFormat:@"%@ %@ %@",descriptionmodel.Price,descriptionmodel.OriginalPrice,descriptionmodel.Discount];
+    _priceLabel.attributedText =[NSAttributedString returnNexPrice:descriptionmodel.Price OldPrice:descriptionmodel.OriginalPrice Distence:descriptionmodel.Discount];
     _contentLabel.text = descriptionmodel.GoodsIntro;
     self.buycount = descriptionmodel.BuyCount;
     CGFloat contentheight = [self getLabelsHeight:descriptionmodel.GoodsIntro prame:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:14.0]}];
@@ -211,6 +212,7 @@
     if (!_nextViewButton) {
         _nextViewButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
         _nextViewButton.backgroundColor = [UIColor whiteColor];
+        [_nextViewButton addTarget:self action:@selector(pushToSearchController) forControlEvents:UIControlEventTouchUpInside];
     }
     return _nextViewButton;
 }
@@ -270,7 +272,11 @@
     return _tostLineLabel;
 }
 
-
+- (void)pushToSearchController{
+    if (_pushBlock) {
+        _pushBlock(_descriptionmodel.ShopId,_descriptionmodel.BrandCNName);
+    }
+}
 
 
 

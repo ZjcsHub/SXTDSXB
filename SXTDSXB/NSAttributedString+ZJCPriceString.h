@@ -12,4 +12,6 @@
 
 + (NSAttributedString *)returnFirstString:(NSString *)firststring lastString:(NSString *)laststring;
 
++ (NSAttributedString *)returnNexPrice:(NSString *)newPrice OldPrice:(NSString *)oldPrice Distence:(NSString *)distence;
+
 @end

@@ -22,4 +22,8 @@
 
 @property (nonatomic, strong)NSArray * typeArray;    /** 分类进入数据 */
 @property (nonatomic, copy) NSString * typeId;
+
+
+@property (nonatomic, strong)NSArray * butArray;    /** 按钮进入的数据 */
+@property (nonatomic, copy) NSString * shopId;
 @end

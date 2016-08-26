@@ -82,7 +82,6 @@
         username =[self.thirdLogMessage objectForKey:@"username"];
     }
     [HttpTool postWithPath:@"appMember/createCode.do" params:@{@"MemberId":username} success:^(id json) {
-        ZJCLog(@"%@",json);
     
         if ([json[@"result"] isEqualToString:@"TelephoneExistError"]) {
             ALERTSTRING(self.view, @"手机号已被注册")
@@ -92,7 +91,7 @@
         [self.phoneview createTimer];
         }
     } failure:^(NSError *error) {
-        ZJCLog(@"%@",error);
+        ALERTSTRING(self.view, @"请求错误")
     }];
 }
 
@@ -101,7 +100,6 @@
         if ([json[@"result"] isEqualToString:@"TelephoneExistError"]) {
             ALERTSTRING(self.view, @"手机号已经注册")
         }
-        ZJCLog(@"%@",json);
          NSDictionary * dict =@{@"LoginName":[self.usermessage objectForKey:@"username"],@"Lpassword":[self.usermessage objectForKey:@"password"]};
         [self autoLogin:dict];
         
@@ -114,18 +112,16 @@
 
     
     [HttpTool getWithPath:@"appMember/appRegistration.do" params:@{@"LoginName":[self.thirdLogMessage objectForKey:@"username"],@"Lpassword":@"123123",@"Code":code,@"Telephone":[self.thirdLogMessage objectForKey:@"username"]} success:^(id json) {
-        ZJCLog(@"%@",json);
         NSDictionary * dict =@{@"LoginName":[self.thirdLogMessage objectForKey:@"username"],@"Lpassword":@"123123"};
         [self autoLogin:dict];
         
     } failure:^(NSError *error) {
-        ZJCLog(@"失败");
+    ALERTSTRING(self.view, @"注册失败")
     }];
 }
 
 - (void)autoLogin:(NSDictionary *)dict{
     [HttpTool getWithPath:@"appMember/appLogin.do" params:dict success:^(id json) {
-        ZJCLog(@"%@",json);
         __weak typeof (self) weakself =self;
         if ([json[@"ErrorMessage"] isEqualToString:@"密码错误"]) {
             ALERTSTRING(weakself.view, @"密码错误")
@@ -148,7 +144,8 @@
            
         }
     } failure:^(NSError *error) {
-        
+        ALERTSTRING(self.view, @"请检查网络")
+
     }];
 }
 

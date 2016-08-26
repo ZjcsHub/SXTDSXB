@@ -74,7 +74,7 @@
         if (response.responseCode == UMSResponseCodeSuccess) {
 //            NSDictionary *dict = [UMSocialAccountManager socialAccountDictionary];
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:snsPlatform.platformName];
-            ZJCLog(@"\nusername = %@,\n usid = %@,\n token = %@ iconUrl = %@,\n unionId = %@,\n thirdPlatformUserProfile = %@,\n thirdPlatformResponse = %@ \n, message = %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL, snsAccount.unionId, response.thirdPlatformUserProfile, response.thirdPlatformResponse, response.message);
+//            ZJCLog(@"\nusername = %@,\n usid = %@,\n token = %@ iconUrl = %@,\n unionId = %@,\n thirdPlatformUserProfile = %@,\n thirdPlatformResponse = %@ \n, message = %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL, snsAccount.unionId, response.thirdPlatformUserProfile, response.thirdPlatformResponse, response.message);
 //            ZJCLog(@"--- %@",dict[@"userName"]);
             NSDictionary * dict =@{@"MemberName":snsAccount.userName,@"iconUrl":snsAccount.iconURL,@"MemberLvl":@"普卡会员"};
             PhoneNumberRegister * phone =[[PhoneNumberRegister alloc] init];

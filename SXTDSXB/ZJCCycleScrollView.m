@@ -26,7 +26,7 @@
         [_buylabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(weakself.mas_bottom).offset(-35);
             make.right.equalTo(weakself.mas_right).offset(11);
-            make.size.mas_equalTo(CGSizeMake(90, 22));
+            make.size.mas_equalTo(CGSizeMake(100, 22));
         }];
         
     }

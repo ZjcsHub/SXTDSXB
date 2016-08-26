@@ -120,7 +120,6 @@
 
     } failure:^(NSError *error) {
         ALERTSTRING(self.view, @"网络请求错误")
-        ZJCLog(@"%@",error);
     }];
 }
 
@@ -141,7 +140,6 @@
     }];
 } failure:^(NSError *error) {
     ALERTSTRING(self.view, @"网络请求错误")
-    ZJCLog(@"%@",error);
 }];
 }
 
@@ -165,7 +163,6 @@
     NSMutableArray * imagesURLStrings = [NSMutableArray array];
     [HttpTool getWithPath:@"appHome/appHome.do" params:nil success:^(id json) {
         self.scrollArray = json;
-        ZJCLog(@"%@",json);
             for (NSDictionary * dict in json) {
                 NSString * URLString = dict[@"ImgView"];
                 [imagesURLStrings addObject:URLString];
@@ -186,6 +183,10 @@
         searchVc.scrollArray = datalist;
         searchVc.scrollId =string;
        searchVc.title =@"推荐";
+        if (datalist.count == 0) {
+            ALERTSTRING(self.view, @"没有数据")
+            return ;
+        }
         [self.navigationController pushViewController:searchVc animated:YES];
     } failure:^(NSError *error) {
         ALERTSTRING(self.view, @"网络请求错误")
@@ -213,6 +214,7 @@
             goodsID.goodsid =goodsid;
             goodsID.CountryImg =countryName;
             goodsID.title =@"新品团购";
+            
             [weakself.navigationController pushViewController:goodsID animated:YES];
         };
     }
@@ -283,6 +285,10 @@
         searchVc.groupArray =datalist;
         searchVc.ActivityId =ActivityId;
         searchVc.title =@"品牌团购";
+        if (datalist.count == 0) {
+            ALERTSTRING(self.view, @"没有数据")
+            return ;
+        }
         [self.navigationController pushViewController:searchVc animated:YES];
         
     } failure:^(NSError *error) {

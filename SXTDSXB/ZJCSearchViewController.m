@@ -48,6 +48,8 @@
                 [weakself getGroupData:string];
             }else if (weakself.typeArray.count){
                 [weakself getTypeData:string];
+            }else if (weakself.butArray.count){
+                [weakself getBunData:string];
             }
             
         };
@@ -58,7 +60,6 @@
 #pragma mark 搜索栏进入视图
 - (void)getData:(NSString *)string{
     [HttpTool postWithPath:@"appSearch/searchList.do" params:@{@"search":self.title,@"OrderName":string,@"OrderType":@"ASC"} success:^(id json) {
-        ZJCLog(@"%@",json);
         NSArray * dataList =[NSArray yy_modelArrayWithClass:[ZJCSearchModel class] json:json];
         _collectionView.datalist=dataList;
         [_collectionView reloadData];
@@ -72,7 +73,6 @@
 - (void)getScrollViewData:(NSString *)string{
     [HttpTool getWithPath:@"appGgroupon/appGrounpGoodsList.do" params:@{@"GrouponId":self.scrollId,@"OrderName":string,@"OrderType":@"ASC"} success:^(id json) {
         NSArray * datalist =[NSArray yy_modelArrayWithClass:[ZJCSearchModel class] json:json];
-        ZJCLog(@"%@",json);
         _collectionView.datalist =datalist;
         [_collectionView reloadData];
     } failure:^(NSError *error) {
@@ -94,14 +94,22 @@
 #pragma mark 分类框进入的数据
 - (void)getTypeData:(NSString *)string{
     [HttpTool getWithPath:@"classifyApp/appTypeGoodsList.do" params:@{@"TypeId":self.typeId,@"OrderName":string,@"OrderType":@"ASC"} success:^(id json) {
-        ZJCLog(@"%@",json);
         NSArray * datalist =[NSArray yy_modelArrayWithClass:[ZJCSearchModel class] json:json];
         _collectionView.datalist =datalist;
         [_collectionView reloadData];
     } failure:^(NSError *error) {
         ALERTSTRING(self.view, @"请求错误")
     }];
-    
+}
+
+- (void)getBunData:(NSString *)string{
+    [HttpTool getWithPath:@"appShop/appShopGoodsList.do" params:@{@"ShopId":self.shopId,@"OrderName":string,@"OrderType":@"ASC"} success:^(id json) {
+        NSArray * dataList = [NSArray yy_modelArrayWithClass:[ZJCSearchModel class] json:json];
+        _collectionView.datalist =dataList;
+        [_collectionView reloadData];
+    } failure:^(NSError *error) {
+        ALERTSTRING(self.view, @"网络请求错误")
+    }];
 
 }
 
@@ -121,6 +129,8 @@
             _collectionView.datalist =self.groupArray;
         }else if (self.typeArray.count){
             _collectionView.datalist =self.typeArray;
+        }else if (self.butArray.count){
+            _collectionView.datalist =self.butArray;
         }
     }
     return _collectionView;

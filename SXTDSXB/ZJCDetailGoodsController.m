@@ -15,7 +15,8 @@
 #import "ZJCDetailView.h"
 #import "ZJCImageView.h"
 #import "ZJCThreeButtonView.h"
-
+#import "ZJCSearchModel.h"
+#import "ZJCSearchViewController.h"
 @interface ZJCDetailGoodsController ()
 
 @property (nonatomic,strong) UIScrollView * scrollview;
@@ -150,6 +151,10 @@
             weakself.scrollViewContentSizeHeight +=height;
             
         };
+        
+        _detailtitleview.pushBlock =^(NSString * shopId,NSString * shopname){
+            [weakself getDataButtonData:shopId shopname:shopname];
+        };
     }
     return _detailtitleview;
 }
@@ -193,6 +198,24 @@
     _scrollViewContentSizeHeight =scrollViewContentSizeHeight;
      _scrollview.contentSize =CGSizeMake(0, _scrollViewContentSizeHeight);
 }
+
+- (void)getDataButtonData:(NSString *)shopid shopname:(NSString *)shopname{
+    [HttpTool getWithPath:@"appShop/appShopGoodsList.do" params:@{@"ShopId":shopid,@"OrderName":@"host",@"OrderType":@"ASC"} success:^(id json) {
+        NSArray * dataList = [NSArray yy_modelArrayWithClass:[ZJCSearchModel class] json:json];
+        ZJCSearchViewController * searchVc =[[ZJCSearchViewController alloc] init];
+        searchVc.butArray =dataList;
+        searchVc.shopId =shopid;
+        searchVc.title =shopname;
+        if (dataList.count == 0) {
+            ALERTSTRING(self.view, @"没有数据")
+            return ;
+        }
+        [self.navigationController pushViewController:searchVc animated:YES];
+    } failure:^(NSError *error) {
+        ALERTSTRING(self.view, @"网络请求错误")
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

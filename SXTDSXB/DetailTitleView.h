@@ -11,6 +11,8 @@
 
 typedef void(^ReturnHeightBlock)(CGFloat height);
 
+typedef void(^PushToNextControllerBlock)(NSString * shopId,NSString * shopname);
+
 @interface DetailTitleView : UIView
 
 @property (nonatomic,strong) DescriptionModel * descriptionmodel;
@@ -20,4 +22,6 @@ typedef void(^ReturnHeightBlock)(CGFloat height);
 @property (nonatomic,copy) NSString * CountryImg;
 
 @property (nonatomic,copy) NSString * buycount;
+
+@property (nonatomic,copy) PushToNextControllerBlock pushBlock;
 @end

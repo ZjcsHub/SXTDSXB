@@ -33,12 +33,11 @@
 
 - (void)getData{
     [HttpTool getWithPath:@"classifyApp/getGoodsClassify.do" params:nil success:^(id json) {
-        ZJCLog(@"%@",json);
         NSArray * dataList =[NSArray yy_modelArrayWithClass:[Model class] json:json];
         _collection.datalist =dataList;
         [_collection reloadData];
     } failure:^(NSError *error) {
-        ZJCLog(@"错误%@",error);
+        ALERTSTRING(self.view, @"请检查网络")
     }];
 }
 
@@ -68,13 +67,16 @@
 
 - (void)getTypeIdData:(NSString *)typeid titleName:(NSString *)titlename{
     [HttpTool getWithPath:@"classifyApp/appTypeGoodsList.do" params:@{@"TypeId":typeid,@"OrderName":@"host",@"OrderType":@"ASC"} success:^(id json) {
-        ZJCLog(@"%@",json);
         NSArray * datalist =[NSArray yy_modelArrayWithClass:[ZJCSearchModel class] json:json];
         
         ZJCSearchViewController * searchVc =[[ZJCSearchViewController alloc] init];
         searchVc.typeArray =datalist;
         searchVc.typeId =typeid;
         searchVc.title =titlename;
+        if (datalist.count == 0) {
+            ALERTSTRING(self.view, @"没有数据")
+            return ;
+        }
         [self.navigationController pushViewController:searchVc animated:YES];
     } failure:^(NSError *error) {
         ALERTSTRING(self.view, @"请求错误")
