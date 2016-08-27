@@ -132,6 +132,7 @@
         [_goLoginBtn setTitle:@"免费注册" forState:(UIControlStateNormal)];
         [_goLoginBtn setTitleColor:[UIColor colorWithRed:0.00 green:0.71 blue:0.98 alpha:1.00] forState:(UIControlStateNormal)];
         _goLoginBtn.backgroundColor = MainColor;
+        [_goLoginBtn addTarget:self action:@selector(pushToLandView) forControlEvents:UIControlEventTouchUpInside];
     }
     return _goLoginBtn;
 }
@@ -139,6 +140,12 @@
 - (void)popToController{
     if (_block) {
         _block(@{@"LoginName":_userNameText.text,@"Lpassword":_passwordText.text});
+    }
+}
+
+- (void)pushToLandView{
+    if (_pushblock) {
+        _pushblock();
     }
 }
 

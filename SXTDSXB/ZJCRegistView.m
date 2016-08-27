@@ -155,6 +155,7 @@
         [_goLoginBtn setTitle:@"去登录" forState:(UIControlStateNormal)];
         [_goLoginBtn setTitleColor:[UIColor colorWithRed:0.00 green:0.71 blue:0.98 alpha:1.00] forState:(UIControlStateNormal)];
         _goLoginBtn.backgroundColor = MainColor;
+        [_goLoginBtn addTarget:self action:@selector(pushToLogInView) forControlEvents:UIControlEventTouchUpInside];
     }
     return _goLoginBtn;
 }
@@ -168,8 +169,12 @@
         [[NSUserDefaults standardUserDefaults] setObject:_userNameText.text forKey:@"username"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-    
-    
+}
+
+- (void)pushToLogInView{
+    if (_pushBlock) {
+        _pushBlock();
+    }
 }
 
 #pragma mark - textfileDelegate

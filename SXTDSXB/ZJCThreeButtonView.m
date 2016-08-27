@@ -68,6 +68,7 @@
         [_addButton setBackgroundColor:[UIColor colorWithRed:0.00 green:0.85 blue:1.00 alpha:1.00]];
         [_addButton setTitle:@"加入购物车" forState:UIControlStateNormal];
         [_addButton setTitleColor:[UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:1.00] forState:UIControlStateNormal];
+        [_addButton addTarget:self action:@selector(addShoppingCar) forControlEvents:UIControlEventTouchUpInside];
     }
     return _addButton;
 }
@@ -82,5 +83,10 @@
     return _buyButton;
 }
 
+- (void)addShoppingCar{
+    if (_addBlock) {
+        _addBlock();
+    }
+}
 
 @end

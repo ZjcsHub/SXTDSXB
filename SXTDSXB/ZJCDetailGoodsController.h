@@ -13,4 +13,5 @@
 @property (nonatomic,copy) NSString * goodsid;
 
 @property (nonatomic,copy) NSString * CountryImg;
+
 @end

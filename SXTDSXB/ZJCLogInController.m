@@ -10,7 +10,7 @@
 #import "ZJCLogInView.h"
 #import "ZJCThreeButton.h"
 #import "ZJCFourthViewController.h"
-
+#import "ZJCLandView.h"
 @interface ZJCLogInController ()
 
 @property (nonatomic ,strong) ZJCLogInView * loginView;
@@ -68,6 +68,10 @@
         } failure:^(NSError *error) {
             ALERTSTRING(weakself.view, @"请求错误")
             }];
+        };
+        
+        _loginView.pushblock =^{
+            [weakself.navigationController pushViewController:[[ZJCLandView alloc] init] animated:YES];
         };
     }
     return _loginView;

@@ -190,8 +190,25 @@
 - (ZJCThreeButtonView *)buttonView{
     if (!_buttonView) {
         _buttonView = [[ZJCThreeButtonView alloc] init];
+        __weak typeof (self) weakself =self;
+        _buttonView.addBlock =^(){
+            [weakself addSomeThingToShoppingCar];
+        };
     }
     return _buttonView;
+}
+
+- (void)addSomeThingToShoppingCar{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"LoginData"]) {
+        NSDictionary * dict =[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginData"];
+        [HttpTool getWithPath:@"appShopCart/insert.do" params:@{@"MemberId":dict[@"MemberId"],@"GoodsId":self.goodsid} success:^(id json) {
+            ALERTSTRING(self.view, @"添加成功")
+        } failure:^(NSError *error) {
+            ALERTSTRING(self.view, @"添加失败")
+        }];
+    }else{
+        ALERTSTRING(self.view, @"请登录再添加")
+    }
 }
 
 - (void)setScrollViewContentSizeHeight:(CGFloat)scrollViewContentSizeHeight{

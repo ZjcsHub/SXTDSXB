@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^AddShoppingCarBlock)();
+
 @interface ZJCThreeButtonView : UIView
+
+@property (nonatomic ,copy) AddShoppingCarBlock addBlock;
 
 @end

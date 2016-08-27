@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 typedef void (^PoptoBackBlock)(NSDictionary * dict);
+
+typedef void(^PushToNextViewBlock)();
 @interface ZJCLogInView : UIView
 
 @property(nonatomic,strong) PoptoBackBlock block;
 
+@property(nonatomic,copy) PushToNextViewBlock pushblock;
 @end

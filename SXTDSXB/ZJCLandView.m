@@ -12,6 +12,7 @@
 #import "ZJCPhonetest.h"
 #import "NSArray+Log.h"
 #import "PhoneNumberRegister.h"
+#import "ZJCLogInController.h"
 @interface ZJCLandView ()<UITextFieldDelegate>
 
 @property (nonatomic, strong) ZJCRegistView * regisView;
@@ -51,6 +52,9 @@
             ZJCPhonetest * test =[[ZJCPhonetest alloc] init];
             test.usermessage =dict;
             [weakself.navigationController pushViewController:test animated:YES];
+        };
+        _regisView.pushBlock =^{
+            [weakself.navigationController pushViewController:[[ZJCLogInController alloc] init] animated:YES];
         };
     }
     return _regisView;
