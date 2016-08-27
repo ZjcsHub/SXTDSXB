@@ -10,4 +10,6 @@
 
 @interface ZJCShopCarTableView : UITableView
 
+@property (nonatomic, strong)NSArray * datalist;    /** 模型数组 */
+
 @end

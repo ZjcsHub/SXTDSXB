@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZJCShopCarModel.h"
+
 
 @interface ZJCShopCarTableViewCell : UITableViewCell
+
+@property (nonatomic, strong)ZJCShopCarModel * carModel;    /** 模型 */
 
 @end
