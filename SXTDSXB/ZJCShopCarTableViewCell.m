@@ -24,7 +24,6 @@
 
 @property (nonatomic, strong)UIButton * rightButton;    /** 右边按钮 */
 
-@property (nonatomic, strong)UILabel * numlabel;    /** 数字label */
 @end
 
 
@@ -40,12 +39,13 @@
         [self addSubview:self.leftbutton];
         [self addSubview:self.rightButton];
         [self addSubview:self.numlabel];
+        [self makelayoutSubviews];
     }
     return self;
 }
 
-- (void)layoutSubviews{
-    [super layoutSubviews];
+- (void)makelayoutSubviews{
+   
     __weak typeof (self) weakself =self;
     [_markBut mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(21, 21));
@@ -60,12 +60,12 @@
     [_namelabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakself.mas_top).offset(14);
         make.left.equalTo(weakself.iconImage.mas_right).offset(18);
-        make.right.equalTo(weakself.mas_right);
-        make.height.equalTo(@26);
+        make.right.equalTo(weakself.mas_right).offset(-10);
+        
     }];
     [_priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakself.namelabel.mas_bottom);
-        make.left.equalTo(weakself.iconImage.mas_right).offset(13);
+        make.top.equalTo(weakself.namelabel.mas_bottom).offset(5);
+        make.left.equalTo(weakself.iconImage.mas_right).offset(20);
         make.size.mas_equalTo(CGSizeMake(100, 26));
     }];
     [_OperationImage mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -90,11 +90,19 @@
 
 - (void)setCarModel:(ZJCShopCarModel *)carModel{
     _carModel =carModel;
+    self.cellheight = 0;
     [_iconImage sd_setImageWithURL:[NSURL URLWithString:carModel.ImgView]];
-    _namelabel.text =carModel.Abbreviation;
-    _priceLabel.text = carModel.Price;
+    CGFloat height =[carModel.Abbreviation boundingRectWithSize:CGSizeMake(VIEW_WIDTH-111-10, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]} context:nil].size.height;
+    [_namelabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(height);
+    }];
+    NSAttributedString * string =[[NSAttributedString alloc] initWithString:carModel.Abbreviation attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]}];
+    _namelabel.attributedText = string;
+    _priceLabel.text =[@"￥" stringByAppendingString:carModel.Price];
     _numlabel.text =carModel.GoodsCount;
+    self.cellheight =height +45 + 30;
 }
+
 
 - (UIButton *)markBut{
     if (!_markBut) {
@@ -102,6 +110,7 @@
         [_markBut setImage:[UIImage imageNamed:@"购物车界面商品选中对号按钮"] forState:UIControlStateSelected];
         [_markBut setImage:[UIImage imageNamed:@"购物车界面商品未选中"] forState:UIControlStateNormal];
         _markBut.selected =YES;
+        [_markBut addTarget:self action:@selector(changeTheNumber:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _markBut;
 }
@@ -115,12 +124,14 @@
 - (UILabel *)namelabel{
     if (!_namelabel) {
         _namelabel =[[UILabel alloc] init];
+        _namelabel.numberOfLines =0;
     }
     return _namelabel;
 }
 - (UILabel *)priceLabel{
     if (!_priceLabel) {
         _priceLabel =[[UILabel alloc] init];
+        
     }
     return _priceLabel;
 }
@@ -134,6 +145,7 @@
     if (!_leftbutton) {
         _leftbutton =[UIButton buttonWithType:UIButtonTypeSystem];
         _leftbutton.backgroundColor =[UIColor clearColor];
+        [_leftbutton addTarget:self action:@selector(changeTheNumber:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _leftbutton;
 }
@@ -142,6 +154,7 @@
     if (!_rightButton) {
         _rightButton= [UIButton buttonWithType:UIButtonTypeSystem];
         _rightButton.backgroundColor =[UIColor clearColor];
+        [_rightButton addTarget:self action:@selector(changeTheNumber:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _rightButton;
 }
@@ -153,6 +166,22 @@
     }
     return _numlabel;
 }
+
+- (void)changeTheNumber:(UIButton *)button{
+    if (button == _leftbutton) {
+        if (_reduceNum) {
+            _reduceNum(_carModel.UUID,_carModel.GoodsCount);
+        }
+    }else if (button == _rightButton){
+        if (_addNum) {
+            _addNum(_carModel.GoodsId);
+        }
+    }else if (button == _markBut){
+        button.selected = !button.selected;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Price" object:@{@"name":_carModel.Abbreviation,@"select":@(button.selected)}];
+    }
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

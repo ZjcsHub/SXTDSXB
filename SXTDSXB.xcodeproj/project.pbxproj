@@ -78,6 +78,7 @@
 		07C10CDA1D71732A009E16C5 /* ZJCShopCarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C10CD91D71732A009E16C5 /* ZJCShopCarModel.m */; };
 		07C10CDD1D717EA8009E16C5 /* ZJCShopCarTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C10CDC1D717EA8009E16C5 /* ZJCShopCarTableView.m */; };
 		07C10CE01D717EC1009E16C5 /* ZJCShopCarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C10CDF1D717EC1009E16C5 /* ZJCShopCarTableViewCell.m */; };
+		07C10CE31D72A972009E16C5 /* ZJCCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C10CE21D72A972009E16C5 /* ZJCCountView.m */; };
 		07C15DCD1D6C4DA40004CB79 /* DescriptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C15DCC1D6C4DA40004CB79 /* DescriptionModel.m */; };
 		07C15DD01D6C6D040004CB79 /* ZJCDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C15DCF1D6C6D040004CB79 /* ZJCDetailView.m */; };
 		07C15DD31D6C6D1A0004CB79 /* ZJCDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C15DD21D6C6D1A0004CB79 /* ZJCDetailModel.m */; };
@@ -263,6 +264,8 @@
 		07C10CDC1D717EA8009E16C5 /* ZJCShopCarTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCShopCarTableView.m; sourceTree = "<group>"; };
 		07C10CDE1D717EC1009E16C5 /* ZJCShopCarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCShopCarTableViewCell.h; sourceTree = "<group>"; };
 		07C10CDF1D717EC1009E16C5 /* ZJCShopCarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCShopCarTableViewCell.m; sourceTree = "<group>"; };
+		07C10CE11D72A972009E16C5 /* ZJCCountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCCountView.h; sourceTree = "<group>"; };
+		07C10CE21D72A972009E16C5 /* ZJCCountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCCountView.m; sourceTree = "<group>"; };
 		07C15DCB1D6C4DA40004CB79 /* DescriptionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionModel.h; sourceTree = "<group>"; };
 		07C15DCC1D6C4DA40004CB79 /* DescriptionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescriptionModel.m; sourceTree = "<group>"; };
 		07C15DCE1D6C6D040004CB79 /* ZJCDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCDetailView.h; sourceTree = "<group>"; };
@@ -755,6 +758,8 @@
 				07C10CDC1D717EA8009E16C5 /* ZJCShopCarTableView.m */,
 				07C10CDE1D717EC1009E16C5 /* ZJCShopCarTableViewCell.h */,
 				07C10CDF1D717EC1009E16C5 /* ZJCShopCarTableViewCell.m */,
+				07C10CE11D72A972009E16C5 /* ZJCCountView.h */,
+				07C10CE21D72A972009E16C5 /* ZJCCountView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1261,6 +1266,7 @@
 				07C15DCD1D6C4DA40004CB79 /* DescriptionModel.m in Sources */,
 				07D746391D63F76A00966A7B /* main.m in Sources */,
 				07C15DD01D6C6D040004CB79 /* ZJCDetailView.m in Sources */,
+				07C10CE31D72A972009E16C5 /* ZJCCountView.m in Sources */,
 				07C15DD31D6C6D1A0004CB79 /* ZJCDetailModel.m in Sources */,
 				075A302C1D6B1E88005FEF8E /* ZJCTwoBUttonView.m in Sources */,
 				0766D2CE1D6EDF6900EC6E2A /* NSAttributedString+ZJCPriceString.m in Sources */,

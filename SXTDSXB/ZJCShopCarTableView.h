@@ -8,8 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^GetPriceBlock)();
+
+typedef void(^DeleteBlock)();
+
 @interface ZJCShopCarTableView : UITableView
 
-@property (nonatomic, strong)NSArray * datalist;    /** 模型数组 */
+@property (nonatomic, strong)NSMutableArray * datalist;    /** 模型数组 */
+
+@property (nonatomic, copy) NSString * goodsid;
+
+@property (nonatomic, copy) GetPriceBlock priceBlock;
+
+@property (nonatomic, strong)NSMutableDictionary * heightDict;    /** 高度字典 */
+
+@property (nonatomic, copy) DeleteBlock deleteblock;
 
 @end
