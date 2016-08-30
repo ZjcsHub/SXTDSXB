@@ -19,7 +19,7 @@
 
 @property (nonatomic, strong)ZJCCountView * countView;    /** 低端视图 */
 
-@property (nonatomic, strong)NSMutableArray * model;    /** 模型数组 */
+@property (nonatomic, strong)NSMutableArray * array;    /** <#描述#> */
 @end
 
 @implementation ZJCThirdViewController
@@ -28,14 +28,15 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = MainColor;
+    self.edgesForExtendedLayout = 0;
    
 }
 
-- (NSMutableArray *)model{
-    if (!_model) {
-        _model = [NSMutableArray arrayWithArray:_tableView.datalist];
+- (NSMutableArray *)array{
+    if (!_array) {
+        _array = [NSMutableArray arrayWithArray:_tableView.datalist];
     }
-    return _model;
+    return _array;
 }
 
 - (void)makeConstraints{
@@ -56,8 +57,8 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.edgesForExtendedLayout = 0;
-     [self getShoppingCarData];
+    [self getShoppingCarData];
+    self.array =nil;
 }
 
 - (void)getShoppingCarData{
@@ -68,14 +69,18 @@
         NSDictionary * dict = [[NSUserDefaults standardUserDefaults] objectForKey:@"LoginData"];
         [HttpTool getWithPath:@"appShopCart/appCartGoodsList.do" params:@{@"MemberId":dict[@"MemberId"]} success:^(id json) {
             NSArray * datalist =[NSArray yy_modelArrayWithClass:[ZJCShopCarModel class] json:json];
+            for (ZJCShopCarModel * model in datalist) {
+                [model setSelect:YES];
+            }
         if (datalist.count) {
             [self.view addSubview:self.tableView];
             [self.view addSubview:self.countView];
-            [self getPrice];
+            [_tableView.datalist removeAllObjects];
             [self makeTbaleViewConstranints];
             [_tableView.datalist addObjectsFromArray:datalist];
             [_tableView.heightDict removeAllObjects];
             [_tableView reloadData];
+            [self getPrice];
         }else{
             [self.view addSubview:self.carView];
             [self makeConstraints];
@@ -88,14 +93,19 @@
 }
 
 - (void)getPrice{
-     NSDictionary * dict = [[NSUserDefaults standardUserDefaults] objectForKey:@"LoginData"];
+    
+    NSDictionary * dict = [[NSUserDefaults standardUserDefaults] objectForKey:@"LoginData"];
     [HttpTool getWithPath:@"appShopCart/appCartGoodsList.do" params:@{@"MemberId":dict[@"MemberId"]} success:^(id json) {
-        NSArray * datalist =[NSArray yy_modelArrayWithClass:[ZJCShopCarModel class] json:json];
+    NSArray * datalist =[NSArray yy_modelArrayWithClass:[ZJCShopCarModel class] json:json];
+        
         _countView.priceArray =datalist;
-    } failure:^(NSError *error) {
+        
+    }failure:^(NSError *error) {
+
         
     }];
 
+    
 }
 
 - (ShopCarView *)carView{
@@ -116,6 +126,7 @@
             [weakself.tableView removeFromSuperview];
             [weakself.countView removeFromSuperview];
             [weakself.view addSubview:weakself.carView];
+            [weakself makeConstraints];
         };
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buttonChange:) name:@"Price" object:nil];
@@ -131,19 +142,16 @@
 }
 
 - (void)buttonChange:(NSNotification *)not{
-    ZJCLog(@"%@",not.object);
-    for (ZJCShopCarModel * shopModel in _tableView.datalist) {
-        if([shopModel.Abbreviation isEqualToString:not.object[@"name"]]&&[not.object[@"select"] isEqual:@(0)]){
-            [self.model removeObject:shopModel];
-            ZJCLog(@"%lu",(unsigned long)self.model.count);
-            ZJCLog(@"%lu",(unsigned long)_tableView.datalist.count);
-        }else if([shopModel.Abbreviation isEqualToString:not.object[@"name"]]&&[not.object[@"select"] isEqual:@(1)]){
-            [self.model addObject:shopModel];
+    
+    ZJCLog(@"%@",not.userInfo);
+    for (ZJCShopCarModel * model in _tableView.datalist) {
+        if ([model.Abbreviation isEqualToString:not.object]&&[@(model.select) isEqual:@(0)]) {
+            [self.array removeObject:model];
+        }else if([model.Abbreviation isEqualToString:not.object]&&[@(model.select) isEqual:@(1)]){
+            [self.array addObject:model];
         }
     }
-    _countView.priceArray = self.model;
-    
-
+    _countView.priceArray = _array;
 }
 
 - (void)didReceiveMemoryWarning {

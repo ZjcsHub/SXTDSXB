@@ -20,4 +20,6 @@
 @property (nonatomic, copy)NSString * Country;    /** 商品国家国旗 */
 @property (nonatomic, copy)NSString * GoodsId;    /** 商品Id */
 @property (nonatomic, copy)NSString * ImgView;    /** 商品图片 */
+
+@property (nonatomic, assign) BOOL select;
 @end

@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^PushToDetailViewBlock)(NSString * goodsid,NSString * imageName,NSString * title);
+
 @interface ZJCCollectionView : UICollectionView
 
 @property (nonatomic, strong)NSArray * datalist;    /** 模型数组 */
 
+@property (nonatomic, copy) PushToDetailViewBlock pushBlock;
 @end

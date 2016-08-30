@@ -50,6 +50,7 @@ static NSString * identifier =@"CellId";
         cell =[[ZJCShopCarTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     cell.carModel = self.datalist[indexPath.row];
+    
     if (!self.heightDict[indexPath]) {
         self.heightDict[indexPath] = @(cell.cellheight);
     }
@@ -69,7 +70,6 @@ static NSString * identifier =@"CellId";
         weakcell.numlabel.text = [NSString stringWithFormat:@"%ld",[number integerValue] - 1];
         [weakself changeShoppingCarNumber:uuid BuyCount:weakcell.numlabel.text];
     };
-    
     
     return cell;
 }

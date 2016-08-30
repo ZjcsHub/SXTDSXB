@@ -10,6 +10,7 @@
 #import "ZJCGoodsListHeaderButton.h"
 #import "ZJCCollectionView.h"
 #import "ZJCSearchModel.h"
+#import "ZJCDetailGoodsController.h"
 @interface ZJCSearchViewController ()
 
 @property (nonatomic, strong)ZJCGoodsListHeaderButton * goodBtnView;    /** 按钮视图 */
@@ -132,6 +133,17 @@
         }else if (self.butArray.count){
             _collectionView.datalist =self.butArray;
         }
+        __weak typeof (self) weakself =self;
+        _collectionView.pushBlock = ^(NSString * GoodsId,NSString * imageName,NSString * title){
+            ZJCDetailGoodsController * goodsID =[[ZJCDetailGoodsController alloc] init];
+            goodsID.goodsid =GoodsId;
+            goodsID.CountryImg =imageName;
+            goodsID.title =title;
+            
+            [weakself.navigationController pushViewController:goodsID animated:YES];
+  
+        };
+        
     }
     return _collectionView;
 }

@@ -20,7 +20,7 @@
 
 @property (nonatomic, copy) NSString * DomesticPrice; /** 原价 */
 
-
+@property (nonatomic, copy) NSString * GoodsId;
 
 
 @end

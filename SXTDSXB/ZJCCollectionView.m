@@ -8,7 +8,7 @@
 
 #import "ZJCCollectionView.h"
 #import "CollectionCell.h"
-
+#import "ZJCSearchModel.h"
 
 @interface ZJCCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -41,6 +41,11 @@
     
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (_pushBlock) {
+        _pushBlock([self.datalist[indexPath.item] GoodsId],[self.datalist[indexPath.item] CountryImg],[self.datalist[indexPath.item] Title]);
+    }
+}
 
 
 

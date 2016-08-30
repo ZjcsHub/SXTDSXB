@@ -90,6 +90,7 @@
 
 - (void)setCarModel:(ZJCShopCarModel *)carModel{
     _carModel =carModel;
+    _markBut.selected =carModel.select;
     self.cellheight = 0;
     [_iconImage sd_setImageWithURL:[NSURL URLWithString:carModel.ImgView]];
     CGFloat height =[carModel.Abbreviation boundingRectWithSize:CGSizeMake(VIEW_WIDTH-111-10, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]} context:nil].size.height;
@@ -109,7 +110,6 @@
         _markBut =[UIButton buttonWithType:UIButtonTypeCustom];
         [_markBut setImage:[UIImage imageNamed:@"购物车界面商品选中对号按钮"] forState:UIControlStateSelected];
         [_markBut setImage:[UIImage imageNamed:@"购物车界面商品未选中"] forState:UIControlStateNormal];
-        _markBut.selected =YES;
         [_markBut addTarget:self action:@selector(changeTheNumber:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _markBut;
@@ -169,16 +169,23 @@
 
 - (void)changeTheNumber:(UIButton *)button{
     if (button == _leftbutton) {
+        if(_markBut.selected ==YES){
         if (_reduceNum) {
             _reduceNum(_carModel.UUID,_carModel.GoodsCount);
+            }
         }
     }else if (button == _rightButton){
-        if (_addNum) {
-            _addNum(_carModel.GoodsId);
+        if (_markBut.selected ==YES) {
+            if (_addNum) {
+                _addNum(_carModel.GoodsId);
+            }
         }
+      
     }else if (button == _markBut){
         button.selected = !button.selected;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"Price" object:@{@"name":_carModel.Abbreviation,@"select":@(button.selected)}];
+        [_carModel setSelect:button.selected];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Price" object:_carModel.Abbreviation userInfo:@{@"select":@(_carModel.select)}];
     }
 }
 
