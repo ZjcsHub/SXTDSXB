@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^GoPayBlock)();
+
 @interface ZJCCountView : UIView
 
 @property (nonatomic, strong)NSArray * priceArray;    /** 价格数组 */
+
+@property (nonatomic, copy) GoPayBlock payblock;
 
 @end

@@ -72,6 +72,14 @@
 		078D10151D6EEC4A00DE8DC8 /* ZJCFountionCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 078D10141D6EEC4A00DE8DC8 /* ZJCFountionCollectionView.m */; };
 		078D10191D6EEC7B00DE8DC8 /* ZJCFountionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 078D10181D6EEC7B00DE8DC8 /* ZJCFountionViewCell.m */; };
 		078D101D1D6F0EB600DE8DC8 /* ZJCSecond.plist in Resources */ = {isa = PBXBuildFile; fileRef = 078D101C1D6F0EB600DE8DC8 /* ZJCSecond.plist */; };
+		079B732C1D75A25E00BC706E /* ZJCClearingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 079B732B1D75A25E00BC706E /* ZJCClearingViewController.m */; };
+		079B73311D75A2AE00BC706E /* ZJCClearinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 079B73301D75A2AE00BC706E /* ZJCClearinView.m */; };
+		079B73341D75A3C000BC706E /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 079B73331D75A3C000BC706E /* DetailModel.m */; };
+		079B73371D75A46000BC706E /* PayTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 079B73361D75A46000BC706E /* PayTypeModel.m */; };
+		079B733A1D75A47100BC706E /* GoodsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 079B73391D75A47100BC706E /* GoodsListModel.m */; };
+		079B733D1D75A79D00BC706E /* ZJCOrdertable.m in Sources */ = {isa = PBXBuildFile; fileRef = 079B733C1D75A79D00BC706E /* ZJCOrdertable.m */; };
+		079B73401D75A7BE00BC706E /* ZJCOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 079B733F1D75A7BE00BC706E /* ZJCOrderTableViewCell.m */; };
+		079B73431D75BBC400BC706E /* ZJCButtomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 079B73421D75BBC400BC706E /* ZJCButtomView.m */; };
 		07B128451D6FFC6F00709821 /* ModelList.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B128441D6FFC6F00709821 /* ModelList.m */; };
 		07B128481D70040F00709821 /* CollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B128471D70040F00709821 /* CollectionHeaderView.m */; };
 		07C10CD61D716C6E009E16C5 /* ShopCarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C10CD51D716C6E009E16C5 /* ShopCarView.m */; };
@@ -252,6 +260,22 @@
 		078D10171D6EEC7B00DE8DC8 /* ZJCFountionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCFountionViewCell.h; sourceTree = "<group>"; };
 		078D10181D6EEC7B00DE8DC8 /* ZJCFountionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCFountionViewCell.m; sourceTree = "<group>"; };
 		078D101C1D6F0EB600DE8DC8 /* ZJCSecond.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ZJCSecond.plist; sourceTree = "<group>"; };
+		079B732A1D75A25E00BC706E /* ZJCClearingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCClearingViewController.h; sourceTree = "<group>"; };
+		079B732B1D75A25E00BC706E /* ZJCClearingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCClearingViewController.m; sourceTree = "<group>"; };
+		079B732F1D75A2AE00BC706E /* ZJCClearinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCClearinView.h; sourceTree = "<group>"; };
+		079B73301D75A2AE00BC706E /* ZJCClearinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCClearinView.m; sourceTree = "<group>"; };
+		079B73321D75A3C000BC706E /* DetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailModel.h; sourceTree = "<group>"; };
+		079B73331D75A3C000BC706E /* DetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailModel.m; sourceTree = "<group>"; };
+		079B73351D75A46000BC706E /* PayTypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayTypeModel.h; sourceTree = "<group>"; };
+		079B73361D75A46000BC706E /* PayTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayTypeModel.m; sourceTree = "<group>"; };
+		079B73381D75A47100BC706E /* GoodsListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsListModel.h; sourceTree = "<group>"; };
+		079B73391D75A47100BC706E /* GoodsListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsListModel.m; sourceTree = "<group>"; };
+		079B733B1D75A79D00BC706E /* ZJCOrdertable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCOrdertable.h; sourceTree = "<group>"; };
+		079B733C1D75A79D00BC706E /* ZJCOrdertable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCOrdertable.m; sourceTree = "<group>"; };
+		079B733E1D75A7BE00BC706E /* ZJCOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCOrderTableViewCell.h; sourceTree = "<group>"; };
+		079B733F1D75A7BE00BC706E /* ZJCOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCOrderTableViewCell.m; sourceTree = "<group>"; };
+		079B73411D75BBC400BC706E /* ZJCButtomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCButtomView.h; sourceTree = "<group>"; };
+		079B73421D75BBC400BC706E /* ZJCButtomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCButtomView.m; sourceTree = "<group>"; };
 		07B128431D6FFC6F00709821 /* ModelList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelList.h; sourceTree = "<group>"; };
 		07B128441D6FFC6F00709821 /* ModelList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelList.m; sourceTree = "<group>"; };
 		07B128461D70040F00709821 /* CollectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionHeaderView.h; sourceTree = "<group>"; };
@@ -749,6 +773,54 @@
 			name = view;
 			sourceTree = "<group>";
 		};
+		079B73281D75A1D400BC706E /* 主界面 */ = {
+			isa = PBXGroup;
+			children = (
+				07C10CD71D717312009E16C5 /* model */,
+				07C10CD31D716C52009E16C5 /* view */,
+			);
+			name = "主界面";
+			sourceTree = "<group>";
+		};
+		079B73291D75A1EF00BC706E /* 结算界面 */ = {
+			isa = PBXGroup;
+			children = (
+				079B732E1D75A29800BC706E /* model */,
+				079B732D1D75A29300BC706E /* view */,
+				079B732A1D75A25E00BC706E /* ZJCClearingViewController.h */,
+				079B732B1D75A25E00BC706E /* ZJCClearingViewController.m */,
+			);
+			name = "结算界面";
+			sourceTree = "<group>";
+		};
+		079B732D1D75A29300BC706E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				079B732F1D75A2AE00BC706E /* ZJCClearinView.h */,
+				079B73301D75A2AE00BC706E /* ZJCClearinView.m */,
+				079B733B1D75A79D00BC706E /* ZJCOrdertable.h */,
+				079B733C1D75A79D00BC706E /* ZJCOrdertable.m */,
+				079B733E1D75A7BE00BC706E /* ZJCOrderTableViewCell.h */,
+				079B733F1D75A7BE00BC706E /* ZJCOrderTableViewCell.m */,
+				079B73411D75BBC400BC706E /* ZJCButtomView.h */,
+				079B73421D75BBC400BC706E /* ZJCButtomView.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		079B732E1D75A29800BC706E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				079B73321D75A3C000BC706E /* DetailModel.h */,
+				079B73331D75A3C000BC706E /* DetailModel.m */,
+				079B73351D75A46000BC706E /* PayTypeModel.h */,
+				079B73361D75A46000BC706E /* PayTypeModel.m */,
+				079B73381D75A47100BC706E /* GoodsListModel.h */,
+				079B73391D75A47100BC706E /* GoodsListModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		07C10CD31D716C52009E16C5 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -882,10 +954,10 @@
 		07E5EE711D64596700E2E9F1 /* 购物车 */ = {
 			isa = PBXGroup;
 			children = (
-				07C10CD71D717312009E16C5 /* model */,
-				07C10CD31D716C52009E16C5 /* view */,
+				079B73291D75A1EF00BC706E /* 结算界面 */,
 				07D746701D643A3B00966A7B /* ZJCThirdViewController.h */,
 				07D746711D643A3B00966A7B /* ZJCThirdViewController.m */,
+				079B73281D75A1D400BC706E /* 主界面 */,
 			);
 			name = "购物车";
 			sourceTree = "<group>";
@@ -1241,13 +1313,18 @@
 				070F4B1F1D65AB7E0004DBD9 /* ZJCPhoneView.m in Sources */,
 				0766D2C81D6EC21000EC6E2A /* ZJCSearchModel.m in Sources */,
 				075A30321D6B3305005FEF8E /* ZJCGroupTableCell.m in Sources */,
+				079B732C1D75A25E00BC706E /* ZJCClearingViewController.m in Sources */,
 				071429F11D68163B00253E1B /* ZJCLogInController.m in Sources */,
+				079B73311D75A2AE00BC706E /* ZJCClearinView.m in Sources */,
+				079B73401D75A7BE00BC706E /* ZJCOrderTableViewCell.m in Sources */,
 				070F4B131D6589240004DBD9 /* ZJCRegistView.m in Sources */,
 				070DD5931D66B66F001925AC /* UIImageView+SDWebImage.m in Sources */,
 				075A30261D6B1924005FEF8E /* ZJCsingleCell.m in Sources */,
 				07142A041D68309500253E1B /* PhoneNumberRegister.m in Sources */,
+				079B733A1D75A47100BC706E /* GoodsListModel.m in Sources */,
 				07142A071D684F4400253E1B /* ZJCHeaderLogInView.m in Sources */,
 				071A06A91D6D504A003972BE /* ZJCSearchViewController.m in Sources */,
+				079B73341D75A3C000BC706E /* DetailModel.m in Sources */,
 				07751F881D6D95050072980F /* ZJCCollectionView.m in Sources */,
 				07D7463C1D63F76A00966A7B /* AppDelegate.m in Sources */,
 				075A303B1D6BE59F005FEF8E /* ZJCCycleScrollView.m in Sources */,
@@ -1256,11 +1333,13 @@
 				071429F61D68168D00253E1B /* ZJCLogInView.m in Sources */,
 				075A30231D6AFBCF005FEF8E /* ZJCTimetableView.m in Sources */,
 				07B128481D70040F00709821 /* CollectionHeaderView.m in Sources */,
+				079B73431D75BBC400BC706E /* ZJCButtomView.m in Sources */,
 				075A302F1D6B32FA005FEF8E /* ZJCGroupListModel.m in Sources */,
 				075A30371D6BE34F005FEF8E /* ZJCDetailGoodsController.m in Sources */,
 				070F4B161D6589380004DBD9 /* ZJCThreeButton.m in Sources */,
 				07751F8B1D6D951F0072980F /* ZJCGoodsListHeaderButton.m in Sources */,
 				071A06A21D6D31D2003972BE /* ZJCImageView.m in Sources */,
+				079B73371D75A46000BC706E /* PayTypeModel.m in Sources */,
 				07D7466F1D643A3000966A7B /* ZJCSecondViewController.m in Sources */,
 				078D10151D6EEC4A00DE8DC8 /* ZJCFountionCollectionView.m in Sources */,
 				07C15DCD1D6C4DA40004CB79 /* DescriptionModel.m in Sources */,
@@ -1275,6 +1354,7 @@
 				075A303F1D6BF18F005FEF8E /* ImageModel.m in Sources */,
 				075A30291D6B1A9E005FEF8E /* ZJCSingleModel.m in Sources */,
 				07E5EE7C1D64798900E2E9F1 /* ZJCtableView.m in Sources */,
+				079B733D1D75A79D00BC706E /* ZJCOrdertable.m in Sources */,
 				07C10CDD1D717EA8009E16C5 /* ZJCShopCarTableView.m in Sources */,
 				07D7466C1D6439ED00966A7B /* ZJCTimeViewController.m in Sources */,
 				07E5EE791D646C7300E2E9F1 /* ZJCHeaderView.m in Sources */,

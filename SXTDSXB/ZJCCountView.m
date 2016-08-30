@@ -86,7 +86,14 @@
     if (!_goTosettle) {
         _goTosettle =[UIButton buttonWithType:UIButtonTypeCustom];
         [_goTosettle setBackgroundImage:[UIImage imageNamed:@"购物车界面去结算按钮"] forState:UIControlStateNormal];
+        [_goTosettle addTarget:self action:@selector(goPayButton) forControlEvents:UIControlEventTouchUpInside];
     }
     return _goTosettle;
+}
+
+- (void)goPayButton{
+    if (_payblock) {
+        _payblock();
+    }
 }
 @end
