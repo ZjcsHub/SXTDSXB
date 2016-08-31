@@ -61,8 +61,15 @@
         _payButton =[UIButton buttonWithType:UIButtonTypeCustom];
         [_payButton setTitle:@"立即支付" forState:UIControlStateNormal];
         [_payButton setBackgroundColor:[UIColor colorWithRed:0.00 green:0.71 blue:0.96 alpha:1.00]];
+        [_payButton addTarget:self action:@selector(gotoPay) forControlEvents:UIControlEventTouchUpInside];
     }
     return _payButton;
+}
+
+- (void)gotoPay{
+    if (_payblock) {
+        _payblock();
+    }
 }
 
 @end

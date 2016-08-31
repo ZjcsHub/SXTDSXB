@@ -21,6 +21,7 @@
         self.dataSource =self;
         self.delegate =self;
         self.backgroundColor =[UIColor whiteColor];
+        self.tableFooterView =[[UIView alloc] init];
     }
     return self;
 }

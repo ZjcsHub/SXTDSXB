@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^PayBlock)();
+
 @interface ZJCButtomView : UIView
 
 @property (nonatomic ,copy) NSString * price;
 
+@property (nonatomic, copy) PayBlock payblock;
 @end

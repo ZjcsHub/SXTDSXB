@@ -84,8 +84,8 @@
     _titleLabel.text = singleModel.Title;
     _contentLabel.text = singleModel.GoodsIntro;
     
-    [_countryImage downloadImage:singleModel.CountryImg placeholder:@"屏幕快照 2016-08-22 11.25.54.png"];
-    [_iconImage downloadImage:singleModel.ImgView placeholder:@"屏幕快照 2016-08-22 11.25.54.png"];
+    [_countryImage downloadImage:singleModel.CountryImg placeholder:@"background.png"];
+    [_iconImage downloadImage:singleModel.ImgView placeholder:@"background.png"];
   
     [self priceAttributedString];
 }

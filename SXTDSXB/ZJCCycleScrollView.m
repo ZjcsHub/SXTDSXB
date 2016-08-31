@@ -40,7 +40,7 @@
 }
 - (SDCycleScrollView *)headscrollView{
     if (!_headscrollView) {
-        _headscrollView =[SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0,VIEW_WIDTH,380) delegate:nil placeholderImage:[UIImage imageNamed:@"屏幕快照 2016-08-22 11.25.54"]];
+        _headscrollView =[SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0,VIEW_WIDTH,380) delegate:nil placeholderImage:[UIImage imageNamed:@"background"]];
         _headscrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
         _headscrollView.currentPageDotColor = [UIColor whiteColor]; // 自定义分页
     }
