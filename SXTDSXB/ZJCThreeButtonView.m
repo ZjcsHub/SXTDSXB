@@ -58,6 +58,7 @@
     if (!_shopingCar) {
         _shopingCar =[UIButton buttonWithType:UIButtonTypeCustom];
         [_shopingCar setBackgroundImage:[UIImage imageNamed:@"详情界面购物车按钮"] forState:UIControlStateNormal];
+        [_shopingCar addTarget:self action:@selector(goToShopCar) forControlEvents:UIControlEventTouchUpInside];
     }
     return _shopingCar;
 }
@@ -86,6 +87,12 @@
 - (void)addShoppingCar{
     if (_addBlock) {
         _addBlock();
+    }
+}
+
+- (void)goToShopCar{
+    if (_pushBlock) {
+        _pushBlock();
     }
 }
 

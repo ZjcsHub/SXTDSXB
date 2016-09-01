@@ -150,6 +150,7 @@
         _mainScrollView.contentSize =CGSizeMake(0, MAXFLOAT);
         _mainScrollView.bounces =NO;
         _mainScrollView.delegate =self;
+        _mainScrollView.showsVerticalScrollIndicator = NO;
     }
     return _mainScrollView;
 }

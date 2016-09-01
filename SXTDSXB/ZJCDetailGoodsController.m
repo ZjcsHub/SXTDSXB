@@ -17,6 +17,7 @@
 #import "ZJCThreeButtonView.h"
 #import "ZJCSearchModel.h"
 #import "ZJCSearchViewController.h"
+#import "ZJCThirdViewController.h"
 @interface ZJCDetailGoodsController ()
 
 @property (nonatomic,strong) UIScrollView * scrollview;
@@ -133,6 +134,8 @@
     if (!_scrollview) {
         _scrollview =[[UIScrollView alloc] init];
         _scrollview.contentSize =CGSizeMake(0, 1000);
+        _scrollview.showsVerticalScrollIndicator =NO;
+        _scrollview.bounces = NO;
     }
     return _scrollview;
 }
@@ -193,6 +196,9 @@
         __weak typeof (self) weakself =self;
         _buttonView.addBlock =^(){
             [weakself addSomeThingToShoppingCar];
+        };
+        _buttonView.pushBlock = ^{
+            [weakself.navigationController pushViewController:[[ZJCThirdViewController alloc] init] animated:YES];
         };
     }
     return _buttonView;

@@ -10,8 +10,11 @@
 
 typedef void(^AddShoppingCarBlock)();
 
+typedef void(^PushToShopCar)();
+
 @interface ZJCThreeButtonView : UIView
 
 @property (nonatomic ,copy) AddShoppingCarBlock addBlock;
 
+@property (nonatomic, copy) PushToShopCar pushBlock;
 @end

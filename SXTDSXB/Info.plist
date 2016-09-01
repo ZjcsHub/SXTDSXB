@@ -20,18 +20,6 @@
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
 	<array>
-		<array>
-			<dict>
-				<key>CFBundleTypeRole</key>
-				<string>Editor</string>
-				<key>CFBundleURLName</key>
-				<string></string>
-				<key>CFBundleURLSchemes</key>
-				<array>
-					<string>SXTDSXB</string>
-				</array>
-			</dict>
-		</array>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
@@ -60,6 +48,16 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>tencent100424468</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>AliPay</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>2016083001823994</string>
 			</array>
 		</dict>
 	</array>
