@@ -19,6 +19,7 @@
     [navbar setBackgroundImage:[UIImage imageNamed:@"nav_backImage"] forBarMetrics:UIBarMetricsDefault];
 }
 
+
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
     if (self.childViewControllers.count) {
         UIButton * button =[UIButton buttonWithType:UIButtonTypeCustom];

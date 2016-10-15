@@ -178,9 +178,6 @@
     }];
 }
 
-- (void)makeInsertDict {
-   
-}
 - (void)buttonChange:(NSNotification *)not{
     
     ZJCLog(@"%@",not.userInfo);
@@ -192,6 +189,11 @@
         }
     }
     _countView.priceArray = _array;
+}
+
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:@"Price"];
 }
 
 - (void)didReceiveMemoryWarning {
